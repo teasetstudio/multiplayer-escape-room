@@ -7,7 +7,8 @@ export const PATCH_HZ = 20;
 export const INPUT_HZ = 20;
 export const INPUT_TIMEOUT_MS = 300;
 export const INTERPOLATION_MS = 100;
-export const WORLD = { width: 1600, height: 960, grid: 80, playerRadius: 18, speed: 230 } as const;
+// Player footprint is a logical axis-aligned square; map dimensions live in map metadata.
+export const WORLD = { playerRadius: 14, speed: 200 } as const;
 export const PLAYER_COLORS = [
   '#c5f277',
   '#8bb8ff',

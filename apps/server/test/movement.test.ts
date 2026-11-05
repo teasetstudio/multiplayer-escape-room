@@ -1,9 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { WORLD, INPUT_TIMEOUT_MS, MAX_PLAYERS } from '@escape/shared';
+import { DEFAULT_MAP, WORLD, INPUT_TIMEOUT_MS, MAX_PLAYERS } from '@escape/shared';
 import { Player } from '../src/state/GameState.js';
-import { movePlayer, spawnPosition, validateInput } from '../src/systems/movement.js';
+import { movePlayer, validateInput } from '../src/systems/movement.js';
 import { nicknameKey, normalizeNickname, hashToken, validToken } from '../src/systems/identity.js';
+import { CollisionWorld, selectSpawnPoints } from '../src/systems/CollisionWorld.js';
 import { RateLimiter } from '../src/systems/RateLimiter.js';
 
 test('untrusted movement rejects invalid values and normalizes diagonals', () => {
@@ -23,31 +24,38 @@ test('untrusted movement rejects invalid values and normalizes diagonals', () =>
 });
 
 test('movement uses server time, clamps all edges, and expires stale input', () => {
+  const world = new CollisionWorld({ ...DEFAULT_MAP, collisions: [] });
   const player = new Player();
-  player.x = WORLD.width - WORLD.playerRadius - 1;
+  player.x = DEFAULT_MAP.width - WORLD.playerRadius - 1;
   player.y = WORLD.playerRadius + 1;
-  movePlayer(player, { x: 1, y: -1, seq: 1, receivedAt: 0 }, 1 / 30, 0);
-  assert.equal(player.x, WORLD.width - WORLD.playerRadius);
+  movePlayer(player, { x: 1, y: -1, seq: 1, receivedAt: 0 }, 1 / 30, 0, world);
+  assert.equal(player.x, DEFAULT_MAP.width - WORLD.playerRadius);
   assert.equal(player.y, WORLD.playerRadius);
   player.x = WORLD.playerRadius + 1;
-  player.y = WORLD.height - WORLD.playerRadius - 1;
-  movePlayer(player, { x: -1, y: 1, seq: 2, receivedAt: 0 }, 1 / 30, 0);
+  player.y = DEFAULT_MAP.height - WORLD.playerRadius - 1;
+  movePlayer(player, { x: -1, y: 1, seq: 2, receivedAt: 0 }, 1 / 30, 0, world);
   assert.equal(player.x, WORLD.playerRadius);
-  assert.equal(player.y, WORLD.height - WORLD.playerRadius);
+  assert.equal(player.y, DEFAULT_MAP.height - WORLD.playerRadius);
   player.x = 200;
   player.y = 200;
-  movePlayer(player, { x: 1, y: 0, seq: 2, receivedAt: 0 }, 1, INPUT_TIMEOUT_MS + 1);
+  movePlayer(player, { x: 1, y: 0, seq: 2, receivedAt: 0 }, 1, INPUT_TIMEOUT_MS + 1, world);
   assert.equal(player.x, 200);
   player.connected = false;
-  movePlayer(player, { x: 1, y: 0, seq: 3, receivedAt: 0 }, 1, 0);
+  movePlayer(player, { x: 1, y: 0, seq: 3, receivedAt: 0 }, 1, 0, world);
   assert.equal(player.x, 200);
 });
 
 test('every spawn is unique, inside the map, and separated from other players', () => {
-  const positions = Array.from({ length: MAX_PLAYERS }, (_, index) => spawnPosition(index));
+  const world = new CollisionWorld(DEFAULT_MAP);
+  const positions = selectSpawnPoints(world, MAX_PLAYERS);
   for (const position of positions) {
-    assert.ok(position.x >= WORLD.playerRadius && position.x <= WORLD.width - WORLD.playerRadius);
-    assert.ok(position.y >= WORLD.playerRadius && position.y <= WORLD.height - WORLD.playerRadius);
+    assert.ok(world.isValid(position));
+    assert.ok(
+      position.x >= WORLD.playerRadius && position.x <= DEFAULT_MAP.width - WORLD.playerRadius,
+    );
+    assert.ok(
+      position.y >= WORLD.playerRadius && position.y <= DEFAULT_MAP.height - WORLD.playerRadius,
+    );
     for (const other of positions)
       if (other !== position)
         assert.ok(Math.hypot(position.x - other.x, position.y - other.y) > WORLD.playerRadius * 2);

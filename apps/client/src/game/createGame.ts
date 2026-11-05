@@ -7,7 +7,7 @@ export function createGame(parent: HTMLElement, network: GameConnection, overvie
   return new Phaser.Game({
     type: Phaser.AUTO,
     parent,
-    backgroundColor: '#121e18',
+    backgroundColor: '#101c1e',
     scale: { mode: Phaser.Scale.RESIZE, width: parent.clientWidth, height: parent.clientHeight },
     scene: overview
       ? [new WorldScene(network, true)]

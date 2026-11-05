@@ -4,6 +4,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import type { AddressInfo } from 'node:net';
 import { Client, type Room } from '@colyseus/sdk';
 import {
+  DEFAULT_MAP,
   MESSAGE,
   MAX_PLAYERS,
   WORLD,
@@ -12,6 +13,7 @@ import {
 } from '@escape/shared';
 import { createGameServer } from '../src/app.js';
 import { sessions } from '../src/rooms/GameRoom.js';
+import { CollisionWorld } from '../src/systems/CollisionWorld.js';
 
 const { gameServer, httpServer } = createGameServer();
 let httpUrl: string;
@@ -47,6 +49,10 @@ async function session(t: TestContext) {
     if (host.connection.isOpen) await host.leave();
   });
   await until(() => Boolean(host.state?.hostConnected), 'Host should receive state');
+  assert.equal(host.state.mapId, DEFAULT_MAP.id);
+  assert.equal(host.state.mapVersion, DEFAULT_MAP.version);
+  assert.equal(host.state.doors.size, 2);
+  assert.ok([...host.state.doors.values()].every((door) => door.state === 'closed'));
   return { ...created, host };
 }
 async function player(t: TestContext, code: string, nickname: string) {
@@ -122,6 +128,11 @@ test('player and host reconnect tokens reclaim their original roles after a drop
   await until(() => host.state.players.size === 1, 'Player should appear');
   host.send(MESSAGE.start);
   await until(() => host.state.status === 'playing', 'Game should start');
+  const startX = getPlayer(host, 'Lily')!.x;
+  original.send(MESSAGE.input, { x: 1, y: 0, seq: 1 });
+  await until(() => getPlayer(host, 'Lily')!.x > startX, 'Move before reconnecting');
+  original.send(MESSAGE.input, { x: 0, y: 0, seq: 2 });
+  await delay(120);
   const beforeDrop = { ...getPlayer(host, 'Lily')! };
   const token = original.reconnectionToken;
   original.reconnection.enabled = false;
@@ -145,6 +156,8 @@ test('player and host reconnect tokens reclaim their original roles after a drop
   assert.equal(returned.x, beforeDrop.x);
   assert.equal(returned.y, beforeDrop.y);
   assert.equal(resumed.state.players.size, 1);
+  assert.equal(resumed.state.mapVersion, DEFAULT_MAP.version);
+  assert.ok(new CollisionWorld(DEFAULT_MAP).isValid(returned));
   const hostToken = host.reconnectionToken;
   host.reconnection.enabled = false;
   drop(host);
@@ -184,4 +197,62 @@ test('capacity is twenty players plus the host and public room creation is disab
   await assert.rejects(sdk.joinById(code, { role: 'player', nickname: 'Overflow' }));
   host.send(MESSAGE.start);
   await until(() => host.state.status === 'playing', 'Full games should still start');
+});
+
+test('simultaneous clients collide with walls, crates and closed doors in the same authoritative map', async (t) => {
+  const { code, host } = await session(t);
+  const clients = await Promise.all(
+    ['Wall tester', 'Crate tester', 'Door tester', 'Free walker', 'Other walker'].map((name) =>
+      player(t, code, name),
+    ),
+  );
+  await until(() => host.state.players.size === 5, 'Everyone joins');
+  host.send(MESSAGE.start);
+  await until(() => clients.every((room) => room.state?.status === 'playing'), 'Everyone starts');
+  const server = sessions.get(code)!;
+  const world = new CollisionWorld(DEFAULT_MAP);
+  const cases = [
+    { name: 'Wall tester', x: 160, y: 240, dx: 0, dy: -1, finalX: 160, finalY: 210 },
+    { name: 'Crate tester', x: 220, y: 1048, dx: 1, dy: 0, finalX: 242, finalY: 1048 },
+    { name: 'Door tester', x: 576, y: 735, dx: 0, dy: 1, finalX: 576, finalY: 749 },
+    { name: 'Free walker', x: 400, y: 400, dx: 1, dy: 0 },
+    { name: 'Other walker', x: 600, y: 500, dx: 0, dy: 1 },
+  ];
+  // Controlled server fixtures place each character near a different collision; clients cannot teleport.
+  for (const entry of cases) {
+    assert.ok(world.isValid(entry));
+    const avatar = [...server.state.players.values()].find(
+      (value) => value.nickname === entry.name,
+    )!;
+    avatar.x = entry.x;
+    avatar.y = entry.y;
+  }
+  for (let seq = 1; seq <= 12; seq++) {
+    cases.forEach((entry, index) =>
+      clients[index]!.send(MESSAGE.input, {
+        x: entry.dx,
+        y: entry.dy,
+        seq,
+        position: { x: 9999, y: 9999 },
+        doorState: 'open',
+      }),
+    );
+    await delay(50);
+  }
+  clients.forEach((room) => room.send(MESSAGE.input, { x: 0, y: 0, seq: 13 }));
+  await delay(150);
+  for (const entry of cases) {
+    const avatar = getPlayer(host, entry.name)!;
+    assert.ok(world.isValid(avatar));
+    if (entry.finalX !== undefined) {
+      assert.equal(avatar.x, entry.finalX);
+      assert.equal(avatar.y, entry.finalY);
+    } else assert.ok(Math.hypot(avatar.x - entry.x, avatar.y - entry.y) > 70);
+    for (const room of clients) {
+      const copy = getPlayer(room, entry.name)!;
+      assert.equal(copy.x, avatar.x);
+      assert.equal(copy.y, avatar.y);
+    }
+  }
+  assert.equal(host.state.doors.get('hall-door')!.state, 'closed');
 });

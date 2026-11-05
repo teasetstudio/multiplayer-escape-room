@@ -1,4 +1,4 @@
-import { INPUT_HZ, MESSAGE } from '@escape/shared';
+import { INPUT_HZ, MESSAGE, screenInputToWorld } from '@escape/shared';
 import type { GameConnection } from '../network/GameConnection';
 
 export class InputSender {
@@ -12,7 +12,8 @@ export class InputSender {
     const changed = x !== this.lastX || y !== this.lastY;
     const moving = x !== 0 || y !== 0;
     if (!force && ((!changed && !moving) || now - this.lastSent < 1000 / INPUT_HZ)) return;
-    this.network.room?.send(MESSAGE.input, { x, y, seq: ++this.seq });
+    const worldInput = screenInputToWorld({ x, y });
+    this.network.room?.send(MESSAGE.input, { ...worldInput, seq: ++this.seq });
     this.lastX = x;
     this.lastY = y;
     this.lastSent = now;

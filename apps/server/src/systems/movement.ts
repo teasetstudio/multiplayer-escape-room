@@ -1,5 +1,6 @@
-import { INPUT_TIMEOUT_MS, WORLD, type MovementInput } from '@escape/shared';
+import { INPUT_TIMEOUT_MS, WORLD, normalizeDirection, type MovementInput } from '@escape/shared';
 import type { Player } from '../state/GameState.js';
+import type { CollisionWorld } from './CollisionWorld.js';
 
 export interface TimedInput extends MovementInput {
   receivedAt: number;
@@ -20,26 +21,24 @@ export function validateInput(value: unknown): MovementInput | undefined {
     data.seq < 0
   )
     return;
-  const length = Math.max(1, Math.hypot(data.x, data.y));
-  return { x: data.x / length, y: data.y / length, seq: data.seq };
+  return { ...normalizeDirection({ x: data.x, y: data.y }), seq: data.seq };
 }
 
-export function movePlayer(player: Player, input: TimedInput | undefined, dt: number, now: number) {
-  if (!player.connected || !input || now - input.receivedAt > INPUT_TIMEOUT_MS) return;
+export function movePlayer(
+  player: Player,
+  input: TimedInput | undefined,
+  dt: number,
+  now: number,
+  world: CollisionWorld,
+) {
+  if (
+    !player.connected ||
+    !input ||
+    now - input.receivedAt > INPUT_TIMEOUT_MS ||
+    !Number.isFinite(dt) ||
+    dt <= 0
+  )
+    return;
   const distance = WORLD.speed * dt;
-  player.x = Math.max(
-    WORLD.playerRadius,
-    Math.min(WORLD.width - WORLD.playerRadius, player.x + input.x * distance),
-  );
-  player.y = Math.max(
-    WORLD.playerRadius,
-    Math.min(WORLD.height - WORLD.playerRadius, player.y + input.y * distance),
-  );
-}
-
-export function spawnPosition(index: number) {
-  return {
-    x: WORLD.width / 2 + ((index % 5) - 2) * 100,
-    y: WORLD.height / 2 + (Math.floor(index / 5) - 1.5) * 100,
-  };
+  Object.assign(player, world.move(player, { x: input.x * distance, y: input.y * distance }));
 }
