@@ -1,0 +1,11 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+onlyBuiltDependencies:
+  - esbuild
+  - '@tailwindcss/oxide'
+
+# Optional msgpack native acceleration is unnecessary for this 20-player MVP.
+ignoredBuiltDependencies:
+  - msgpackr-extract
