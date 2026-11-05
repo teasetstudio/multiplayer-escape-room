@@ -1,0 +1,5419 @@
+{
+  "type": "map",
+  "version": "1.10",
+  "tiledversion": "1.11.2",
+  "orientation": "isometric",
+  "renderorder": "right-down",
+  "infinite": false,
+  "width": 30,
+  "height": 26,
+  "tilewidth": 64,
+  "tileheight": 32,
+  "nextlayerid": 7,
+  "nextobjectid": 381,
+  "backgroundcolor": "#101a1c",
+  "properties": [
+    {
+      "name": "mapId",
+      "type": "string",
+      "value": "stone-hall"
+    },
+    {
+      "name": "revision",
+      "type": "string",
+      "value": "2"
+    },
+    {
+      "name": "displayName",
+      "type": "string",
+      "value": "The Stone Hall"
+    }
+  ],
+  "layers": [
+    {
+      "id": 1,
+      "name": "Ground",
+      "type": "tilelayer",
+      "width": 30,
+      "height": 26,
+      "x": 0,
+      "y": 0,
+      "opacity": 1,
+      "visible": true,
+      "data": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+        1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 1, 1,
+        1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 2, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1,
+        1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 2, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2,
+        1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 2, 3, 3, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 2, 1, 1, 0, 0, 0, 3, 3, 3, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 2, 1, 1, 1,
+        1, 1, 1, 1, 1, 0, 0, 0, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        2, 1, 1, 1, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 3, 2, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1,
+        1, 1, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1,
+        0, 0, 0, 3, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 0,
+        0, 0, 3, 3, 3, 1, 1, 1, 1, 2, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0,
+        0, 3, 2, 3, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0, 0, 0,
+        3, 3, 3, 1, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+        0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 0, 0, 0, 0, 0,
+        0, 1, 1, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
+        2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Walls",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "objects": [
+        {
+          "id": 62,
+          "name": "wall-2-3-n",
+          "type": "wall",
+          "x": 64.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 64,
+          "name": "wall-2-3-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 66,
+          "name": "wall-3-3-n",
+          "type": "wall",
+          "x": 96.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 68,
+          "name": "wall-4-3-n",
+          "type": "wall",
+          "x": 128.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 70,
+          "name": "wall-5-3-n",
+          "type": "wall",
+          "x": 160.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 72,
+          "name": "wall-6-3-n",
+          "type": "wall",
+          "x": 192.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 74,
+          "name": "wall-7-3-n",
+          "type": "wall",
+          "x": 224.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 76,
+          "name": "wall-8-3-n",
+          "type": "wall",
+          "x": 256.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 78,
+          "name": "wall-9-3-n",
+          "type": "wall",
+          "x": 288.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 80,
+          "name": "wall-10-3-n",
+          "type": "wall",
+          "x": 320.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 82,
+          "name": "wall-11-3-n",
+          "type": "wall",
+          "x": 352.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 84,
+          "name": "wall-12-3-n",
+          "type": "wall",
+          "x": 384.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 86,
+          "name": "wall-13-3-n",
+          "type": "wall",
+          "x": 416.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 88,
+          "name": "wall-14-3-n",
+          "type": "wall",
+          "x": 448.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 90,
+          "name": "wall-14-3-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 92,
+          "name": "wall-21-3-n",
+          "type": "wall",
+          "x": 672.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 94,
+          "name": "wall-21-3-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 96,
+          "name": "wall-22-3-n",
+          "type": "wall",
+          "x": 704.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 98,
+          "name": "wall-23-3-n",
+          "type": "wall",
+          "x": 736.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 100,
+          "name": "wall-24-3-n",
+          "type": "wall",
+          "x": 768.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "name": "wall-25-3-n",
+          "type": "wall",
+          "x": 800.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 104,
+          "name": "wall-26-3-n",
+          "type": "wall",
+          "x": 832.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 106,
+          "name": "wall-27-3-n",
+          "type": "wall",
+          "x": 864.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 108,
+          "name": "wall-27-3-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 110,
+          "name": "wall-2-4-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 112,
+          "name": "wall-14-4-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 114,
+          "name": "wall-21-4-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 116,
+          "name": "wall-27-4-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 118,
+          "name": "wall-2-5-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 120,
+          "name": "wall-14-5-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 122,
+          "name": "wall-21-5-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 124,
+          "name": "wall-27-5-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 126,
+          "name": "wall-2-6-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 128,
+          "name": "wall-14-6-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 130,
+          "name": "wall-21-6-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 132,
+          "name": "wall-27-6-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 134,
+          "name": "wall-2-7-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 136,
+          "name": "wall-14-7-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 138,
+          "name": "wall-21-7-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 140,
+          "name": "wall-27-7-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 142,
+          "name": "wall-2-8-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 144,
+          "name": "wall-14-8-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 146,
+          "name": "wall-18-8-n",
+          "type": "wall",
+          "x": 576.0,
+          "y": 254.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 148,
+          "name": "wall-18-8-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 150,
+          "name": "wall-19-8-n",
+          "type": "wall",
+          "x": 608.0,
+          "y": 254.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 152,
+          "name": "wall-20-8-n",
+          "type": "wall",
+          "x": 640.0,
+          "y": 254.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 154,
+          "name": "wall-27-8-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 156,
+          "name": "wall-2-9-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 158,
+          "name": "wall-14-9-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 160,
+          "name": "wall-18-9-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 162,
+          "name": "wall-27-9-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 164,
+          "name": "wall-2-10-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 166,
+          "name": "wall-14-10-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 168,
+          "name": "wall-18-10-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 170,
+          "name": "wall-21-10-s",
+          "type": "wall",
+          "x": 672.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 172,
+          "name": "wall-22-10-s",
+          "type": "wall",
+          "x": 704.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 174,
+          "name": "wall-23-10-s",
+          "type": "wall",
+          "x": 736.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 176,
+          "name": "wall-24-10-s",
+          "type": "wall",
+          "x": 768.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 178,
+          "name": "wall-25-10-s",
+          "type": "wall",
+          "x": 800.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 180,
+          "name": "wall-26-10-s",
+          "type": "wall",
+          "x": 832.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 182,
+          "name": "wall-27-10-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 184,
+          "name": "wall-27-10-s",
+          "type": "wall",
+          "x": 864.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 186,
+          "name": "wall-2-11-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 352.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 188,
+          "name": "wall-15-11-n",
+          "type": "wall",
+          "x": 480.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 190,
+          "name": "wall-16-11-n",
+          "type": "wall",
+          "x": 512.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 192,
+          "name": "wall-17-11-n",
+          "type": "wall",
+          "x": 544.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 194,
+          "name": "wall-20-11-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 352.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 196,
+          "name": "wall-2-12-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 384.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 198,
+          "name": "wall-20-12-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 384.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 200,
+          "name": "wall-2-13-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 416.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 202,
+          "name": "wall-15-13-s",
+          "type": "wall",
+          "x": 480.0,
+          "y": 446.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 204,
+          "name": "wall-16-13-s",
+          "type": "wall",
+          "x": 512.0,
+          "y": 446.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 206,
+          "name": "wall-17-13-s",
+          "type": "wall",
+          "x": 544.0,
+          "y": 446.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 208,
+          "name": "wall-20-13-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 416.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 210,
+          "name": "wall-2-14-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 212,
+          "name": "wall-14-14-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 214,
+          "name": "wall-18-14-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 216,
+          "name": "wall-20-14-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 218,
+          "name": "wall-2-15-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 220,
+          "name": "wall-14-15-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 222,
+          "name": "wall-18-15-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 224,
+          "name": "wall-20-15-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 226,
+          "name": "wall-2-16-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 228,
+          "name": "wall-14-16-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 230,
+          "name": "wall-18-16-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 232,
+          "name": "wall-21-16-n",
+          "type": "wall",
+          "x": 672.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 234,
+          "name": "wall-22-16-n",
+          "type": "wall",
+          "x": 704.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 236,
+          "name": "wall-23-16-n",
+          "type": "wall",
+          "x": 736.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 238,
+          "name": "wall-24-16-n",
+          "type": "wall",
+          "x": 768.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 240,
+          "name": "wall-25-16-n",
+          "type": "wall",
+          "x": 800.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 242,
+          "name": "wall-26-16-n",
+          "type": "wall",
+          "x": 832.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 244,
+          "name": "wall-27-16-n",
+          "type": "wall",
+          "x": 864.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 246,
+          "name": "wall-27-16-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 248,
+          "name": "wall-2-17-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 250,
+          "name": "wall-14-17-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 252,
+          "name": "wall-18-17-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 254,
+          "name": "wall-27-17-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 256,
+          "name": "wall-2-18-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 258,
+          "name": "wall-14-18-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 260,
+          "name": "wall-18-18-s",
+          "type": "wall",
+          "x": 576.0,
+          "y": 606.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 262,
+          "name": "wall-18-18-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 264,
+          "name": "wall-19-18-s",
+          "type": "wall",
+          "x": 608.0,
+          "y": 606.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 266,
+          "name": "wall-20-18-s",
+          "type": "wall",
+          "x": 640.0,
+          "y": 606.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 268,
+          "name": "wall-27-18-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 270,
+          "name": "wall-2-19-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 272,
+          "name": "wall-14-19-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 274,
+          "name": "wall-21-19-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 276,
+          "name": "wall-27-19-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 278,
+          "name": "wall-2-20-s",
+          "type": "wall",
+          "x": 64.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 280,
+          "name": "wall-2-20-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 282,
+          "name": "wall-3-20-s",
+          "type": "wall",
+          "x": 96.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 284,
+          "name": "wall-4-20-s",
+          "type": "wall",
+          "x": 128.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 286,
+          "name": "wall-5-20-s",
+          "type": "wall",
+          "x": 160.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 288,
+          "name": "wall-6-20-s",
+          "type": "wall",
+          "x": 192.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 290,
+          "name": "wall-7-20-s",
+          "type": "wall",
+          "x": 224.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 292,
+          "name": "wall-8-20-s",
+          "type": "wall",
+          "x": 256.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 294,
+          "name": "wall-9-20-s",
+          "type": "wall",
+          "x": 288.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 296,
+          "name": "wall-10-20-s",
+          "type": "wall",
+          "x": 320.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 298,
+          "name": "wall-11-20-s",
+          "type": "wall",
+          "x": 352.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 300,
+          "name": "wall-12-20-s",
+          "type": "wall",
+          "x": 384.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 302,
+          "name": "wall-13-20-s",
+          "type": "wall",
+          "x": 416.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 304,
+          "name": "wall-14-20-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 306,
+          "name": "wall-14-20-s",
+          "type": "wall",
+          "x": 448.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 308,
+          "name": "wall-21-20-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 310,
+          "name": "wall-27-20-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 312,
+          "name": "wall-21-21-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 672.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 314,
+          "name": "wall-27-21-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 672.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 316,
+          "name": "wall-21-22-s",
+          "type": "wall",
+          "x": 672.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 318,
+          "name": "wall-21-22-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 704.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 320,
+          "name": "wall-22-22-s",
+          "type": "wall",
+          "x": 704.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 322,
+          "name": "wall-23-22-s",
+          "type": "wall",
+          "x": 736.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 324,
+          "name": "wall-24-22-s",
+          "type": "wall",
+          "x": 768.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 326,
+          "name": "wall-25-22-s",
+          "type": "wall",
+          "x": 800.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 328,
+          "name": "wall-26-22-s",
+          "type": "wall",
+          "x": 832.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 330,
+          "name": "wall-27-22-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 704.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 332,
+          "name": "wall-27-22-s",
+          "type": "wall",
+          "x": 864.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 40
+            }
+          ]
+        },
+        {
+          "id": 334,
+          "name": "hall-partition-west",
+          "type": "wall",
+          "x": 64.0,
+          "y": 381.5,
+          "width": 192.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 42
+            }
+          ]
+        },
+        {
+          "id": 336,
+          "name": "hall-partition-east",
+          "type": "wall",
+          "x": 320.0,
+          "y": 381.5,
+          "width": 160.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 42
+            }
+          ]
+        },
+        {
+          "id": 338,
+          "name": "archive-divider-north",
+          "type": "wall",
+          "x": 765.5,
+          "y": 96.0,
+          "width": 5.0,
+          "height": 128.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 42
+            }
+          ]
+        },
+        {
+          "id": 340,
+          "name": "archive-divider-south",
+          "type": "wall",
+          "x": 765.5,
+          "y": 256.0,
+          "width": 5.0,
+          "height": 96.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 42
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Decorations",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "objects": [
+        {
+          "id": 358,
+          "name": "hall-inlay",
+          "type": "rug",
+          "x": 160.0,
+          "y": 480.0,
+          "width": 160.0,
+          "height": 128.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 359,
+          "name": "archive-inlay",
+          "type": "rug",
+          "x": 688.0,
+          "y": 224.0,
+          "width": 64.0,
+          "height": 96.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 360,
+          "name": "south-inlay",
+          "type": "rug",
+          "x": 704.0,
+          "y": 544.0,
+          "width": 96.0,
+          "height": 96.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Objects",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "opacity": 1,
+      "visible": true,
+      "x": 0,
+      "y": 0,
+      "objects": [
+        {
+          "id": 342,
+          "name": "hall-door",
+          "type": "door",
+          "x": 256.0,
+          "y": 381.5,
+          "width": 64.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 344,
+          "name": "archive-door",
+          "type": "door",
+          "x": 765.5,
+          "y": 224.0,
+          "width": 5.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 346,
+          "name": "hall-pillar",
+          "type": "pillar",
+          "x": 128.0,
+          "y": 512.0,
+          "width": 24.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 58
+            }
+          ]
+        },
+        {
+          "id": 348,
+          "name": "hall-crates",
+          "type": "crate",
+          "x": 352.0,
+          "y": 544.0,
+          "width": 32.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 28
+            }
+          ]
+        },
+        {
+          "id": 350,
+          "name": "archive-crate",
+          "type": "crate",
+          "x": 704.0,
+          "y": 128.0,
+          "width": 24.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 28
+            }
+          ]
+        },
+        {
+          "id": 352,
+          "name": "archive-pillar",
+          "type": "pillar",
+          "x": 832.0,
+          "y": 160.0,
+          "width": 20.0,
+          "height": 20.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 52
+            }
+          ]
+        },
+        {
+          "id": 354,
+          "name": "south-pillar",
+          "type": "pillar",
+          "x": 768.0,
+          "y": 640.0,
+          "width": 24.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 58
+            }
+          ]
+        },
+        {
+          "id": 356,
+          "name": "south-crate",
+          "type": "crate",
+          "x": 832.0,
+          "y": 544.0,
+          "width": 24.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Collision",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "opacity": 1,
+      "visible": false,
+      "x": 0,
+      "y": 0,
+      "objects": [
+        {
+          "id": 1,
+          "name": "void-0-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 0.0,
+          "width": 960.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 2,
+          "name": "void-1-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 32.0,
+          "width": 960.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 3,
+          "name": "void-2-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 64.0,
+          "width": 960.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 4,
+          "name": "void-3-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 96.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 5,
+          "name": "void-3-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 96.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 6,
+          "name": "void-3-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 96.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 7,
+          "name": "void-4-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 128.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 8,
+          "name": "void-4-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 128.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 9,
+          "name": "void-4-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 128.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 10,
+          "name": "void-5-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 160.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 11,
+          "name": "void-5-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 160.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 12,
+          "name": "void-5-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 160.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 13,
+          "name": "void-6-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 192.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 14,
+          "name": "void-6-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 192.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 15,
+          "name": "void-6-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 192.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 16,
+          "name": "void-7-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 224.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 17,
+          "name": "void-7-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 224.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 18,
+          "name": "void-7-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 224.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 19,
+          "name": "void-8-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 256.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 20,
+          "name": "void-8-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 256.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 21,
+          "name": "void-8-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 256.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 22,
+          "name": "void-9-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 288.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 23,
+          "name": "void-9-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 288.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 24,
+          "name": "void-9-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 288.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 25,
+          "name": "void-10-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 320.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 26,
+          "name": "void-10-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 320.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 27,
+          "name": "void-10-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 320.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 28,
+          "name": "void-11-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 352.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 29,
+          "name": "void-11-21",
+          "type": "boundary",
+          "x": 672.0,
+          "y": 352.0,
+          "width": 288.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 30,
+          "name": "void-12-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 384.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 31,
+          "name": "void-12-21",
+          "type": "boundary",
+          "x": 672.0,
+          "y": 384.0,
+          "width": 288.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 32,
+          "name": "void-13-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 416.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 33,
+          "name": "void-13-21",
+          "type": "boundary",
+          "x": 672.0,
+          "y": 416.0,
+          "width": 288.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 34,
+          "name": "void-14-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 448.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 35,
+          "name": "void-14-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 448.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 36,
+          "name": "void-14-21",
+          "type": "boundary",
+          "x": 672.0,
+          "y": 448.0,
+          "width": 288.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 37,
+          "name": "void-15-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 480.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 38,
+          "name": "void-15-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 480.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 39,
+          "name": "void-15-21",
+          "type": "boundary",
+          "x": 672.0,
+          "y": 480.0,
+          "width": 288.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 40,
+          "name": "void-16-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 512.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 41,
+          "name": "void-16-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 512.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 42,
+          "name": "void-16-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 512.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 43,
+          "name": "void-17-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 544.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 44,
+          "name": "void-17-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 544.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 45,
+          "name": "void-17-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 544.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 46,
+          "name": "void-18-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 576.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 47,
+          "name": "void-18-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 576.0,
+          "width": 96.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 48,
+          "name": "void-18-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 576.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 49,
+          "name": "void-19-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 608.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 50,
+          "name": "void-19-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 608.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 51,
+          "name": "void-19-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 608.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 52,
+          "name": "void-20-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 640.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 53,
+          "name": "void-20-15",
+          "type": "boundary",
+          "x": 480.0,
+          "y": 640.0,
+          "width": 192.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 54,
+          "name": "void-20-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 640.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 55,
+          "name": "void-21-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 672.0,
+          "width": 672.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 56,
+          "name": "void-21-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 672.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 57,
+          "name": "void-22-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 704.0,
+          "width": 672.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 58,
+          "name": "void-22-28",
+          "type": "boundary",
+          "x": 896.0,
+          "y": 704.0,
+          "width": 64.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 59,
+          "name": "void-23-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 736.0,
+          "width": 960.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 60,
+          "name": "void-24-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 768.0,
+          "width": 960.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 61,
+          "name": "void-25-0",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 800.0,
+          "width": 960.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 63,
+          "name": "wall-2-3-n",
+          "type": "wall",
+          "x": 64.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 65,
+          "name": "wall-2-3-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 67,
+          "name": "wall-3-3-n",
+          "type": "wall",
+          "x": 96.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 69,
+          "name": "wall-4-3-n",
+          "type": "wall",
+          "x": 128.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 71,
+          "name": "wall-5-3-n",
+          "type": "wall",
+          "x": 160.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 73,
+          "name": "wall-6-3-n",
+          "type": "wall",
+          "x": 192.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 75,
+          "name": "wall-7-3-n",
+          "type": "wall",
+          "x": 224.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 77,
+          "name": "wall-8-3-n",
+          "type": "wall",
+          "x": 256.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 79,
+          "name": "wall-9-3-n",
+          "type": "wall",
+          "x": 288.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 81,
+          "name": "wall-10-3-n",
+          "type": "wall",
+          "x": 320.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 83,
+          "name": "wall-11-3-n",
+          "type": "wall",
+          "x": 352.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 85,
+          "name": "wall-12-3-n",
+          "type": "wall",
+          "x": 384.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 87,
+          "name": "wall-13-3-n",
+          "type": "wall",
+          "x": 416.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 89,
+          "name": "wall-14-3-n",
+          "type": "wall",
+          "x": 448.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 91,
+          "name": "wall-14-3-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 93,
+          "name": "wall-21-3-n",
+          "type": "wall",
+          "x": 672.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 95,
+          "name": "wall-21-3-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 97,
+          "name": "wall-22-3-n",
+          "type": "wall",
+          "x": 704.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 99,
+          "name": "wall-23-3-n",
+          "type": "wall",
+          "x": 736.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 101,
+          "name": "wall-24-3-n",
+          "type": "wall",
+          "x": 768.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 103,
+          "name": "wall-25-3-n",
+          "type": "wall",
+          "x": 800.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 105,
+          "name": "wall-26-3-n",
+          "type": "wall",
+          "x": 832.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 107,
+          "name": "wall-27-3-n",
+          "type": "wall",
+          "x": 864.0,
+          "y": 94.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 109,
+          "name": "wall-27-3-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 96.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 111,
+          "name": "wall-2-4-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 113,
+          "name": "wall-14-4-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 115,
+          "name": "wall-21-4-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 117,
+          "name": "wall-27-4-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 128.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 119,
+          "name": "wall-2-5-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 121,
+          "name": "wall-14-5-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 123,
+          "name": "wall-21-5-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 125,
+          "name": "wall-27-5-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 160.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 127,
+          "name": "wall-2-6-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 129,
+          "name": "wall-14-6-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 131,
+          "name": "wall-21-6-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 133,
+          "name": "wall-27-6-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 192.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 135,
+          "name": "wall-2-7-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 137,
+          "name": "wall-14-7-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 139,
+          "name": "wall-21-7-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 141,
+          "name": "wall-27-7-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 224.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 143,
+          "name": "wall-2-8-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 145,
+          "name": "wall-14-8-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 147,
+          "name": "wall-18-8-n",
+          "type": "wall",
+          "x": 576.0,
+          "y": 254.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 149,
+          "name": "wall-18-8-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 151,
+          "name": "wall-19-8-n",
+          "type": "wall",
+          "x": 608.0,
+          "y": 254.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 153,
+          "name": "wall-20-8-n",
+          "type": "wall",
+          "x": 640.0,
+          "y": 254.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 155,
+          "name": "wall-27-8-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 256.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 157,
+          "name": "wall-2-9-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 159,
+          "name": "wall-14-9-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 161,
+          "name": "wall-18-9-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 163,
+          "name": "wall-27-9-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 288.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 165,
+          "name": "wall-2-10-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 167,
+          "name": "wall-14-10-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 169,
+          "name": "wall-18-10-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 171,
+          "name": "wall-21-10-s",
+          "type": "wall",
+          "x": 672.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 173,
+          "name": "wall-22-10-s",
+          "type": "wall",
+          "x": 704.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 175,
+          "name": "wall-23-10-s",
+          "type": "wall",
+          "x": 736.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 177,
+          "name": "wall-24-10-s",
+          "type": "wall",
+          "x": 768.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 179,
+          "name": "wall-25-10-s",
+          "type": "wall",
+          "x": 800.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 181,
+          "name": "wall-26-10-s",
+          "type": "wall",
+          "x": 832.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 183,
+          "name": "wall-27-10-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 320.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 185,
+          "name": "wall-27-10-s",
+          "type": "wall",
+          "x": 864.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 187,
+          "name": "wall-2-11-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 352.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 189,
+          "name": "wall-15-11-n",
+          "type": "wall",
+          "x": 480.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 191,
+          "name": "wall-16-11-n",
+          "type": "wall",
+          "x": 512.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 193,
+          "name": "wall-17-11-n",
+          "type": "wall",
+          "x": 544.0,
+          "y": 350.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 195,
+          "name": "wall-20-11-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 352.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 197,
+          "name": "wall-2-12-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 384.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 199,
+          "name": "wall-20-12-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 384.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 201,
+          "name": "wall-2-13-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 416.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 203,
+          "name": "wall-15-13-s",
+          "type": "wall",
+          "x": 480.0,
+          "y": 446.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 205,
+          "name": "wall-16-13-s",
+          "type": "wall",
+          "x": 512.0,
+          "y": 446.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 207,
+          "name": "wall-17-13-s",
+          "type": "wall",
+          "x": 544.0,
+          "y": 446.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 209,
+          "name": "wall-20-13-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 416.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 211,
+          "name": "wall-2-14-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 213,
+          "name": "wall-14-14-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 215,
+          "name": "wall-18-14-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 217,
+          "name": "wall-20-14-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 448.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 219,
+          "name": "wall-2-15-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 221,
+          "name": "wall-14-15-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 223,
+          "name": "wall-18-15-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 225,
+          "name": "wall-20-15-e",
+          "type": "wall",
+          "x": 670.0,
+          "y": 480.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 227,
+          "name": "wall-2-16-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 229,
+          "name": "wall-14-16-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 231,
+          "name": "wall-18-16-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 233,
+          "name": "wall-21-16-n",
+          "type": "wall",
+          "x": 672.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 235,
+          "name": "wall-22-16-n",
+          "type": "wall",
+          "x": 704.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 237,
+          "name": "wall-23-16-n",
+          "type": "wall",
+          "x": 736.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 239,
+          "name": "wall-24-16-n",
+          "type": "wall",
+          "x": 768.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 241,
+          "name": "wall-25-16-n",
+          "type": "wall",
+          "x": 800.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 243,
+          "name": "wall-26-16-n",
+          "type": "wall",
+          "x": 832.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 245,
+          "name": "wall-27-16-n",
+          "type": "wall",
+          "x": 864.0,
+          "y": 510.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 247,
+          "name": "wall-27-16-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 512.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 249,
+          "name": "wall-2-17-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 251,
+          "name": "wall-14-17-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 253,
+          "name": "wall-18-17-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 255,
+          "name": "wall-27-17-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 544.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 257,
+          "name": "wall-2-18-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 259,
+          "name": "wall-14-18-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 261,
+          "name": "wall-18-18-s",
+          "type": "wall",
+          "x": 576.0,
+          "y": 606.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 263,
+          "name": "wall-18-18-w",
+          "type": "wall",
+          "x": 574.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 265,
+          "name": "wall-19-18-s",
+          "type": "wall",
+          "x": 608.0,
+          "y": 606.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 267,
+          "name": "wall-20-18-s",
+          "type": "wall",
+          "x": 640.0,
+          "y": 606.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 269,
+          "name": "wall-27-18-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 576.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 271,
+          "name": "wall-2-19-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 273,
+          "name": "wall-14-19-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 275,
+          "name": "wall-21-19-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 277,
+          "name": "wall-27-19-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 608.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 279,
+          "name": "wall-2-20-s",
+          "type": "wall",
+          "x": 64.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 281,
+          "name": "wall-2-20-w",
+          "type": "wall",
+          "x": 62.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 283,
+          "name": "wall-3-20-s",
+          "type": "wall",
+          "x": 96.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 285,
+          "name": "wall-4-20-s",
+          "type": "wall",
+          "x": 128.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 287,
+          "name": "wall-5-20-s",
+          "type": "wall",
+          "x": 160.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 289,
+          "name": "wall-6-20-s",
+          "type": "wall",
+          "x": 192.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 291,
+          "name": "wall-7-20-s",
+          "type": "wall",
+          "x": 224.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 293,
+          "name": "wall-8-20-s",
+          "type": "wall",
+          "x": 256.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 295,
+          "name": "wall-9-20-s",
+          "type": "wall",
+          "x": 288.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 297,
+          "name": "wall-10-20-s",
+          "type": "wall",
+          "x": 320.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 299,
+          "name": "wall-11-20-s",
+          "type": "wall",
+          "x": 352.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 301,
+          "name": "wall-12-20-s",
+          "type": "wall",
+          "x": 384.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 303,
+          "name": "wall-13-20-s",
+          "type": "wall",
+          "x": 416.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 305,
+          "name": "wall-14-20-e",
+          "type": "wall",
+          "x": 478.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 307,
+          "name": "wall-14-20-s",
+          "type": "wall",
+          "x": 448.0,
+          "y": 670.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 309,
+          "name": "wall-21-20-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 311,
+          "name": "wall-27-20-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 640.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 313,
+          "name": "wall-21-21-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 672.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 315,
+          "name": "wall-27-21-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 672.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 317,
+          "name": "wall-21-22-s",
+          "type": "wall",
+          "x": 672.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 319,
+          "name": "wall-21-22-w",
+          "type": "wall",
+          "x": 670.0,
+          "y": 704.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 321,
+          "name": "wall-22-22-s",
+          "type": "wall",
+          "x": 704.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 323,
+          "name": "wall-23-22-s",
+          "type": "wall",
+          "x": 736.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 325,
+          "name": "wall-24-22-s",
+          "type": "wall",
+          "x": 768.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 327,
+          "name": "wall-25-22-s",
+          "type": "wall",
+          "x": 800.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 329,
+          "name": "wall-26-22-s",
+          "type": "wall",
+          "x": 832.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 331,
+          "name": "wall-27-22-e",
+          "type": "wall",
+          "x": 894.0,
+          "y": 704.0,
+          "width": 4.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 333,
+          "name": "wall-27-22-s",
+          "type": "wall",
+          "x": 864.0,
+          "y": 734.0,
+          "width": 32.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 335,
+          "name": "hall-partition-west",
+          "type": "wall",
+          "x": 64.0,
+          "y": 381.5,
+          "width": 192.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 337,
+          "name": "hall-partition-east",
+          "type": "wall",
+          "x": 320.0,
+          "y": 381.5,
+          "width": 160.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 339,
+          "name": "archive-divider-north",
+          "type": "wall",
+          "x": 765.5,
+          "y": 96.0,
+          "width": 5.0,
+          "height": 128.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 341,
+          "name": "archive-divider-south",
+          "type": "wall",
+          "x": 765.5,
+          "y": 256.0,
+          "width": 5.0,
+          "height": 96.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 343,
+          "name": "hall-door-collision",
+          "type": "door",
+          "x": 256.0,
+          "y": 381.5,
+          "width": 64.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "doorId",
+              "type": "string",
+              "value": "hall-door"
+            }
+          ]
+        },
+        {
+          "id": 345,
+          "name": "archive-door-collision",
+          "type": "door",
+          "x": 765.5,
+          "y": 224.0,
+          "width": 5.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "doorId",
+              "type": "string",
+              "value": "archive-door"
+            }
+          ]
+        },
+        {
+          "id": 347,
+          "name": "hall-pillar",
+          "type": "obstacle",
+          "x": 128.0,
+          "y": 512.0,
+          "width": 24.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 349,
+          "name": "hall-crates",
+          "type": "obstacle",
+          "x": 352.0,
+          "y": 544.0,
+          "width": 32.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 351,
+          "name": "archive-crate",
+          "type": "obstacle",
+          "x": 704.0,
+          "y": 128.0,
+          "width": 24.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 353,
+          "name": "archive-pillar",
+          "type": "obstacle",
+          "x": 832.0,
+          "y": 160.0,
+          "width": 20.0,
+          "height": 20.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 355,
+          "name": "south-pillar",
+          "type": "obstacle",
+          "x": 768.0,
+          "y": 640.0,
+          "width": 24.0,
+          "height": 24.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 357,
+          "name": "south-crate",
+          "type": "obstacle",
+          "x": 832.0,
+          "y": 544.0,
+          "width": 24.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "SpawnPoints",
+      "type": "objectgroup",
+      "draworder": "topdown",
+      "opacity": 1,
+      "visible": false,
+      "x": 0,
+      "y": 0,
+      "objects": [
+        {
+          "id": 361,
+          "name": "spawn-01",
+          "type": "spawn",
+          "x": 144.0,
+          "y": 160.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 362,
+          "name": "spawn-02",
+          "type": "spawn",
+          "x": 208.0,
+          "y": 160.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 363,
+          "name": "spawn-03",
+          "type": "spawn",
+          "x": 272.0,
+          "y": 160.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 364,
+          "name": "spawn-04",
+          "type": "spawn",
+          "x": 336.0,
+          "y": 160.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 365,
+          "name": "spawn-05",
+          "type": "spawn",
+          "x": 400.0,
+          "y": 160.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 366,
+          "name": "spawn-06",
+          "type": "spawn",
+          "x": 144.0,
+          "y": 208.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 367,
+          "name": "spawn-07",
+          "type": "spawn",
+          "x": 208.0,
+          "y": 208.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 368,
+          "name": "spawn-08",
+          "type": "spawn",
+          "x": 272.0,
+          "y": 208.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 369,
+          "name": "spawn-09",
+          "type": "spawn",
+          "x": 336.0,
+          "y": 208.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 370,
+          "name": "spawn-10",
+          "type": "spawn",
+          "x": 400.0,
+          "y": 208.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 371,
+          "name": "spawn-11",
+          "type": "spawn",
+          "x": 144.0,
+          "y": 256.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 372,
+          "name": "spawn-12",
+          "type": "spawn",
+          "x": 208.0,
+          "y": 256.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 373,
+          "name": "spawn-13",
+          "type": "spawn",
+          "x": 272.0,
+          "y": 256.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 374,
+          "name": "spawn-14",
+          "type": "spawn",
+          "x": 336.0,
+          "y": 256.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 375,
+          "name": "spawn-15",
+          "type": "spawn",
+          "x": 400.0,
+          "y": 256.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 376,
+          "name": "spawn-16",
+          "type": "spawn",
+          "x": 144.0,
+          "y": 304.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 377,
+          "name": "spawn-17",
+          "type": "spawn",
+          "x": 208.0,
+          "y": 304.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 378,
+          "name": "spawn-18",
+          "type": "spawn",
+          "x": 272.0,
+          "y": 304.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 379,
+          "name": "spawn-19",
+          "type": "spawn",
+          "x": 336.0,
+          "y": 304.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 380,
+          "name": "spawn-20",
+          "type": "spawn",
+          "x": 400.0,
+          "y": 304.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        }
+      ]
+    }
+  ],
+  "tilesets": [
+    {
+      "firstgid": 1,
+      "name": "Stone",
+      "tilewidth": 64,
+      "tileheight": 32,
+      "tilecount": 3,
+      "columns": 3,
+      "spacing": 0,
+      "margin": 0,
+      "image": "assets/stone-tiles.svg",
+      "imagewidth": 192,
+      "imageheight": 32
+    }
+  ]
+}

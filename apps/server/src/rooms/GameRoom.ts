@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { Room, ServerError, type Client } from '@colyseus/core';
 import {
+  DEFAULT_MAP,
   MAX_PLAYERS,
   MESSAGE,
   PATCH_HZ,
@@ -8,8 +9,9 @@ import {
   RECONNECT_SECONDS,
   SIMULATION_HZ,
   type ClientRole,
+  type Point,
 } from '@escape/shared';
-import { GameState, Player } from '../state/GameState.js';
+import { Door, GameState, Player } from '../state/GameState.js';
 import {
   createCode,
   creationKey,
@@ -17,8 +19,9 @@ import {
   normalizeNickname,
   validToken,
 } from '../systems/identity.js';
-import { movePlayer, spawnPosition, validateInput, type TimedInput } from '../systems/movement.js';
+import { movePlayer, validateInput, type TimedInput } from '../systems/movement.js';
 import { RateLimiter } from '../systems/RateLimiter.js';
+import { CollisionWorld, selectSpawnPoints } from '../systems/CollisionWorld.js';
 
 interface Auth {
   role: ClientRole;
@@ -27,6 +30,11 @@ interface Auth {
 export const sessions = new Map<string, GameRoom>();
 
 export class GameRoom extends Room<{ state: GameState }> {
+  private readonly collision = new CollisionWorld(
+    DEFAULT_MAP,
+    (id) => this.state.doors.get(id)?.state ?? 'closed',
+  );
+  private spawns: Point[] = [];
   private hostId = '';
   private hostDigest = '';
   private readonly playerIds = new Map<string, string>();
@@ -50,6 +58,13 @@ export class GameRoom extends Room<{ state: GameState }> {
     this.maxClients = MAX_PLAYERS + 1; // The host owns a connection, never a character.
     this.autoDispose = false;
     this.setState(new GameState());
+    for (const object of DEFAULT_MAP.objects) {
+      if (object.kind !== 'door') continue;
+      const door = new Door();
+      door.id = object.id;
+      this.state.doors.set(door.id, door);
+    }
+    this.spawns = selectSpawnPoints(this.collision, MAX_PLAYERS);
     void this.setPrivate(true);
     sessions.set(code, this);
     this.setPatchRate(1000 / PATCH_HZ);
@@ -80,8 +95,7 @@ export class GameRoom extends Room<{ state: GameState }> {
         return;
       }
       let index = 0;
-      for (const player of this.state.players.values())
-        Object.assign(player, spawnPosition(index++));
+      for (const player of this.state.players.values()) Object.assign(player, this.spawns[index++]);
       this.state.status = 'playing';
       this.lastActivity = Date.now();
       void this.lock();
@@ -127,7 +141,13 @@ export class GameRoom extends Room<{ state: GameState }> {
     player.id = randomUUID();
     player.nickname = auth.nickname;
     player.color = PLAYER_COLORS.find((color) => !usedColors.has(color)) ?? PLAYER_COLORS[0];
-    Object.assign(player, spawnPosition(this.state.players.size));
+    const spawn = this.spawns.find(
+      (point) =>
+        ![...this.state.players.values()].some(
+          (other) => other.x === point.x && other.y === point.y,
+        ),
+    );
+    Object.assign(player, spawn);
     this.playerIds.set(client.sessionId, player.id);
     this.state.players.set(player.id, player);
   }
@@ -190,7 +210,7 @@ export class GameRoom extends Room<{ state: GameState }> {
     this.accumulator += Math.min(elapsed, 250);
     while (this.accumulator >= step) {
       for (const [id, player] of this.state.players)
-        movePlayer(player, this.inputs.get(id), step / 1000, Date.now());
+        movePlayer(player, this.inputs.get(id), step / 1000, Date.now(), this.collision);
       this.accumulator -= step;
     }
   }

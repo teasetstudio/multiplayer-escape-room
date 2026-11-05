@@ -30,7 +30,7 @@ export function HomePage() {
       <header className="site-header">
         <Brand />
         <span className="edition">
-          MULTIPLAYER LAB <span>01</span>
+          MULTIPLAYER LAB <span>02</span>
         </span>
       </header>
       <main className="home-main">

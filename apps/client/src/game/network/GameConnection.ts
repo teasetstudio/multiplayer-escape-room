@@ -1,5 +1,6 @@
 import { Client, type Room } from '@colyseus/sdk';
 import {
+  DEFAULT_MAP,
   MESSAGE,
   type ClientRole,
   type CreateSessionResponse,
@@ -153,6 +154,18 @@ export class GameConnection {
     };
     const sync = () => {
       if (room !== this.room || !room.state?.players) return;
+      if (room.state.mapId !== DEFAULT_MAP.id || room.state.mapVersion !== DEFAULT_MAP.version) {
+        room.reconnection.enabled = false;
+        this.room = undefined;
+        this.world.clear();
+        this.update({
+          phase: 'closed',
+          error:
+            'This client and server have different map versions. Refresh after both have been updated.',
+        });
+        if (room.connection.isOpen) void room.leave();
+        return;
+      }
       this.world.push(room.state);
       const players: RosterPlayer[] = [];
       room.state.players.forEach((player) =>
@@ -192,7 +205,7 @@ export class GameConnection {
       this.world.clear();
       persist();
       sync();
-      room.send('identify');
+      if (room === this.room) room.send('identify');
     });
     room.onError((_code, message) => {
       if (room === this.room) this.update({ error: message || 'Connection error.' });
@@ -207,9 +220,9 @@ export class GameConnection {
       });
     });
     persist();
-    sync();
     this.update({ phase: 'connected', error: undefined });
-    room.send('identify');
+    sync();
+    if (room === this.room) room.send('identify');
   }
   start() {
     if (this.connected) this.room?.send(MESSAGE.start);

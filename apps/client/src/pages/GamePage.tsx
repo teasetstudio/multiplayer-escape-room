@@ -56,7 +56,7 @@ export function GamePage({ view }: { view: ConnectionView }) {
       <div className="game-stage">
         <PhaserCanvas overview={host} />
         <div className="map-badge">
-          <i /> {host ? 'ALL PLAYERS · LIVE' : 'DRAG THE JOYSTICK TO MOVE'}
+          <i /> {host ? 'STONE HALL · LIVE OVERVIEW' : 'DRAG THE JOYSTICK TO MOVE'}
         </div>
         {!host && (
           <span className="you-badge">

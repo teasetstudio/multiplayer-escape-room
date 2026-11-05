@@ -1,11 +1,13 @@
 import Phaser from 'phaser';
-import { WORLD } from '@escape/shared';
+import { DEFAULT_MAP, type Point } from '@escape/shared';
 import { PlayerEntity } from '../entities/PlayerEntity';
+import { IsometricMap } from '../world/IsometricMap';
 import type { GameConnection } from '../network/GameConnection';
 
 export class WorldScene extends Phaser.Scene {
   private readonly entities = new Map<string, PlayerEntity>();
   private following?: string;
+  private map?: IsometricMap;
   constructor(
     private readonly network: GameConnection,
     private readonly overview: boolean,
@@ -13,36 +15,30 @@ export class WorldScene extends Phaser.Scene {
     super('world');
   }
   create() {
-    const graphics = this.add.graphics();
-    graphics.fillStyle(0x1b2b24).fillRect(0, 0, WORLD.width, WORLD.height);
-    graphics.lineStyle(1, 0x34483b, 0.7);
-    for (let x = 0; x <= WORLD.width; x += WORLD.grid) graphics.lineBetween(x, 0, x, WORLD.height);
-    for (let y = 0; y <= WORLD.height; y += WORLD.grid) graphics.lineBetween(0, y, WORLD.width, y);
-    graphics.lineStyle(4, 0x719163, 0.85).strokeRect(0, 0, WORLD.width, WORLD.height);
-    const corner = this.add.text(24, 20, 'COMMON GROUND', {
-      fontFamily: 'Arial, sans-serif',
-      fontSize: '13px',
-      color: '#6f8a77',
-      letterSpacing: 4,
-    });
-    corner.setAlpha(0.7);
+    this.map = new IsometricMap(this, DEFAULT_MAP);
     this.resize();
     this.scale.on(Phaser.Scale.Events.RESIZE, this.resize, this);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.scale.off(Phaser.Scale.Events.RESIZE, this.resize, this);
       this.entities.clear();
       this.following = undefined;
+      this.map = undefined;
     });
   }
   private resize() {
+    if (!this.map) return;
     const camera = this.cameras.main;
     const { width, height } = this.scale;
+    const b = this.map.bounds;
     if (this.overview) {
-      camera.setZoom(Math.min((width - 70) / WORLD.width, (height - 60) / WORLD.height));
-      camera.centerOn(WORLD.width / 2, WORLD.height / 2);
+      camera.removeBounds();
+      camera.setZoom(Math.max(0.1, Math.min((width - 64) / b.width, (height - 96) / b.height)));
+      camera.centerOn(b.x + b.width / 2, b.y + b.height / 2 - 12);
     } else {
-      camera.setBounds(0, 0, WORLD.width, WORLD.height);
-      camera.setZoom(Math.max(0.6, Math.min(1, height / 540)));
+      // CSS-pixel viewport, independent of DPR. A landscape phone sees several tiles each way.
+      camera.setZoom(Math.max(1.15, Math.min(1.8, height / 300)));
+      camera.setBounds(b.x - 24, b.y - 56, b.width + 48, b.height + 80);
+      camera.setFollowOffset(0, 20);
     }
   }
   override update(_time: number, delta: number) {
@@ -51,9 +47,14 @@ export class WorldScene extends Phaser.Scene {
     const activeIds = new Set(players.map((player) => player.id));
     for (const [id, entity] of this.entities)
       if (!activeIds.has(id)) {
+        if (id === this.following) {
+          this.cameras.main.stopFollow();
+          this.following = undefined;
+        }
         entity.destroy();
         this.entities.delete(id);
       }
+    let localPosition: Point | undefined;
     for (const player of players) {
       let entity = this.entities.get(player.id);
       if (!entity) {
@@ -61,11 +62,15 @@ export class WorldScene extends Phaser.Scene {
         this.entities.set(player.id, entity);
       }
       const local = !this.overview && player.id === localId;
-      entity.sync(player, local, delta);
-      if (local && this.following !== player.id) {
-        this.cameras.main.startFollow(entity, false, 0.15, 0.15);
-        this.following = player.id;
+      entity.sync(player, local, delta, this.cameras.main.zoom);
+      if (local) {
+        localPosition = entity;
+        if (this.following !== player.id) {
+          this.cameras.main.startFollow(entity, false, 0.14, 0.14, 0, 20);
+          this.following = player.id;
+        }
       }
     }
+    this.map?.update(localPosition, this.network.room?.state.doors, delta);
   }
 }
