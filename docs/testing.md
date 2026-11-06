@@ -1,27 +1,18 @@
-# Verification record
+# Verification guide
 
-Iteration 2 retains the Iteration 1 unit and real-WebSocket integration coverage for validated movement, boundaries, safe spawns, nickname normalization, host authorization, five simultaneous players, twenty-player capacity, manual host/player reconnection, automatic reconnection, and room disposal.
+## Iteration 3
 
-## Automated checks
+The unit and real WebSocket suite exercises the lobby-to-game transition, shuffling, reserved seats, capacity, room selection, safe spawns and movement. One test removes all physical colliders and checks the player footprint against arbitrary room bounds. Others drive forged inputs toward both sides of the actual divider and exercise the existing wall, crate and door collisions.
 
-The original nine tests passed before changes. The final suite has **22 passing tests**, including projection round trips, logical tile conversions, eight screen-space input directions, diagonal speed, Tiled loading/versioning, wall sliding, obstacle corners, thin-wall tunneling, boundaries/voids, closed-door collision, safe spawn selection, and corridor connectivity.
+The full-capacity test compares each of 20 SDK clients’ decoded state with the host’s authoritative roster. Each phone sees ten players, one team and its own door. A separate test captures bytes arriving at the SDK before decoding, checks the first playing patch, and verifies that a known float coordinate reaches the host and teammates only. Reconnection tests cover a moved character, a missed start, the host, and subsequent permanent departures.
 
-Real Colyseus clients verify map/door initialization, simultaneous movement by five players against different collision shapes, identical replicated positions, spoofed-field rejection, and preservation of position and identity after reconnecting following movement. Doors remain closed when clients include forged door state in input.
+Run `pnpm lint`, `pnpm typecheck`, `pnpm test`, and `pnpm build`. After building, `pnpm test:browser` starts an ephemeral production server and opens Chrome with a desktop host and a landscape player. Nineteen SDK players fill the remaining seats. The browser check covers the QR join flow, counts, pointer joystick movement observed by a teammate, rotation, and player/host reloads. CI saves both screenshots in the **team-views** artifact.
 
-Commands run successfully with Node 24 and pinned pnpm 10.34.9:
+Physical Android Chrome and iPhone Safari acceptance is pending. Check safe areas, touch cancellation, background/resume, Wi-Fi recovery and sustained frame rate on the intended phones using the [real-phone checklist](../README.md#real-phone-test).
 
-```sh
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm build
-```
+## Historical Iteration 2 browser checks
 
-The SDK logs expected rejection/drop messages during negative tests; the test runner reports zero failures. No physics, rendering, or test dependencies were added.
-
-## Browser checks
-
-Chromium checks completed on the feature implementation:
+Chromium checks recorded on the original Stone Hall:
 
 - Host creation, QR/join URL, and five player browser connections in the lobby.
 - Host start, the full isometric overview with all five colored characters, and player follow view.
@@ -36,7 +27,3 @@ These are browser viewport checks, **not physical-device tests**. Device DPR/saf
 ![Desktop overview with five players](screenshots/desktop-overview.jpg)
 
 ![Player view in the Chromium landscape harness](screenshots/mobile-landscape.jpg)
-
-Before a group session, follow the real-phone test in README.md with at least five phones, including Android Chrome and iPhone Safari. Check landscape rotation, joystick release, safe areas, background/resume, Wi-Fi recovery, and host overview. Do not interpret Node integration tests as physical-device acceptance.
-
-GitHub Actions runs frozen installation, lint, type checking, tests, and production builds. The pull request records the latest local check results.

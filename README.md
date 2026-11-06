@@ -1,8 +1,6 @@
 # Common Ground — Multiplayer Escape Room
 
-Iteration 2 of a phone-controlled, real-time multiplayer browser game. A desktop host creates a room, displays a QR code, and starts the session. Up to 20 players join on phones and explore a shared isometric stone dungeon with rooms, corridors, walls, crates, pillars, and closed doors. The host sees the whole map; each player sees a camera following their character.
-
-This extends the existing networking and input foundation. Positions and collision decisions belong to the server; the client projects them into a 2:1 isometric view. There are **no teams, puzzles, artifacts, inventory, enemies, door interactions, or progression** in this iteration.
+Iteration 3 adds two cooperating teams to the phone-controlled escape room. A host displays the QR code on a large monitor. When the host starts, the server splits up to 20 players between the adjacent blue and orange chambers of the Twin Vaults. Each phone follows its player and shows their teammates. The desktop shows both rooms, every nickname, team rosters and connection counts.
 
 ## Requirements and quick start
 
@@ -36,9 +34,9 @@ On Windows, copy `.env.example` to `.env` using Explorer or `Copy-Item .env.exam
 2. Permit inbound TCP **5173** on your trusted private network. Disable guest-network/AP client isolation or use a network that allows devices to communicate. The default proxy means phones do not need direct access to port 2567.
 3. Open the LAN URL on the desktop. Create a game and keep the original host tab open.
 4. Scan the QR with at least five phones. Use different nicknames; verify all five names appear on the host. Try a duplicate nickname, including a different letter case: it should be rejected.
-5. Start the game. Turn each phone sideways. Drag the bottom-left joystick in all eight directions. Everyone should see each other, and the desktop should show the entire map with every player.
-6. Walk against the perimeter, interior walls, crates, pillars, and blue closed doors: characters must stop at their feet and slide along edges. Follow the corridor around the main closed door into the lower hall and both side rooms. Check facing, walking animation, depth ordering, and subtle wall transparency around your character. Try opening the join link after starting: it should be rejected.
-7. Briefly disable Wi-Fi on one phone, then restore it within 60 seconds. The character should freeze, appear faded to others, and return with its original ID, nickname, color, and position. Refresh the phone page to test stored-token reconnection too.
+5. Start the game. Turn each phone sideways. Drag the bottom-left joystick in all eight directions. Check your team badge and teammates’ nicknames. Phones show only the assigned room. The host shows the complete map and both team rosters.
+6. Walk against the perimeter, interior walls, crates, pillars, and blue closed doors: characters must stop at their feet and slide along edges. Walk into the central divider from each side. Both teams must stay in their own room. Check facing, walking animation, depth ordering, and subtle wall transparency around your character. Try opening the join link after starting: it should be rejected.
+7. Briefly disable Wi-Fi on one phone, then restore it within 60 seconds. The character should freeze, appear faded to others, and return with its original ID, nickname, color, team, room and position. Refresh the phone page to test stored-token reconnection too.
 8. Rotate to portrait while moving, switch tabs/apps briefly, and release/cancel a touch: movement should stop. Return to landscape to continue.
 9. Temporarily disconnect and reconnect the host. The host must return to the overview without creating a character. **End game** closes the room for everyone.
 
@@ -147,23 +145,36 @@ React owns navigation, forms, lobby/QR, and connection status. A small external 
 
 ### World coordinates, maps, and rendering
 
-The server owns a **1920 × 1664 logical-unit** plane. Each logical tile is a 64 × 64 square, projected as a 64 × 32 diamond. `worldToScreen`, `screenToWorld`, `tileToWorld`, and `worldToTile` live in `packages/shared/src/world/projection.ts`. World origin projects to screen origin; screen X may be negative. Character positions always describe their **feet**.
+The server owns a **1664 × 896 logical-unit** plane. Each logical tile is a 64 × 64 square, projected as a 64 × 32 diamond. `worldToScreen`, `screenToWorld`, `tileToWorld`, and `worldToTile` live in `packages/shared/src/world/projection.ts`. World origin projects to screen origin; screen X may be negative. Character positions always describe their **feet**.
 
 `screenInputToWorld` inversely projects joystick/keyboard directions and restores their original magnitude. Full-strength movement is 200 logical units/second in every direction, including diagonals. The 2:1 projection naturally compresses vertical screen travel. Only normalized logical direction and sequence number are transmitted; clients never submit authoritative positions.
 
-Both applications load the exact same `stone-hall.json` through the shared Tiled loader. The room synchronizes only `mapId`, a content-fingerprinted `mapVersion`, player state, and door states. Static geometry is bundled once. A stale client refuses a mismatched map and displays an update/refresh error. Deploy client and server builds together; changing a running server ends its in-memory sessions.
+Both applications load `twin-vaults.json` through the shared Tiled loader. Colyseus synchronizes the map ID and content fingerprint, session status, and the player, team and door records authorized for each connection. Static geometry is bundled once. A stale client refuses a mismatched map and displays an update/refresh error. Deploy client and server builds together; changing a running server ends its in-memory sessions.
 
 Phaser draws muted geometric floors and cuboids once, reuses small color-baked character textures (works with WebGL and Canvas), and animates body/boots without allocating sprites each frame. Objects are anchored at the center of their base, characters at their feet; screen Y derived from logical X + Y determines depth. Long walls are split into tile-sized segments. Nearby walls/objects overlapping the local character fade to 27% opacity. Name labels remain above geometry for overview readability. No additional movement simulation runs in the client.
 
-The player camera smoothly follows the local character with viewport-dependent zoom and map bounds; a separate scene keeps the joystick fixed. The host camera fits all rendered floor/wall bounds and recalculates on resize. Phaser uses CSS-pixel canvas dimensions and pointer coordinates at every device pixel ratio, avoiding oversized backing buffers on phones; nickname textures use up to 2× DPR for readability. Diamond-shaped map edges/corridor gaps can still expose background within a rectangular viewport. Fullscreen is optional.
+The player camera smoothly follows the local character with viewport-dependent zoom and the projected bounds of the assigned room; a separate scene keeps the joystick fixed. The host camera fits all rendered floor/wall bounds and recalculates on resize. Phaser uses CSS-pixel canvas dimensions and pointer coordinates at every device pixel ratio, avoiding oversized backing buffers on phones; nickname textures use up to 2× DPR for readability. Diamond-shaped room edges can expose background within a rectangular viewport. Fullscreen is optional.
 
 ### Collision and doors
 
 `CollisionWorld` is server-only: a 64-unit spatial hash indexes explicit map AABBs. The character's feet have a **28 × 28 logical-unit square footprint**. Every fixed simulation step moves one axis at a time, clamps against nearby solid shapes and world bounds, and preserves sliding along the other axis. Displacements are subdivided into steps no larger than the footprint's half-width, preventing tunneling through thin obstacles. There is no 3D physics dependency and no collision inferred from tile colors or artwork.
 
-Spawn selection validates all authored points against the same collision world and rejects blocked/overlapping candidates. A room refuses to initialize without 20 valid, separated spawns. Both doors start `closed` in Colyseus state and their collision shapes reference stable door IDs. The collision query and renderer read server door state; **there is no message handler or UI to open doors** in this iteration.
+The Tiled `Rooms` layer defines named, tile-aligned logical rectangles. Teams point to rooms by ID. The server clamps each axis to the assigned rectangle, inset by the footprint radius, for every collision substep. This rule still holds with the divider removed or a door open. A team session requires ten collision-free, separated spawn points inside each starting room. Both doors start `closed` in Colyseus state and their collision shapes reference stable door IDs. The collision query and renderer read server door state; **there is no message handler or UI to open doors** in this iteration.
 
 See [docs/map-authoring.md](docs/map-authoring.md) to edit this map or add another using the supported Tiled format, and [asset licensing](packages/shared/src/maps/ASSETS.md) for the original geometric art.
+
+### Team assignment and visibility
+
+The host starts one synchronous transition. The server shuffles connected seats using Fisher–Yates with `crypto.randomInt`, then deals A, B, A, B. It shuffles temporarily disconnected seats separately and continues the deal, so both the active group and the full roster are balanced. With odd totals, A has the extra seat. Each team takes its starting room from Tiled metadata. The server writes positions and memberships, marks the game as playing, and updates permissions before the next patch. Repeated starts and departures leave the existing assignments in place.
+
+A player stores one `teamId`. The corresponding `Team` stores the current `roomId`. The server derives membership and counts from those records. A valid reconnect token reclaims the server’s existing character, including when the phone missed the start while offline. The server rebuilds that connection’s view before it sends the full state.
+
+| Connection | Lobby                                                            | Playing                                                 |
+| ---------- | ---------------------------------------------------------------- | ------------------------------------------------------- |
+| Host       | All seats and connection status                                  | Both rooms, teams, doors and all player positions       |
+| Phone      | Shared roster of unassigned players with placeholder coordinates | Its team, that team’s players and the doors in its room |
+
+Colyseus 0.17 / Schema 4 `StateView` filters entries of the `players`, `teams`, and `doors` maps in the encoder. Permissions change on join, start and reconnect. Normal movement uses the existing patch stream. Public Tiled geometry ships with the client. Store future private clues, solutions and changing object state on the server. Phaser builds only the authorized room’s floor and objects on a phone, even when the viewport extends past a wall.
 
 ### Network and session behavior
 
@@ -189,9 +200,9 @@ pnpm test
 pnpm build
 ```
 
-`pnpm format` formats the workspace. Tests use Node's test runner and real Colyseus WebSocket clients, including five simultaneous players, 20-player capacity, unauthorized starts, duplicate names, untrusted inputs, delayed-input stopping, host/player reconnection, and disposal. Pure tests also cover projection round trips, tile coordinates, all eight screen-space directions, map validation/versioning, wall sliding, obstacle sides/corners, thin-wall tunneling, closed/open door collision, boundaries/voids, speed across ticks, valid spawns, and connectivity through the example corridors. Five real clients simultaneously exercise different collision cases and observe identical state; reconnection restores a character after movement.
+`pnpm format` formats the workspace. Unit tests exercise projection, input validation, map loading, collision, spawn validation, team balance and permissions. Real WebSocket tests run with up to 20 player clients and an additional host. They inspect decoded state and incoming frames, exercise forged movement requests, and cover both player and host reconnection.
 
-CI runs these checks on pushes and PRs to `main`. Repository publication and hosted CI execution are distinct from running the checks locally; see [docs/testing.md](docs/testing.md) for the actual verification record.
+After building, run `pnpm test:browser` with Google Chrome installed (or set `CHROME_BIN` to a Chromium executable). This check opens the production UI, fills the session, moves a player with the joystick, rotates the phone viewport and reconnects through page reloads. CI runs the checks and saves the desktop and landscape screenshots under the `team-views` artifact. See [the verification guide](docs/testing.md).
 
 ### Run a production build locally
 
@@ -202,18 +213,14 @@ NODE_ENV=production pnpm start
 
 In PowerShell, set `$env:NODE_ENV='production'` before `pnpm start`. Node serves both `apps/client/dist` and Colyseus on port 2567. Open the LAN IP at port 2567, or terminate HTTPS at a reverse proxy with WebSocket upgrades enabled. Build with a matching public client URL, or keep it blank to use the origin dynamically. This requires a persistent Node process; static-only hosting/GitHub Pages and request-only serverless functions cannot host this game server.
 
-## Limitations and Iteration 3
+## Limitations and Iteration 4
 
 State is in memory. A server restart ends all games, and tokens do not survive it. Reconnection after 60 seconds or from another browser is intentionally unsupported. Single-process hosting only; scaling would need shared matchmaking/presence and room-aware routing. There is no player-to-player collision, moderation UI, persistent identity, or native-app installation. Twenty colors are not equally distinguishable to everyone, so nicknames remain visible.
 
 The map loader intentionally supports a small, validated Tiled subset: finite 64 × 32 isometric maps, three embedded floor tiles, uncompressed arrays, unrotated rectangle objects, and point spawns. External tilesets, infinite maps, groups, flips, polygons, rotated objects, and arbitrary tile artwork are not supported. The included atlas is an editor aid; the runtime generates matching geometric art. Complex overhanging geometry will need richer depth/occlusion rules than the current segmented AABBs. At small host resolutions or with clustered players, labels can overlap; the fixed overview and footer roster are the default. There is no local prediction, so high latency is visible. Physical iPhone/Android testing and performance measurements on mid-range phones remain required; see the verification record.
 
-For Iteration 3, first validate five physical phones on the intended Wi-Fi. Then:
+For the first cooperative puzzle, author stable object IDs and interaction areas in Tiled. Keep the symbol sequence and mechanism rules on the server. Accept an interaction request with an object ID and action, resolve the sender’s identity and room, and validate distance, game status and the allowed transition. A retry should return the existing result.
 
-1. Add a **server-assigned `teamId`** to player state and balance teams before starting; keep player identity and reconnect tokens independent of team assignment.
-2. Author two team areas and their spawn groups in Tiled. Keep one Colyseus room per session with both areas on the same logical map so the host still sees everyone. Validate each team's spawns and permitted transitions on the server. If team information must be private, filter state visibility on the server as well.
-3. Add one explicit server-validated interaction protocol for doors/puzzles: check membership, distance, session status, and allowed state transitions. Clients request actions; the server changes door state and collision together. Keep the existing input-only movement path, fixed tick, spatial collision index, and shared map version contract.
-
-None of these future gameplay features is implemented here.
+Attach team-private clue and mechanism state to the filtered team or room. Publish only the completion flags that both teams need. Once both objectives are complete, the server can change the shared progression state in a single transition. Reconnecting clients will receive the current result through their normal filtered snapshot.
 
 Reference APIs: [Tiled JSON format](https://doc.mapeditor.org/en/stable/reference/json-map-format/), [Tiled isometric object coordinates](https://doc.mapeditor.org/en/stable/manual/layers/#object-layers), [Phaser cameras](https://docs.phaser.io/phaser/concepts/cameras), [Colyseus 0.17 reconnection](https://0-17.docs.colyseus.io/room/reconnection), [Vite server/proxy configuration](https://vite.dev/config/server-options.html), [Screen orientation support](https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/lock).

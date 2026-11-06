@@ -15,7 +15,8 @@
     "format": "prettier --write .",
     "typecheck": "pnpm --filter @escape/shared build && pnpm -r typecheck",
     "test": "pnpm --filter @escape/shared build && pnpm --filter @escape/server test",
-    "start": "pnpm --filter @escape/server start"
+    "start": "pnpm --filter @escape/server start",
+    "test:browser": "pnpm --filter @escape/server test:browser"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
