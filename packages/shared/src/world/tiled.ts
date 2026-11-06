@@ -1,5 +1,14 @@
 import { ISOMETRIC } from './projection.js';
-import type { CollisionShape, LogicalMap, MapObject, Point, Rectangle } from './types.js';
+import type {
+  CollisionShape,
+  LogicalMap,
+  LogicalRoom,
+  MapObject,
+  Point,
+  Rectangle,
+} from './types.js';
+
+import { containsRect } from './rooms.js';
 
 type RecordValue = Record<string, unknown>;
 function record(value: unknown, context: string): RecordValue {
@@ -111,6 +120,39 @@ export function loadTiledMap(source: unknown): LogicalMap {
       throw new Error('Object extends outside the map.');
     return rect;
   };
+  const rooms: LogicalRoom[] = [];
+  // Legacy maps without a Rooms layer can still be loaded. A team session requires start rooms.
+  if (layers.has('Rooms')) {
+    for (const entry of array(layer('Rooms', 'objectgroup').objects, 'rooms')) {
+      const object = record(entry, 'room');
+      const id = text(object.name, 'room name');
+      if (!id.startsWith('room-') || id.length <= 5 || rooms.some((room) => room.id === id))
+        throw new Error(`Invalid or duplicate room ID: ${id}.`);
+      const bounds = rectangle(object);
+      if (Object.values(bounds).some((n) => n % ISOMETRIC.worldTileSize !== 0))
+        throw new Error(`Room ${id} must follow tile edges.`);
+      if (
+        rooms.some(
+          ({ bounds: b }) =>
+            bounds.x < b.x + b.width &&
+            bounds.x + bounds.width > b.x &&
+            bounds.y < b.y + b.height &&
+            bounds.y + bounds.height > b.y,
+        )
+      )
+        throw new Error(`Room ${id} overlaps another room.`);
+      const props = properties(object.properties);
+      const startTeam = props.startTeam;
+      if (startTeam !== undefined && startTeam !== 'A' && startTeam !== 'B')
+        throw new Error(`Invalid starting team for ${id}.`);
+      rooms.push({
+        id: id as LogicalRoom['id'],
+        bounds,
+        name: text(props.displayName, 'room displayName'),
+        startTeam,
+      });
+    }
+  }
   const objects: MapObject[] = [];
   const ids = new Set<string>();
   for (const name of ['Walls', 'Decorations', 'Objects']) {
@@ -129,8 +171,12 @@ export function loadTiledMap(source: unknown): LogicalMap {
       if (ids.has(id)) throw new Error(`Duplicate visual object ${id}.`);
       ids.add(id);
       const props = properties(object.properties);
+      const bounds = rectangle(object);
+      const owner = rooms.find((room) => containsRect(room.bounds, bounds));
+      if (rooms.length && !owner) throw new Error(`Object ${id} must fit inside one room.`);
       objects.push({
-        ...rectangle(object),
+        ...bounds,
+        roomId: owner?.id,
         id,
         kind,
         elevation: number(props.elevation ?? 32, 'elevation'),
@@ -186,6 +232,7 @@ export function loadTiledMap(source: unknown): LogicalMap {
     ground,
     objects,
     collisions,
+    rooms,
     spawns,
   };
 }

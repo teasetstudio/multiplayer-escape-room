@@ -1,6 +1,9 @@
 import Phaser from 'phaser';
 import {
   ISOMETRIC,
+  TEAM_STYLE,
+  roomAt,
+  type RoomId,
   worldToScreen,
   tileToWorld,
   type DoorSnapshot,
@@ -16,7 +19,11 @@ interface Surface {
   depth: number;
   doorId?: string;
 }
-const FLOOR = [0, 0x455957, 0x4b605b, 0x4c595a];
+const FLOORS = {
+  A: [0, 0x3d5364, 0x435c6d, 0x455866],
+  B: [0, 0x625346, 0x695a4e, 0x605247],
+  neutral: [0, 0x455957, 0x4b605b, 0x4c595a],
+};
 
 function corners(rect: Rectangle): Point[] {
   return [
@@ -41,26 +48,48 @@ function polygon(graphics: Phaser.GameObjects.Graphics, points: Point[], color: 
 export class IsometricMap {
   readonly bounds: Rectangle;
   private readonly surfaces: Surface[] = [];
-  constructor(scene: Phaser.Scene, map: LogicalMap) {
+  constructor(scene: Phaser.Scene, map: LogicalMap, scope: 'overview' | RoomId) {
     const floor = scene.add.graphics().setDepth(-10_000);
     const allPoints: Point[] = [];
     map.ground.forEach((gid, index) => {
       if (!gid) return;
       const tile = tileToWorld({ x: index % map.columns, y: Math.floor(index / map.columns) });
+      const room = roomAt(map.rooms, tile);
+      if (!room || (scope !== 'overview' && scope !== room.id)) return;
+      const palette = FLOORS[room.startTeam ?? 'neutral'];
       const points = corners({
         ...tile,
         width: ISOMETRIC.worldTileSize,
         height: ISOMETRIC.worldTileSize,
       });
       allPoints.push(...points);
-      polygon(floor, points, FLOOR[gid] ?? FLOOR[1]!);
+      polygon(floor, points, palette[gid] ?? palette[1]!);
       floor.lineStyle(1, 0x748d80, 0.24).strokePoints(points, true);
       const bottom = points[2]!;
       floor
         .lineStyle(1, 0x132e2d, 0.3)
         .lineBetween(bottom.x - 20, bottom.y - 10, bottom.x, bottom.y);
     });
+    for (const room of map.rooms) {
+      if (scope !== 'overview' && room.id !== scope) continue;
+      const color = room.startTeam ? TEAM_STYLE[room.startTeam].color : '#bdc9ba';
+      const b = room.bounds;
+      const anchor = worldToScreen({ x: b.x + b.width * 0.14, y: b.y + b.height * 0.05 });
+      const plaque = scene.add
+        .text(anchor.x, anchor.y - 52, room.name.toUpperCase(), {
+          fontFamily: 'monospace',
+          fontSize: '15px',
+          fontStyle: 'bold',
+          color,
+          backgroundColor: '#172425',
+          padding: { x: 9, y: 5 },
+        })
+        .setOrigin(0.5, 1)
+        .setDepth(10000);
+      allPoints.push({ x: plaque.x - plaque.width / 2, y: plaque.y - plaque.height });
+    }
     for (const object of map.objects) {
+      if (scope !== 'overview' && object.roomId !== scope) continue;
       if (object.kind === 'rug') {
         const points = corners(object);
         polygon(floor, points, 0xa2b880, 0.12);

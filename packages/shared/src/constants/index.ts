@@ -1,5 +1,12 @@
+import type { TeamId } from '../types/index.js';
+
 export const ROOM_NAME = 'escape';
 export const MAX_PLAYERS = 20;
+export const TEAM_IDS = ['A', 'B'] as const satisfies readonly TeamId[];
+export const TEAM_STYLE = {
+  A: { name: 'Blue', color: '#82beff' },
+  B: { name: 'Orange', color: '#ffad72' },
+} as const satisfies Record<TeamId, { name: string; color: string }>;
 export const NICKNAME_MAX_LENGTH = 18;
 export const RECONNECT_SECONDS = 60;
 export const SIMULATION_HZ = 30;

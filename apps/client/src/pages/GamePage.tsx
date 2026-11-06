@@ -1,3 +1,4 @@
+import { DEFAULT_MAP, TEAM_STYLE, type TeamState } from '@escape/shared';
 import { useState } from 'react';
 import { Brand } from '../components/Brand';
 import { PhaserCanvas } from '../components/PhaserCanvas';
@@ -16,10 +17,48 @@ async function enterFullscreen() {
     /* Landscape layout works without either optional browser API. */
   }
 }
+function roomName(team: TeamState) {
+  return DEFAULT_MAP.rooms.find((room) => room.id === team.roomId)?.name ?? team.roomId;
+}
+
+function TeamOverview({ view }: { view: ConnectionView }) {
+  return (
+    <footer className="overview-footer" aria-label="Team status">
+      {view.teams.map((team) => {
+        const players = view.players.filter((player) => player.teamId === team.id);
+        const online = players.filter((player) => player.connected).length;
+        return (
+          <section className="team-status" key={team.id} aria-label={`Team ${team.id}`}>
+            <div className="team-status-heading">
+              <strong style={{ color: TEAM_STYLE[team.id].color }}>
+                Team {team.id} · {TEAM_STYLE[team.id].name}
+              </strong>
+              <span>{roomName(team)}</span>
+              <span>
+                {online} / {players.length} online
+              </span>
+            </div>
+            <div className="legend">
+              {players.map((player) => (
+                <span key={player.id} style={{ opacity: player.connected ? 1 : 0.55 }}>
+                  <i style={{ backgroundColor: player.color }} />
+                  {player.nickname}
+                  {!player.connected && ' (offline)'}
+                </span>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </footer>
+  );
+}
 export function GamePage({ view }: { view: ConnectionView }) {
   const host = view.role === 'host';
   const count = view.players.filter((player) => player.connected).length;
   const me = view.players.find((player) => player.id === view.playerId);
+  const team = view.teams.find((entry) => entry.id === me?.teamId);
+  const scope = host ? 'overview' : team?.roomId;
   const [fullAttempted, setFullAttempted] = useState(false);
   return (
     <main className={`play-page ${host ? 'host-game' : 'player-game'}`}>
@@ -29,9 +68,14 @@ export function GamePage({ view }: { view: ConnectionView }) {
           <strong>{host ? 'The whole picture.' : (me?.nickname ?? 'Your world.')}</strong>
           <span>{host ? 'LIVE OVERVIEW' : 'EXPLORE TOGETHER'}</span>
         </div>
+        {!host && team && (
+          <strong className="team-badge" style={{ color: TEAM_STYLE[team.id].color }}>
+            Team {team.id} <span>· {roomName(team)}</span>
+          </strong>
+        )}
         <div className="play-meta">
           <span className="connected-count">
-            <b>{count}</b> <span>players</span>
+            <b>{count}</b> <span>{host ? 'players online' : 'on your team online'}</span>
           </span>
           <StatusPill phase={view.phase} />
           {!host && document.fullscreenEnabled && !fullAttempted && (
@@ -54,9 +98,15 @@ export function GamePage({ view }: { view: ConnectionView }) {
         </div>
       </header>
       <div className="game-stage">
-        <PhaserCanvas overview={host} />
+        {scope ? (
+          <PhaserCanvas scope={scope} />
+        ) : (
+          <p className="canvas-error" role="status">
+            Joining your team…
+          </p>
+        )}
         <div className="map-badge">
-          <i /> {host ? 'STONE HALL · LIVE OVERVIEW' : 'DRAG THE JOYSTICK TO MOVE'}
+          <i /> {host ? `THE TWIN VAULTS · ${view.code}` : 'DRAG THE JOYSTICK TO MOVE'}
         </div>
         {!host && (
           <span className="you-badge">
@@ -115,24 +165,7 @@ export function GamePage({ view }: { view: ConnectionView }) {
           </div>
         )}
       </div>
-      {host && (
-        <footer className="overview-footer">
-          <span>
-            GAME <b>{view.code}</b>
-          </span>
-          <div className="legend">
-            {view.players.map((player) => (
-              <span key={player.id} style={{ opacity: player.connected ? 1 : 0.4 }}>
-                <i style={{ backgroundColor: player.color }} />
-                {player.nickname}
-              </span>
-            ))}
-          </div>
-          <span>
-            LIVE EXPLORATION <i className="live-dot" />
-          </span>
-        </footer>
-      )}
+      {host && <TeamOverview view={view} />}
     </main>
   );
 }

@@ -1,6 +1,11 @@
-import type { DoorSnapshot } from '../world/types.js';
+import type { DoorSnapshot, RoomId } from '../world/types.js';
 
 export type SessionStatus = 'lobby' | 'playing';
+export type TeamId = 'A' | 'B';
+export interface TeamState {
+  id: TeamId;
+  roomId: RoomId;
+}
 export type ClientRole = 'host' | 'player';
 export interface MovementInput {
   x: number;
@@ -14,6 +19,7 @@ export interface PlayerState {
   x: number;
   y: number;
   connected: boolean;
+  teamId?: TeamId; // Absent until the server commits the game start.
 }
 // A renderer-independent world contract. Coordinates are world units, never screen pixels.
 export interface WorldState {
@@ -23,6 +29,7 @@ export interface WorldState {
   hostConnected: boolean;
   players: Map<string, PlayerState>;
   doors: Map<string, DoorSnapshot>;
+  teams: Map<TeamId, TeamState>;
 }
 export interface CreateSessionResponse {
   code: string;

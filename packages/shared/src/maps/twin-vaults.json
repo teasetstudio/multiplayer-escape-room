@@ -1,0 +1,1106 @@
+{
+  "type": "map",
+  "version": "1.10",
+  "tiledversion": "1.11.2",
+  "orientation": "isometric",
+  "renderorder": "right-down",
+  "infinite": false,
+  "width": 26,
+  "height": 14,
+  "tilewidth": 64,
+  "tileheight": 32,
+  "nextlayerid": 8,
+  "nextobjectid": 69,
+  "backgroundcolor": "#101a1c",
+  "properties": [
+    {
+      "name": "mapId",
+      "type": "string",
+      "value": "twin-vaults"
+    },
+    {
+      "name": "revision",
+      "type": "string",
+      "value": "1"
+    },
+    {
+      "name": "displayName",
+      "type": "string",
+      "value": "The Twin Vaults"
+    }
+  ],
+  "layers": [
+    {
+      "id": 1,
+      "name": "Ground",
+      "type": "tilelayer",
+      "visible": true,
+      "opacity": 1,
+      "x": 0,
+      "y": 0,
+      "width": 26,
+      "height": 14,
+      "data": [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 1,
+        2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 0, 0, 1, 3, 2, 1, 3, 2, 1, 3, 2,
+        1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1,
+        2, 3, 1, 2, 3, 0, 0, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2,
+        0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 2, 3,
+        1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 0, 0, 1, 3, 2, 1, 3, 2, 1, 3,
+        2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3,
+        1, 2, 3, 1, 2, 3, 0, 0, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3, 2, 1, 3,
+        2, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Rooms",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 1,
+          "name": "room-a",
+          "type": "room",
+          "x": 32.0,
+          "y": 32.0,
+          "width": 384.0,
+          "height": 384.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "displayName",
+              "type": "string",
+              "value": "Room A"
+            },
+            {
+              "name": "startTeam",
+              "type": "string",
+              "value": "A"
+            }
+          ]
+        },
+        {
+          "id": 33,
+          "name": "room-b",
+          "type": "room",
+          "x": 416.0,
+          "y": 32.0,
+          "width": 384.0,
+          "height": 384.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "displayName",
+              "type": "string",
+              "value": "Room B"
+            },
+            {
+              "name": "startTeam",
+              "type": "string",
+              "value": "B"
+            }
+          ]
+        }
+      ],
+      "draworder": "topdown",
+      "visible": false,
+      "opacity": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 3,
+      "name": "Walls",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 2,
+          "name": "room-a-north",
+          "type": "wall",
+          "x": 32.0,
+          "y": 32.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "room-a-west",
+          "type": "wall",
+          "x": 32.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "room-a-south",
+          "type": "wall",
+          "x": 32.0,
+          "y": 412.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 24
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "room-a-east",
+          "type": "wall",
+          "x": 412.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "name": "room-a-alcove",
+          "type": "wall",
+          "x": 36.0,
+          "y": 98.5,
+          "width": 50.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 32
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "name": "room-a-return",
+          "type": "wall",
+          "x": 121.0,
+          "y": 36.0,
+          "width": 5.0,
+          "height": 67.5,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 32
+            }
+          ]
+        },
+        {
+          "id": 34,
+          "name": "room-b-north",
+          "type": "wall",
+          "x": 416.0,
+          "y": 32.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 36,
+          "name": "room-b-west",
+          "type": "wall",
+          "x": 416.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 38
+            }
+          ]
+        },
+        {
+          "id": 38,
+          "name": "room-b-south",
+          "type": "wall",
+          "x": 416.0,
+          "y": 412.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 24
+            }
+          ]
+        },
+        {
+          "id": 40,
+          "name": "room-b-east",
+          "type": "wall",
+          "x": 796.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 24
+            }
+          ]
+        },
+        {
+          "id": 42,
+          "name": "room-b-alcove",
+          "type": "wall",
+          "x": 420.0,
+          "y": 98.5,
+          "width": 50.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 32
+            }
+          ]
+        },
+        {
+          "id": 46,
+          "name": "room-b-return",
+          "type": "wall",
+          "x": 505.0,
+          "y": 36.0,
+          "width": 5.0,
+          "height": 67.5,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 32
+            }
+          ]
+        }
+      ],
+      "draworder": "topdown",
+      "visible": true,
+      "opacity": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 4,
+      "name": "Decorations",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 22,
+          "name": "room-a-inlay",
+          "type": "rug",
+          "x": 166.0,
+          "y": 179.5,
+          "width": 118.0,
+          "height": 89.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "id": 54,
+          "name": "room-b-inlay",
+          "type": "rug",
+          "x": 550.0,
+          "y": 179.5,
+          "width": 118.0,
+          "height": 89.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 0
+            }
+          ]
+        }
+      ],
+      "draworder": "topdown",
+      "visible": true,
+      "opacity": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 5,
+      "name": "Objects",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 12,
+          "name": "room-a-gate",
+          "type": "door",
+          "x": 86.0,
+          "y": 98.5,
+          "width": 35.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 34
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "name": "room-a-pillar",
+          "type": "pillar",
+          "x": 348.0,
+          "y": 80.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 52
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "name": "room-a-supplies",
+          "type": "crate",
+          "x": 72.0,
+          "y": 346.0,
+          "width": 23.0,
+          "height": 23.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 26
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "room-a-column",
+          "type": "pillar",
+          "x": 314.5,
+          "y": 308.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 50
+            }
+          ]
+        },
+        {
+          "id": 44,
+          "name": "room-b-gate",
+          "type": "door",
+          "x": 470.0,
+          "y": 98.5,
+          "width": 35.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 34
+            }
+          ]
+        },
+        {
+          "id": 48,
+          "name": "room-b-pillar",
+          "type": "pillar",
+          "x": 732.0,
+          "y": 80.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 52
+            }
+          ]
+        },
+        {
+          "id": 50,
+          "name": "room-b-supplies",
+          "type": "crate",
+          "x": 456.0,
+          "y": 346.0,
+          "width": 23.0,
+          "height": 23.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 26
+            }
+          ]
+        },
+        {
+          "id": 52,
+          "name": "room-b-column",
+          "type": "pillar",
+          "x": 698.5,
+          "y": 308.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "elevation",
+              "type": "int",
+              "value": 50
+            }
+          ]
+        }
+      ],
+      "draworder": "topdown",
+      "visible": true,
+      "opacity": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 6,
+      "name": "Collision",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 3,
+          "name": "room-a-north-solid",
+          "type": "wall",
+          "x": 32.0,
+          "y": 32.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 5,
+          "name": "room-a-west-solid",
+          "type": "wall",
+          "x": 32.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 7,
+          "name": "room-a-south-solid",
+          "type": "wall",
+          "x": 32.0,
+          "y": 412.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 9,
+          "name": "room-a-east-solid",
+          "type": "wall",
+          "x": 412.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 11,
+          "name": "room-a-alcove-solid",
+          "type": "wall",
+          "x": 36.0,
+          "y": 98.5,
+          "width": 50.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 13,
+          "name": "room-a-gate-solid",
+          "type": "door",
+          "x": 86.0,
+          "y": 98.5,
+          "width": 35.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "doorId",
+              "type": "string",
+              "value": "room-a-gate"
+            }
+          ]
+        },
+        {
+          "id": 15,
+          "name": "room-a-return-solid",
+          "type": "wall",
+          "x": 121.0,
+          "y": 36.0,
+          "width": 5.0,
+          "height": 67.5,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 17,
+          "name": "room-a-pillar-solid",
+          "type": "obstacle",
+          "x": 348.0,
+          "y": 80.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 19,
+          "name": "room-a-supplies-solid",
+          "type": "obstacle",
+          "x": 72.0,
+          "y": 346.0,
+          "width": 23.0,
+          "height": 23.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 21,
+          "name": "room-a-column-solid",
+          "type": "obstacle",
+          "x": 314.5,
+          "y": 308.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 35,
+          "name": "room-b-north-solid",
+          "type": "wall",
+          "x": 416.0,
+          "y": 32.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 37,
+          "name": "room-b-west-solid",
+          "type": "wall",
+          "x": 416.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 39,
+          "name": "room-b-south-solid",
+          "type": "wall",
+          "x": 416.0,
+          "y": 412.0,
+          "width": 384.0,
+          "height": 4.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 41,
+          "name": "room-b-east-solid",
+          "type": "wall",
+          "x": 796.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 376.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 43,
+          "name": "room-b-alcove-solid",
+          "type": "wall",
+          "x": 420.0,
+          "y": 98.5,
+          "width": 50.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 45,
+          "name": "room-b-gate-solid",
+          "type": "door",
+          "x": 470.0,
+          "y": 98.5,
+          "width": 35.0,
+          "height": 5.0,
+          "rotation": 0,
+          "visible": true,
+          "properties": [
+            {
+              "name": "doorId",
+              "type": "string",
+              "value": "room-b-gate"
+            }
+          ]
+        },
+        {
+          "id": 47,
+          "name": "room-b-return-solid",
+          "type": "wall",
+          "x": 505.0,
+          "y": 36.0,
+          "width": 5.0,
+          "height": 67.5,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 49,
+          "name": "room-b-pillar-solid",
+          "type": "obstacle",
+          "x": 732.0,
+          "y": 80.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 51,
+          "name": "room-b-supplies-solid",
+          "type": "obstacle",
+          "x": 456.0,
+          "y": 346.0,
+          "width": 23.0,
+          "height": 23.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 53,
+          "name": "room-b-column-solid",
+          "type": "obstacle",
+          "x": 698.5,
+          "y": 308.0,
+          "width": 18.0,
+          "height": 18.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 65,
+          "name": "outside-1",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 0.0,
+          "width": 832.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 66,
+          "name": "outside-2",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 416.0,
+          "width": 832.0,
+          "height": 32.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 67,
+          "name": "outside-3",
+          "type": "boundary",
+          "x": 0.0,
+          "y": 32.0,
+          "width": 32.0,
+          "height": 384.0,
+          "rotation": 0,
+          "visible": true
+        },
+        {
+          "id": 68,
+          "name": "outside-4",
+          "type": "boundary",
+          "x": 800.0,
+          "y": 32.0,
+          "width": 32.0,
+          "height": 384.0,
+          "rotation": 0,
+          "visible": true
+        }
+      ],
+      "draworder": "topdown",
+      "visible": false,
+      "opacity": 1,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": 7,
+      "name": "SpawnPoints",
+      "type": "objectgroup",
+      "objects": [
+        {
+          "id": 23,
+          "name": "room-a-spawn-1",
+          "type": "spawn",
+          "x": 149.0,
+          "y": 123.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 24,
+          "name": "room-a-spawn-2",
+          "type": "spawn",
+          "x": 236.0,
+          "y": 108.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 25,
+          "name": "room-a-spawn-3",
+          "type": "spawn",
+          "x": 309.5,
+          "y": 136.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 26,
+          "name": "room-a-spawn-4",
+          "type": "spawn",
+          "x": 86.0,
+          "y": 189.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 27,
+          "name": "room-a-spawn-5",
+          "type": "spawn",
+          "x": 196.0,
+          "y": 204.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 28,
+          "name": "room-a-spawn-6",
+          "type": "spawn",
+          "x": 316.0,
+          "y": 217.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 29,
+          "name": "room-a-spawn-7",
+          "type": "spawn",
+          "x": 115.0,
+          "y": 269.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 30,
+          "name": "room-a-spawn-8",
+          "type": "spawn",
+          "x": 241.5,
+          "y": 277.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 31,
+          "name": "room-a-spawn-9",
+          "type": "spawn",
+          "x": 183.5,
+          "y": 347.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 32,
+          "name": "room-a-spawn-10",
+          "type": "spawn",
+          "x": 319.5,
+          "y": 367.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 55,
+          "name": "room-b-spawn-1",
+          "type": "spawn",
+          "x": 533.0,
+          "y": 123.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 56,
+          "name": "room-b-spawn-2",
+          "type": "spawn",
+          "x": 620.0,
+          "y": 108.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 57,
+          "name": "room-b-spawn-3",
+          "type": "spawn",
+          "x": 693.5,
+          "y": 136.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 58,
+          "name": "room-b-spawn-4",
+          "type": "spawn",
+          "x": 470.0,
+          "y": 189.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 59,
+          "name": "room-b-spawn-5",
+          "type": "spawn",
+          "x": 580.0,
+          "y": 204.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 60,
+          "name": "room-b-spawn-6",
+          "type": "spawn",
+          "x": 700.0,
+          "y": 217.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 61,
+          "name": "room-b-spawn-7",
+          "type": "spawn",
+          "x": 499.0,
+          "y": 269.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 62,
+          "name": "room-b-spawn-8",
+          "type": "spawn",
+          "x": 625.5,
+          "y": 277.5,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 63,
+          "name": "room-b-spawn-9",
+          "type": "spawn",
+          "x": 567.5,
+          "y": 347.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        },
+        {
+          "id": 64,
+          "name": "room-b-spawn-10",
+          "type": "spawn",
+          "x": 703.5,
+          "y": 367.0,
+          "width": 0.0,
+          "height": 0.0,
+          "rotation": 0,
+          "visible": true,
+          "point": true
+        }
+      ],
+      "draworder": "topdown",
+      "visible": false,
+      "opacity": 1,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "tilesets": [
+    {
+      "firstgid": 1,
+      "name": "Stone",
+      "tilewidth": 64,
+      "tileheight": 32,
+      "tilecount": 3,
+      "columns": 3,
+      "spacing": 0,
+      "margin": 0,
+      "image": "assets/stone-tiles.svg",
+      "imagewidth": 192,
+      "imageheight": 32
+    }
+  ]
+}

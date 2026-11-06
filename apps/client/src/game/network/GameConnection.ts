@@ -7,18 +7,20 @@ import {
   type GameError,
   type PlayerState,
   type WorldState,
+  type TeamState,
 } from '@escape/shared';
 import { api, serverWebSocketUrl } from './config';
 import { WorldBuffer } from './WorldBuffer';
 import { clearSession, readSession, saveSession, type SavedSession } from './sessionStorage';
 
-export type RosterPlayer = Pick<PlayerState, 'id' | 'nickname' | 'color' | 'connected'>;
+export type RosterPlayer = Pick<PlayerState, 'id' | 'nickname' | 'color' | 'connected' | 'teamId'>;
 export interface ConnectionView {
   phase: 'idle' | 'connecting' | 'connected' | 'reconnecting' | 'closed';
   code: string;
   role: ClientRole;
   status: 'lobby' | 'playing';
   players: RosterPlayer[];
+  teams: TeamState[];
   hostConnected: boolean;
   playerId?: string;
   error?: string;
@@ -29,6 +31,7 @@ const initial: ConnectionView = {
   role: 'player',
   status: 'lobby',
   players: [],
+  teams: [],
   hostConnected: false,
 };
 
@@ -153,7 +156,7 @@ export class GameConnection {
       saveSession(this.saved);
     };
     const sync = () => {
-      if (room !== this.room || !room.state?.players) return;
+      if (room !== this.room || !room.state?.mapId) return;
       if (room.state.mapId !== DEFAULT_MAP.id || room.state.mapVersion !== DEFAULT_MAP.version) {
         room.reconnection.enabled = false;
         this.room = undefined;
@@ -166,23 +169,29 @@ export class GameConnection {
         if (room.connection.isOpen) void room.leave();
         return;
       }
-      this.world.push(room.state);
+      if (room.state.status === 'playing') this.world.push(room.state);
       const players: RosterPlayer[] = [];
-      room.state.players.forEach((player) =>
+      room.state.players?.forEach((player) =>
         players.push({
           id: player.id,
           nickname: player.nickname,
           color: player.color,
           connected: player.connected,
+          teamId: player.teamId,
         }),
       );
-      const key = JSON.stringify([room.state.status, room.state.hostConnected, players]);
+      const teams = Array.from(room.state.teams?.values() ?? [], ({ id, roomId }) => ({
+        id,
+        roomId,
+      }));
+      const key = JSON.stringify([room.state.status, room.state.hostConnected, players, teams]);
       if (key !== this.rosterKey) {
         this.rosterKey = key;
         this.update({
           status: room.state.status,
           hostConnected: room.state.hostConnected,
           players,
+          teams,
         });
       }
     };

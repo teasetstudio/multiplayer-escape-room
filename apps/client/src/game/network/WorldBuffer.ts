@@ -13,6 +13,7 @@ export class WorldBuffer {
         id,
         nickname: player.nickname,
         color: player.color,
+        teamId: player.teamId,
         x: player.x,
         y: player.y,
         connected: player.connected,

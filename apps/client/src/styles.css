@@ -970,33 +970,45 @@ em {
   height: 9px;
   border-radius: 50%;
 }
-.overview-footer {
-  display: flex;
-  align-items: center;
-  padding: 18px 30px;
-  gap: 26px;
-  font-size: 8px;
-  letter-spacing: 1px;
-  color: #90a780;
-  border-top: 1px solid #ffffff0c;
-  flex-wrap: wrap;
-}
-.overview-footer > span {
+.team-badge {
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
   white-space: nowrap;
 }
-.overview-footer b {
-  color: #d1dfc5;
-  letter-spacing: 2px;
-  font-family: monospace;
+.team-badge span {
   font-weight: 400;
-  margin-left: 10px;
 }
-.overview-footer > span:last-child {
+.overview-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 15px 30px;
+  border-top: 1px solid #ffffff1c;
+  max-height: 28dvh;
+  overflow: auto;
+}
+.team-status + .team-status {
+  border-left: 1px solid #ffffff24;
+  padding-left: 24px;
+}
+.team-status-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  color: #bac4bd;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.team-status-heading strong {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.team-status-heading span:last-child {
   margin-left: auto;
-}
-.live-dot {
-  color: #c5f277;
-  margin-left: 7px;
 }
 .legend {
   display: flex;

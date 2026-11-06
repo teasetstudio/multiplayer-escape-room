@@ -1,4 +1,4 @@
-import data from './stone-hall.json' with { type: 'json' };
+import data from './twin-vaults.json' with { type: 'json' };
 import { loadTiledMap } from '../world/tiled.js';
 
 // Both applications compile this exact file. Geometry is never sent on room patches.

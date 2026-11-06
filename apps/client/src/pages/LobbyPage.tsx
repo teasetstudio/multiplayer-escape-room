@@ -104,9 +104,7 @@ export function LobbyPage({ view }: { view: ConnectionView }) {
             )}
             <div className="crew-footnote">
               <i />
-              {count
-                ? 'Everyone here shares the same map.'
-                : 'The room is open. Invite your first player.'}
+              You will be automatically assigned to one of two teams when the game starts.
             </div>
           </section>
         </div>
