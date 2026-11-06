@@ -20,6 +20,21 @@ const map = JSON.parse(
 const ts = JSON.parse(await readFile(resolve(assetsRoot, 'tilesets/comic-floors.tsj'), 'utf8'));
 map.tilesets = [{ ...ts, firstgid: 1 }];
 const assets = manifest.assets.filter((a) => a.status === 'complete');
+const ground = map.layers.find((layer) => layer.name === 'Ground' && layer.type === 'tilelayer');
+assert.ok(ground, 'The authored map must contain a Ground tile layer');
+const expectedGroundTiles = ground.data.filter((gid) => gid !== 0).length;
+
+function validateReport(report) {
+  assert.deepEqual(report.failures, []);
+  assert.equal(report.loaded, assets.length);
+  assert.equal(report.animated, true);
+  // The two 12x12 rooms sit inside a 26x14 map with an empty border.
+  // Compare against the authored map, not the occupied room dimensions.
+  assert.equal(report.mapColumns, map.width);
+  assert.equal(report.mapRows, map.height);
+  assert.equal(report.groundTiles, expectedGroundTiles);
+}
+
 const html = `<!doctype html><html><meta charset="utf-8"><title>Phaser asset smoke test</title>
 <style>body{margin:0;background:#202529;color:#D4A079}canvas{display:block}pre{font:14px monospace;white-space:pre-wrap}</style><pre id="result">Loading art textures...</pre><script src="/phaser.js"></script>
 <script>
@@ -86,10 +101,7 @@ const server = createServer(async (req, res) => {
       for await (const chunk of req) chunks.push(chunk);
       const report = JSON.parse(Buffer.concat(chunks).toString());
       const { screenshot, ...data } = report;
-      assert.deepEqual(data.failures, []);
-      assert.equal(data.loaded, 153);
-      assert.equal(data.animated, true);
-      assert.equal(data.groundTiles, 288);
+      validateReport(data);
       await writeFile(
         resolve(root, 'docs/art/PHASER_SMOKE.png'),
         Buffer.from(screenshot.split(',')[1], 'base64'),
@@ -141,15 +153,10 @@ if (process.argv.includes('--serve')) {
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(`http://127.0.0.1:${server.address().port}/`);
-    await page.waitForFunction(() => globalThis.artResult, { timeout: 30_000 });
+    await page.waitForFunction(() => globalThis.artResult, undefined, { timeout: 30_000 });
     const report = await page.evaluate(() => globalThis.artResult);
     assert.deepEqual(errors, []);
-    assert.deepEqual(report.failures, []);
-    assert.equal(report.loaded, 153);
-    assert.equal(report.animated, true);
-    assert.equal(report.mapColumns, 24);
-    assert.equal(report.mapRows, 12);
-    assert.equal(report.groundTiles, 288);
+    validateReport(report);
     await page.screenshot({ path: resolve(root, 'docs/art/PHASER_SMOKE.png') });
     await writeFile(
       resolve(root, 'docs/art/browser-validation.json'),
