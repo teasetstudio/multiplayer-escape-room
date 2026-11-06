@@ -200,6 +200,39 @@ test('automatic SDK reconnection works without replacing the client room', async
   assert.equal(getPlayer(host, 'Nick')!.id, id);
 });
 
+test('automatic reconnect across a missed start discards the old cross-team lobby roster', async (t) => {
+  const { code, host } = await session(t);
+  const phones = await Promise.all(['Owl', 'Heron', 'Ibis', 'Tern'].map((n) => player(t, code, n)));
+  const phone = phones[0]!;
+  await until(() => phone.state?.players?.size === 4, 'The phone knows the lobby roster');
+  phone.reconnection.minUptime = 0;
+  phone.reconnection.delay = 800;
+  let resumed = false;
+  phone.onReconnect(() => {
+    resumed = true;
+  });
+  drop(phone);
+  await until(() => getPlayer(host, 'Owl')?.connected === false, 'Seat drops before start');
+  host.send(MESSAGE.start);
+  await until(() => resumed && phone.state.status === 'playing', 'Automatic reconnect after start');
+  const team = getPlayer(host, 'Owl')!.teamId!;
+  const expected = [...host.state.players.values()].filter((p) => p.teamId === team);
+  assert.deepEqual(new Set(phone.state.players.keys()), new Set(expected.map((p) => p.id)));
+  const owl = getPlayer(host, 'Owl')!;
+  const buddyIndex = phones.findIndex((room, i) => i > 0 && room.state.players.has(owl.id));
+  assert.ok(buddyIndex > 0);
+  resumed = false;
+  drop(phone);
+  await until(() => getPlayer(host, 'Owl')?.connected === false, 'Second temporary drop');
+  await phones[buddyIndex]!.leave();
+  await until(() => host.state.players.size === 3, 'Teammate departs during the drop');
+  await until(
+    () => resumed && getPlayer(phone, 'Owl')?.connected === true,
+    'Same SDK room resumes',
+  );
+  assert.deepEqual([...phone.state.players.keys()], [owl.id], 'Departed teammates are removed too');
+});
+
 test('capacity is twenty players plus the host and public room creation is disabled', async (t) => {
   await assert.rejects(sdk.create('escape', { role: 'host' }));
   const { code, host } = await session(t);

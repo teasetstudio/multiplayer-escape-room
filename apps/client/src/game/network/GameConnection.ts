@@ -196,7 +196,7 @@ export class GameConnection {
       }
     };
     room.onStateChange(sync);
-    room.onMessage('identity', (identity: { playerId: string }) => {
+    room.onMessage('identity', (identity: { playerId?: string }) => {
       if (room !== this.room) return;
       this.update({ playerId: identity.playerId });
       persist();
