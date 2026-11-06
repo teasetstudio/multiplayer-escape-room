@@ -1,0 +1,714 @@
+{
+  "explorer-blue": {
+    "texture": "explorer-blue",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "explorer-orange": {
+    "texture": "explorer-orange",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "scout-blue": {
+    "texture": "scout-blue",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "scout-orange": {
+    "texture": "scout-orange",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "traveler-blue": {
+    "texture": "traveler-blue",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "traveler-orange": {
+    "texture": "traveler-orange",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "ranger-blue": {
+    "texture": "ranger-blue",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  },
+  "ranger-orange": {
+    "texture": "ranger-orange",
+    "frameWidth": 96,
+    "frameHeight": 128,
+    "anchorPixels": [48, 120],
+    "displayScale": 0.5,
+    "animations": {
+      "idle-s": {
+        "frames": [0],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-s": {
+        "frames": [1, 2, 3, 4],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-se": {
+        "frames": [5],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-se": {
+        "frames": [6, 7, 8, 9],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-e": {
+        "frames": [10],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-e": {
+        "frames": [11, 12, 13, 14],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-ne": {
+        "frames": [15],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-ne": {
+        "frames": [16, 17, 18, 19],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-n": {
+        "frames": [20],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-n": {
+        "frames": [21, 22, 23, 24],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-nw": {
+        "frames": [25],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-nw": {
+        "frames": [26, 27, 28, 29],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-w": {
+        "frames": [30],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-w": {
+        "frames": [31, 32, 33, 34],
+        "frameRate": 7,
+        "repeat": -1
+      },
+      "idle-sw": {
+        "frames": [35],
+        "frameRate": 1,
+        "repeat": -1
+      },
+      "walk-sw": {
+        "frames": [36, 37, 38, 39],
+        "frameRate": 7,
+        "repeat": -1
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+[
+  {
+    "id": "floor",
+    "prompt": "Use case: stylized-concept. Production material source for a 64x32 diamond stone floor tile in an original hand-inked cinematic adventure comic game. Generate a square 1024x1024 TOP-DOWN ORTHOGRAPHIC flat stone pavement texture, perfectly filling the whole canvas edge to edge, no perspective or bevel, no outer border, no objects. Large irregular fitted slate stone slabs, bold charcoal ink seams, muted dusty blue gray #71818A with deep #46525E shadows and small parchment #D4A079 warm upper-left edges, minimal weathering and dry-brush grain, deliberately shaped cel shadows. Quiet low contrast readable when shrunk to 64 pixels. Uniform stone at all four edges suitable for seamless texture processing. No text, no letters, no symbols, no grids, no frames, no photorealism, no 3D render, no gradients or plastic.",
+    "source": "docs/art/sources/floor.png"
+  },
+  {
+    "id": "wall",
+    "prompt": "Use case: stylized-concept. Single production material artwork: a square seamless ancient fortress wall FACE texture, straight-on orthographic 1024x1024 canvas, cropped edge-to-edge, no background, no perspective. Six irregular courses of large rectangular weathered ashlar blocks. Original hand-inked cinematic adventure comic artwork, charcoal bold hand ink seams, subtle dry-brush print texture, deliberately shaped cel shaded shadows, dusty slate-blue #71818A #46525E, tiny warm parchment upper-left bevels, dark charcoal joints #202529. Quiet low contrast except ink seams. Matching an adventure graphic novel ancient expedition dungeon. No text, no moss, no symbols, no objects, no outer frame, no photorealism, no glossy render, no exaggerated cracks. This will be affine-projected onto correctly aligned 2:1 isometric modular walls.",
+    "source": "docs/art/sources/wall.png"
+  },
+  {
+    "id": "wood-door",
+    "prompt": "Use case: stylized-concept. One isolated heavy wooden dungeon door LEAF only, straight-on orthographic front elevation, full rectangular silhouette (not an arch), 2:3 width-to-height. Large weathered oak planks, three wrought charcoal iron cross-straps with chunky rivets, small brass ring pull. Original hand-inked cinematic adventure comic, bold expressive black outlines, dry-brush print grain, layered crisp cel shadows. Leather-brown #8E6650, warm parchment upper-left highlights #D4A079, cool charcoal slate-blue shadows #202529 #46525E. Grounded ancient expedition fortress. Shape extremely readable at a final 36x40 pixels. Transparent background outside door, no wall, no arch or frame, no floor, no drop shadow, no lock hanging on door (separate indicator later), no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. Keep perfectly rectangular material ready to project onto the existing isometric gate footprint.",
+    "source": "docs/art/sources/wood-door.png"
+  },
+  {
+    "id": "explorer",
+    "prompt": "Use case: stylized-concept. Production character sprite: ONE young teenage explorer, short tousled dark hair, light olive skin, short slate jacket with a LARGE saturated blue scarf #4399DB and blue shoulder cloth, cream shirt, weathered brown backpack, belt pouch, charcoal trousers, hiking boots. Original hand-inked cinematic adventure comic, bold charcoal black irregular outline, crisp cel shadows, restrained print grain, warm upper-left ochre light, cool slate shadows. Grounded six-head-tall proportions, expressive curious face. Isometric game orthographic camera at 30 degrees down, full body facing screen DOWN-RIGHT (southeast), three-quarter front view. Neutral standing pose, arms naturally away from body, feet apart but both touching same ground plane. SINGLE isolated sprite with generous transparent margin all sides, entire boots visible. NO floor, no cast shadow, no background, no text, no labels, no layout, no second view, no chibi, no glossy 3D, no photorealism. Designed to remain readable at 48 projected pixels tall. Adventure reference ink style with simplified detail.",
+    "source": "docs/art/sources/explorer.png"
+  },
+  {
+    "id": "chest",
+    "prompt": "Use case: stylized-concept. SINGLE isolated wooden treasure chest, closed lid with slightly rounded lid, chunky iron bindings, brass latch, warm weathered leather-brown oak #8E6650 with parchment highlights #D4A079, charcoal iron #202529. Correct 2:1 isometric game camera orthographic 30 degrees elevation, both ground edge slopes exactly \u00b10.5, front facing down-right, broad readable silhouette. Original hand-inked cinematic adventure comic, expressive bold black contours, subtle dry-brush vintage print grain, large cel shadows, warm screen-upper-left directional light, cool slate-blue right-face shadows. Simplified details for 34 projected pixels width. Complete object centered on transparent background with generous margin. No ground plane, no floor tile, no cast shadow, no coins, no scene, no text, no labels, no photorealism, no 3D render, no chibi, no frame.",
+    "source": "docs/art/sources/chest.png"
+  },
+  {
+    "id": "panel",
+    "prompt": "Use case: stylized-concept. ONE isolated ancient stone puzzle clue PANEL. Straight-on orthographic front face rectangular stone slab 3:2 landscape width/height, beveled weathered slate stone #71818A #46525E with heavy hand-inked charcoal outline, two small bronze corners #8E6650. Large BLANK recessed parchment-gray center, completely empty so geometric symbols can be overlaid later by game code. Small circular brass status socket centered at bottom edge, dark inactive. Original cinematic adventure comic artwork, confident irregular ink, subtle dry-brush print grain, deliberately shaped cel shadows, warm upper-left light and cool lower-right shadow, restrained texture. Transparent background all around. No writing, no runes, no numbers, no symbols in the blank display, no labels, no watermark, no floor, no stand, no scenery, no plastic or glossy 3D. Extremely clear when shown 40 pixels wide.",
+    "source": "docs/art/sources/panel.png"
+  },
+  {
+    "id": "explorer-sheet",
+    "prompt": "Use case: stylized-concept. Production animation SPRITESHEET of the SAME explorer as reference (reference is identity/style only). Transparent background. EXACTLY 5 columns by 5 rows, equal rectangular cells, no lines or labels. Full body within each cell with clear 15% padding. Stable six-head grounded proportions, same dark messy hair, BLUE scarf, short slate jacket, brown backpack and boots. Original hand-inked cinematic adventure comic, strong charcoal ink, subtle dry-brush texture, cel shading, warm light upper-left, cool slate shadow. Isometric camera 30-degree-down. Row1 faces SCREEN SOUTH (front). Row2 faces SCREEN SOUTHEAST (3/4 front right). Row3 faces SCREEN EAST (profile right). Row4 faces SCREEN NORTHEAST (3/4 back right). Row5 faces SCREEN NORTH (back). EACH ROW: column1 neutral idle standing; column2 walk left foot forward right back; column3 passing pose left leg below torso right knee bent; column4 walk right foot forward left back; column5 passing pose right leg below torso left knee bent. Authentic walking leg changes not copies. Arms counter-swing subtly, scarf/backpack/hair must NOT change shape or position on costume. All heads same size, boots baseline consistent per cell, fixed camera, no body cropping. No ground, no shadows, no text, no numbers, no frame, no chibi, no glossy 3D. Prioritize animation consistency and clean isolated silhouettes. 2048x2048 sheet intended, FIVE columns and FIVE rows.",
+    "source": "docs/art/sources/explorer-sheet.png"
+  },
+  {
+    "id": "scout-sheet",
+    "prompt": "Use case: stylized-concept. Production animation sprite sheet matching the reference sheet's 5x5 layout, INK style, camera and scale, but a NEW distinct playable teenage adventurer: young woman with auburn long SINGLE BRAID, olive-green rolled-sleeve expedition shirt, wide BLUE neck scarf and blue shoulder patches, brown leather belt and compact satchel across back, fitted dark slate trousers, sturdy boots. Grounded six-head proportions, kind attentive expression, no hat, no weapons. Original hand-inked cinematic adventure comic, bold charcoal contours, crisp cel shadows, subtle print grain, warm upper-left light. EXACTLY FIVE columns and FIVE rows on clean transparent background. Row1 front/screen south; row2 3/4 front/southeast; row3 right profile/east; row4 3/4 back/northeast; row5 full back/north. In EVERY row column1=idle both feet grounded; col2=LEFT foot forward RIGHT foot back walk contact; col3=RIGHT knee passing forward while LEFT foot grounded; col4=RIGHT foot forward LEFT foot back opposite contact, visibly OPPOSITE to col2; col5=LEFT knee passing forward RIGHT foot grounded, opposite col3. Same braid, scarf and satchel in every frame. Constant head height, full body isolated with 12% padding within all 25 equal cells. NO cell borders, no text, no numbers, no floor, no shadows, no props, no scene, no chibi, no 3D render. The reference defines sheet layout/style only, create this different character. 2048 square.",
+    "source": "docs/art/sources/scout-sheet.png"
+  },
+  {
+    "id": "traveler-sheet",
+    "prompt": "Use case: stylized-concept. Production playable character animation SPRITESHEET, exactly FIVE columns and FIVE rows on transparency, matching reference sheet layout/camera/ink. NEW distinct design: tall slender teenage traveler, dark brown skin, close cropped black curls, long weathered charcoal-slate coat to knees with LARGE BLUE lapels and blue broad scarf, cream undershirt, leather messenger strap and small brown rolled pack, dark boots. No weapons, no hat. Grounded six-head tall proportions, thoughtful expression. Original cinematic adventure comic, confident bold ink outlines, subtle dry-brush grain, crisp cel shadows, upper-left warm ochre light, slate-blue cool right shadows. Five equal rows: FRONT/SOUTH, FRONT-RIGHT/SOUTHEAST, RIGHT PROFILE/EAST, BACK-RIGHT/NORTHEAST, FULL BACK/NORTH. Each row five equal cells: idle, left-forward contact walk, right knee passing, right-forward contact walk (opposite leg to cell2), left knee passing (opposite leg to cell3). Real counter-swinging arms, coat tails separate around changing leg poses; keep anatomy, hair, straps, scarf, coat equipment and size consistent. ALL 25 whole-body isolated figures fit inside equal cells with margin, shared feet baseline and head scale. Transparent gaps. No text, no labels, no grid lines, no cast shadows, no floor, no scene, no chibi, no photorealism, no glossy 3D. Reference is layout and style, NOT same character; render this taller long-coat silhouette. 2048 square.",
+    "source": "docs/art/sources/traveler-sheet.png"
+  },
+  {
+    "id": "ranger-sheet",
+    "prompt": "Use case: stylized-concept. Production animation sprite sheet. Exactly FIVE columns FIVE rows, 25 full-body isolated figures on transparent background, generous 20 percent margins INSIDE EVERY cell, especially bottom row feet: do NOT touch canvas edges. Same layout and ink art style/camera as reference. NEW different teen adventurer: practical outdoors girl with light tan skin, short straight BLACK BOB haircut, cream utility shirt, BLUE sleeveless expedition vest and large blue neckerchief, ochre knee-length cargo shorts over dark leggings, broad hiking boots, small tan square rucksack, fingerless brown gloves. Confident curious but friendly expression, grounded six-head proportions, no weapons, no hats. Bold charcoal hand ink, warm upper-left cel light, cool slate shadow, subtle dry-brush print grain, no shiny 3D. Rows face screen S/front, SE/three-quarter front right, E/right profile, NE/three-quarter back right, N/full back. Five columns EACH row: idle, walk left foot forward contact, walk right knee forward passing, walk right foot forward opposite contact, walk left knee forward passing. Keep hair, vest, pack and clothes consistent. Constant figure scale and head sizes with fixed foot baseline per row. Distinct contact and passing silhouettes, arms counter-swing. Complete boots and hair inside each cell, no cropping. No text, no numbering, no labels, no dividing lines, no shadows, no ground, no background scene, no chibi. 2048x2048.",
+    "source": "docs/art/sources/ranger-sheet.png"
+  },
+  {
+    "id": "metal-door",
+    "prompt": "Original hand-inked cinematic adventure comic artwork. Confident charcoal irregular contours, subtle dry-brush vintage print grain, deliberately shaped cel shadows, upper-left warm ochre light, cool slate-blue lower-right shadows. Highly readable at small scale. No text, no numbers, no labels, no watermark, no photorealism, no glossy 3D, no plastic, no chibi. SINGLE isolated reinforced iron fortress door LEAF only. Straight-on orthographic front elevation, tall RECTANGLE 2:3 width/height, no frame, no wall. Charcoal slate metal hammered panels, heavy rivets, two iron cross braces, subtle brass handle, cool #46525E with tiny warm #D4A079 edges. No lock or status symbol. Clean transparent background, complete rectangular silhouette.",
+    "source": "docs/art/sources/metal-door.png"
+  },
+  {
+    "id": "stone-door",
+    "prompt": "Original hand-inked cinematic adventure comic artwork. Confident charcoal irregular contours, subtle dry-brush vintage print grain, deliberately shaped cel shadows, upper-left warm ochre light, cool slate-blue lower-right shadows. Highly readable at small scale. No text, no numbers, no labels, no watermark, no photorealism, no glossy 3D, no plastic, no chibi. SINGLE isolated ancient stone door LEAF only, straight-on orthographic elevation tall rectangle 2:3. Large weathered blue-gray stone #71818A slab with simple stepped recessed diamond carving, heavy bevel, small bronze central ring. Quiet ancient fortress feeling. No writing, no runes, no wall or frame, no lock. Complete rectangular silhouette on transparent background.",
+    "source": "docs/art/sources/stone-door.png"
+  },
+  {
+    "id": "dirt-material",
+    "prompt": "Original hand-inked cinematic adventure comic artwork. Confident charcoal irregular contours, subtle dry-brush vintage print grain, deliberately shaped cel shadows, upper-left warm ochre light, cool slate-blue lower-right shadows. Highly readable at small scale. No text, no numbers, no labels, no watermark, no photorealism, no glossy 3D, no plastic, no chibi. Square TOP-DOWN ORTHOGRAPHIC material texture for a stone floor. Fill whole canvas edge to edge, no border. Large irregular fitted slate blue-gray slabs almost obscured by quiet dusty weathered ochre dirt in seams, low-contrast desaturated brown #8E6650 and cool #46525E stone. Simple large shapes not tiny noise. No objects, no perspective, no bevel or shadows outside. Seamless source material.",
+    "source": "docs/art/sources/dirt-material.png"
+  },
+  {
+    "id": "moss-material",
+    "prompt": "Original hand-inked cinematic adventure comic artwork. Confident charcoal irregular contours, subtle dry-brush vintage print grain, deliberately shaped cel shadows, upper-left warm ochre light, cool slate-blue lower-right shadows. Highly readable at small scale. No text, no numbers, no labels, no watermark, no photorealism, no glossy 3D, no plastic, no chibi. Square TOP-DOWN ORTHOGRAPHIC material texture for stone floor. Fill canvas edge to edge without border. Large slate gray fitted stone slabs with restrained muted olive moss growing in wide dark seams, subtle dark olive organic patches. Quiet low contrast, more stone than greenery. No leaves sticking out, no objects, no perspective, no bevel. Seamless material source.",
+    "source": "docs/art/sources/moss-material.png"
+  },
+  {
+    "id": "barrel",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE upright wooden expedition storage barrel with thick charcoal iron hoops, visible elliptical top lid, weathered oak, no decoration.",
+    "source": "docs/art/sources/barrel.png"
+  },
+  {
+    "id": "sack",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE bulging old burlap sack tied at the neck with a thick rope, ochre cloth folds in large simple shaded shapes.",
+    "source": "docs/art/sources/sack.png"
+  },
+  {
+    "id": "book",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE closed ancient leather-bound book lying flat on the ground, deep worn brown leather cover, chunky brass corner protectors, plain cover with only a simple embossed diamond shape, yellowed thick pages. No writing or runes.",
+    "source": "docs/art/sources/book.png"
+  },
+  {
+    "id": "lantern",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE standing old expedition lantern, bronze frame, chunky rectangular glass chamber, small warm candle flame inside, curved carry handle, warm glass with contained light, no bloom.",
+    "source": "docs/art/sources/lantern.png"
+  },
+  {
+    "id": "candle",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE short thick ivory candle in an old bronze saucer holder with a round finger-loop handle, small steady yellow-orange flame, large wax drips, clear simple silhouette. Flame contained without outer glow.",
+    "source": "docs/art/sources/candle.png"
+  },
+  {
+    "id": "pottery",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE broken old terracotta amphora, lower rounded pot with jagged broken rim and one small handle, two attached large shards at its base, muted ochre-brown ceramic. Deliberate rubble cluster packaged as a single prop.",
+    "source": "docs/art/sources/pottery.png"
+  },
+  {
+    "id": "rock",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE low irregular chunky stone rubble cluster, three connected angular blue-gray rocks with large planes, weathered slate, strong simple silhouette, no ground. Deliberately packaged single rock-cluster prop.",
+    "source": "docs/art/sources/rock.png"
+  },
+  {
+    "id": "rope",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE coil of thick weathered tan rope lying flat in a neat loose loop, one short rope tail, large braided twists simplified for small size. Ellipse on the 2:1 isometric ground plane.",
+    "source": "docs/art/sources/rope.png"
+  },
+  {
+    "id": "terminal",
+    "prompt": "Use case: stylized-concept. SINGLE isolated original hand-inked cinematic adventure comic game object. Bold charcoal hand-drawn contours, subtle dry-brush vintage print grain, crisp cel shadows, warm upper-left ochre directional highlights, slate-blue right shadows, earthy bronze #8E6650 and slate #46525E. Clean complete silhouette with generous margin, transparent background. No text, numbers, labels, runes, answers, watermark, floor, scene, photorealism, glossy 3D, plastic or chibi. Ancient expedition CODE TERMINAL in bronze and weathered metal housing, straight-on front face for later isometric affine projection, landscape rectangular silhouette 4:3. Large blank dark recessed screen in upper half, four EMPTY square keycaps below, tiny dark status socket at lower-right. Screen and buttons completely BLANK. No letters or symbols. Chunky tactile construction readable at 40px.",
+    "source": "docs/art/sources/terminal.png"
+  },
+  {
+    "id": "switch",
+    "prompt": "Use case: stylized-concept. SINGLE isolated original hand-inked cinematic adventure comic game object. Bold charcoal hand-drawn contours, subtle dry-brush vintage print grain, crisp cel shadows, warm upper-left ochre directional highlights, slate-blue right shadows, earthy bronze #8E6650 and slate #46525E. Clean complete silhouette with generous margin, transparent background. No text, numbers, labels, runes, answers, watermark, floor, scene, photorealism, glossy 3D, plastic or chibi. Mechanical SWITCH, wall mounted rectangular weathered brass base plate, with ONE long iron lever ending in a large ochre round knob pointing UP. Straight-on orthographic front view of mounting plate, simple strong mechanical silhouette. Rivets in four corners. No switch labels or writing. Lever clear and separate against slate plate.",
+    "source": "docs/art/sources/switch.png"
+  },
+  {
+    "id": "push-button",
+    "prompt": "Use case: stylized-concept. SINGLE isolated original hand-inked cinematic adventure comic game object. Bold charcoal hand-drawn contours, subtle dry-brush vintage print grain, crisp cel shadows, warm upper-left ochre directional highlights, slate-blue right shadows, earthy bronze #8E6650 and slate #46525E. Clean complete silhouette with generous margin, transparent background. No text, numbers, labels, runes, answers, watermark, floor, scene, photorealism, glossy 3D, plastic or chibi. One big round VERMILION red push BUTTON on a square thick weathered brass mounting plate. Straight-on orthographic front face, slightly raised cylindrical red cap, simple strong silhouette, four chunky corner rivets. Restrained red only on button. No labels.",
+    "source": "docs/art/sources/push-button.png"
+  },
+  {
+    "id": "pressure-plate",
+    "prompt": "Use case: stylized-concept. SINGLE isolated original hand-inked cinematic adventure comic game object. Bold charcoal hand-drawn contours, subtle dry-brush vintage print grain, crisp cel shadows, warm upper-left ochre directional highlights, slate-blue right shadows, earthy bronze #8E6650 and slate #46525E. Clean complete silhouette with generous margin, transparent background. No text, numbers, labels, runes, answers, watermark, floor, scene, photorealism, glossy 3D, plastic or chibi. Ancient mechanical pressure plate, TOP-DOWN orthographic square plate, weathered slate stone base with a thick brass inset border and four corner rivets, central raised dark iron square plunger with a simple carved diamond shape. Square complete source for exact 2:1 ground projection. No perspective and no backdrop.",
+    "source": "docs/art/sources/pressure-plate.png"
+  },
+  {
+    "id": "key",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE ancient gold key lying on the isometric ground plane, big ornate round bow and chunky three-tooth bit, very simple clear silhouette, valuable weathered gold. No symbols or inscriptions.",
+    "source": "docs/art/sources/key.png"
+  },
+  {
+    "id": "medallion",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE mysterious bronze-gold medallion, thick round pendant with a single large recessed four-point compass diamond in center and small top loop, laying on isometric ground plane, no writing or letters.",
+    "source": "docs/art/sources/medallion.png"
+  },
+  {
+    "id": "crystal",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE small upright faceted turquoise BLUE crystal shard with strong angular planes and a tiny stone base, internally lit but with NO outer glow. Controlled luminous blue accent, sharp clean silhouette.",
+    "source": "docs/art/sources/crystal.png"
+  },
+  {
+    "id": "coin",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE rare thick weathered golden coin, lying on the isometric ground plane showing a simple embossed four-point compass star, heavy rim. No letters, numbers or writing.",
+    "source": "docs/art/sources/coin.png"
+  },
+  {
+    "id": "parchment",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE old tightly rolled warm parchment scroll tied with a brown leather cord, lying diagonally on the isometric ground plane, large clear curled paper ends, no seal, no writing, no text.",
+    "source": "docs/art/sources/parchment.png"
+  },
+  {
+    "id": "ui-panel",
+    "prompt": "Use case: stylized-concept. Original hand-inked cinematic adventure comic UI artwork, bold confident charcoal black irregular outline, restrained dry-brush printed paper grain, deliberately shaped cel shadows, upper-left warm light and cool slate-blue shadows. Earthy brown #8E6650, warm parchment #D4A079, charcoal #202529. SINGLE isolated complete asset, clean transparent background with margin. NO text, letters, numbers, labels, watermark, photorealism, glossy 3D, plastic or chibi. Straight-on 2D UI view, no isometric perspective. Empty wide landscape rectangular PARCHMENT dialogue panel, ratio 2:1, subtly torn weathered paper edges, bold irregular ink outline with small leather-bound bronze corner protectors. Broad quiet plain LIGHT cream center with no writing or marks, only subtle paper grain. Corners evenly sized, no rolled scroll ends, no ornaments sticking beyond silhouette. Designed for nine-slice scaling.",
+    "source": "docs/art/sources/ui-panel.png"
+  },
+  {
+    "id": "ui-hand",
+    "prompt": "Use case: stylized-concept. Original hand-inked cinematic adventure comic UI artwork, bold confident charcoal black irregular outline, restrained dry-brush printed paper grain, deliberately shaped cel shadows, upper-left warm light and cool slate-blue shadows. Earthy brown #8E6650, warm parchment #D4A079, charcoal #202529. SINGLE isolated complete asset, clean transparent background with margin. NO text, letters, numbers, labels, watermark, photorealism, glossy 3D, plastic or chibi. Straight-on 2D UI view, no isometric perspective. One clear simplified interaction HAND icon, brown leather fingerless glove with cream fingertips, index finger pointing upward in a tap gesture, bold strong readable silhouette, centered. No surrounding circle, no sparks or effects.",
+    "source": "docs/art/sources/ui-hand.png"
+  },
+  {
+    "id": "ui-inventory",
+    "prompt": "Use case: stylized-concept. Original hand-inked cinematic adventure comic UI artwork, bold confident charcoal black irregular outline, restrained dry-brush printed paper grain, deliberately shaped cel shadows, upper-left warm light and cool slate-blue shadows. Earthy brown #8E6650, warm parchment #D4A079, charcoal #202529. SINGLE isolated complete asset, clean transparent background with margin. NO text, letters, numbers, labels, watermark, photorealism, glossy 3D, plastic or chibi. Straight-on 2D UI view, no isometric perspective. One compact brown expedition BACKPACK icon, two straps, simple front buckle and flap, no dangling objects. Bold readable slightly worn leather silhouette, centered.",
+    "source": "docs/art/sources/ui-inventory.png"
+  },
+  {
+    "id": "ui-lock",
+    "prompt": "Use case: stylized-concept. Original hand-inked cinematic adventure comic UI artwork, bold confident charcoal black irregular outline, restrained dry-brush printed paper grain, deliberately shaped cel shadows, upper-left warm light and cool slate-blue shadows. Earthy brown #8E6650, warm parchment #D4A079, charcoal #202529. SINGLE isolated complete asset, clean transparent background with margin. NO text, letters, numbers, labels, watermark, photorealism, glossy 3D, plastic or chibi. Straight-on 2D UI view, no isometric perspective. One CLOSED brass PADLOCK icon, chunky square body with a black keyhole and thick iron U-shaped closed shackle, extremely clear silhouette, no circular background. Body and shackle distinct, front orthographic view.",
+    "source": "docs/art/sources/ui-lock.png"
+  },
+  {
+    "id": "ui-badge",
+    "prompt": "Use case: stylized-concept. Original hand-inked cinematic adventure comic UI artwork, bold confident charcoal black irregular outline, restrained dry-brush printed paper grain, deliberately shaped cel shadows, upper-left warm light and cool slate-blue shadows. Earthy brown #8E6650, warm parchment #D4A079, charcoal #202529. SINGLE isolated complete asset, clean transparent background with margin. NO text, letters, numbers, labels, watermark, photorealism, glossy 3D, plastic or chibi. Straight-on 2D UI view, no isometric perspective. One blue fabric expedition team shield BADGE, large solid muted saturated BLUE #4399DB center, weathered leather stitched edge with bronze rim, a single small blank raised diamond shape in center, no emblem detail or text. Simple strong shield silhouette. Enough blue area visible to read team identity.",
+    "source": "docs/art/sources/ui-badge.png"
+  },
+  {
+    "id": "crate-painted",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE sturdy wooden shipping CRATE, cubic shape, thick oak planks, broad diagonal brace on the front, reinforced chunky corner timbers. Large simple dark hand-inked edges, broad warm wood planes, REDUCE grain detail so it reads as an illustrated object rather than texture-mapped geometry. No metal lock.",
+    "source": "docs/art/sources/crate-painted.png"
+  },
+  {
+    "id": "table-painted",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE small rectangular expedition WOODEN TABLE, four sturdy legs and a plain thick plank tabletop, no objects on top. Weathered oak but simplified large wood planes, bold black outer contour and underside shadows, not texture-mapped noise. Isometric rectangle 80 by 44 logical footprint, 25 projected pixels high, major tabletop ground slopes \u00b10.5.",
+    "source": "docs/art/sources/table-painted.png"
+  },
+  {
+    "id": "stool-painted",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE simple three-legged wooden STOOL, chunky rounded triangular seat, broad simple wood planes, heavy irregular charcoal ink contour and cool underside shadows, rustic oak. Three clearly separated legs, no objects.",
+    "source": "docs/art/sources/stool-painted.png"
+  },
+  {
+    "id": "bookshelf-painted",
+    "prompt": "Use case: stylized-concept. Single isolated game object, correct orthographic 2:1 isometric camera 30 degrees down, screen ground edge slopes \u00b10.5. Original hand-inked cinematic adventure comic, bold expressive charcoal black contours, controlled dry-brush vintage grain, crisp shaped cel shadows, warm upper-left ochre light and cool slate-blue right-face shadows. Earthy weathered brown #8E6650, slate #46525E #71818A, parchment #D4A079. Strong simple silhouette readable at 30 game pixels, complete object centered with transparent margin. No floor, no cast shadow, no scenery, no text, no labels, no watermark, no glossy 3D, no photorealism, no chibi. ONE standing wooden BOOKSHELF with three broad shelves filled with chunky ancient leather books, book spines in muted slate, ochre and brown, solid wooden back and two tall sides, no empty staircase appearance. No titles or written marks on books. Strong readable rectangular silhouette, bold hand ink outer edges, simplified details. At isometric 2:1 angle, height about one adventurer's body, 64 by 28 logical footprint. Quiet wood texture.",
+    "source": "docs/art/sources/bookshelf-painted.png"
+  }
+]
