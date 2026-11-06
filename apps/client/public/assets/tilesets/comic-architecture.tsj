@@ -1,0 +1,1188 @@
+{
+  "type": "tileset",
+  "version": "1.10",
+  "name": "comic-architecture",
+  "tilewidth": 256,
+  "tileheight": 192,
+  "tilecount": 42,
+  "columns": 0,
+  "objectalignment": "bottom",
+  "tiles": [
+    {
+      "id": 0,
+      "image": "../environment/walls/wall-x-24.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-24"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "image": "../environment/walls/wall-x-32.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-32"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": "../environment/walls/wall-x-38.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-38"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": "../environment/walls/wall-y-24.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-24"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "../environment/walls/wall-y-32.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-32"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "image": "../environment/walls/wall-y-38.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-38"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": "../environment/walls/wall-y-38-8x62p667.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-38-8x62p667"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "image": "../environment/walls/wall-x-32-50x10.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-32-50x10"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "image": "../environment/walls/wall-y-32-10x45.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-32-10x45"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "image": "../environment/walls/wall-y-24-8x62p667.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-24-8x62p667"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "image": "../environment/walls/wall-x-end.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-end"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "image": "../environment/walls/wall-x-damaged.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-damaged"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "image": "../environment/walls/wall-x-decorative.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-x-decorative"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "image": "../environment/walls/wall-door-opening-x.png",
+      "imagewidth": 160,
+      "imageheight": 160,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-door-opening-x"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 80.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "image": "../environment/doors/door-wood-x-closed.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-wood-x-closed"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "image": "../environment/doors/door-wood-x-open.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-wood-x-open"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "image": "../environment/doors/door-metal-x-closed.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-metal-x-closed"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "image": "../environment/doors/door-metal-x-open.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-metal-x-open"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "image": "../environment/doors/door-stone-x-closed.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-stone-x-closed"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "image": "../environment/doors/door-stone-x-open.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-stone-x-open"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "image": "../environment/walls/wall-y-end.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-end"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "image": "../environment/walls/wall-y-damaged.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-damaged"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "image": "../environment/walls/wall-y-decorative.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-y-decorative"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "image": "../environment/walls/wall-door-opening-y.png",
+      "imagewidth": 160,
+      "imageheight": 160,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-door-opening-y"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 80.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "image": "../environment/doors/door-wood-y-closed.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-wood-y-closed"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "image": "../environment/doors/door-wood-y-open.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-wood-y-open"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "image": "../environment/doors/door-metal-y-closed.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-metal-y-closed"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "image": "../environment/doors/door-metal-y-open.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-metal-y-open"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "image": "../environment/doors/door-stone-y-closed.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-stone-y-closed"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "image": "../environment/doors/door-stone-y-open.png",
+      "imagewidth": 256,
+      "imageheight": 192,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "door-stone-y-open"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "image": "../environment/walls/wall-corner-inner.png",
+      "imagewidth": 224,
+      "imageheight": 176,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-corner-inner"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 112.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "image": "../environment/walls/wall-corner-outer.png",
+      "imagewidth": 224,
+      "imageheight": 176,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-corner-outer"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 112.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "image": "../environment/structures/wooden-beam-x.png",
+      "imagewidth": 144,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wooden-beam-x"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 72.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 108.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "image": "../environment/structures/wooden-beam-y.png",
+      "imagewidth": 144,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wooden-beam-y"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 72.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 108.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "image": "../environment/structures/column.png",
+      "imagewidth": 144,
+      "imageheight": 176,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "column"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 72.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 144.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "image": "../environment/structures/column-short.png",
+      "imagewidth": 144,
+      "imageheight": 176,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "column-short"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 72.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 144.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "image": "../environment/structures/broken-column.png",
+      "imagewidth": 144,
+      "imageheight": 176,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "broken-column"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 72.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 144.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "image": "../environment/structures/archway-x.png",
+      "imagewidth": 160,
+      "imageheight": 160,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "archway-x"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 80.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "image": "../environment/structures/archway-y.png",
+      "imagewidth": 160,
+      "imageheight": 160,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "archway-y"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 80.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 128.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "image": "../environment/structures/stone-carving-x.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "stone-carving-x"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "image": "../environment/structures/stone-carving-y.png",
+      "imagewidth": 128,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "stone-carving-y"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 64.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 116.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "image": "../environment/structures/wall-torch.png",
+      "imagewidth": 96,
+      "imageheight": 144,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "wall-torch"
+        },
+        {
+          "name": "anchorX",
+          "type": "float",
+          "value": 48.0
+        },
+        {
+          "name": "anchorY",
+          "type": "float",
+          "value": 136.0
+        },
+        {
+          "name": "displayScale",
+          "type": "float",
+          "value": 0.5
+        }
+      ]
+    }
+  ]
+}

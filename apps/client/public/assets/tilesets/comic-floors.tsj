@@ -1,0 +1,138 @@
+{
+  "type": "tileset",
+  "version": "1.10",
+  "tiledversion": "1.11.2",
+  "name": "comic-floors",
+  "tilewidth": 64,
+  "tileheight": 32,
+  "tilecount": 12,
+  "columns": 4,
+  "margin": 2,
+  "spacing": 4,
+  "image": "comic-floors.png",
+  "imagewidth": 272,
+  "imageheight": 108,
+  "objectalignment": "center",
+  "tiles": [
+    {
+      "id": 0,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-regular"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-cracked"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-worn"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-dirt"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-moss"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-dark"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-engraved"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-damaged"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-transition-dirt-x"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-transition-dirt-y"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-transition-moss-x"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "properties": [
+        {
+          "name": "assetId",
+          "type": "string",
+          "value": "floor-transition-moss-y"
+        }
+      ]
+    }
+  ]
+}

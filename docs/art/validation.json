@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "assetCount": 155,
+  "productionPngCount": 153,
+  "samplePngCount": 2,
+  "counts": {
+    "environment/floors": 12,
+    "environment/walls": 20,
+    "environment/doors": 12,
+    "props": 17,
+    "environment/structures": 10,
+    "characters": 8,
+    "artifacts": 10,
+    "ui": 16,
+    "puzzles": 47,
+    "tilesets": 1
+  },
+  "characterFrames": 320,
+  "failures": [],
+  "warnings": [],
+  "automatedChecks": [
+    "RGBA / dimensions / alpha / borders / anchors",
+    "40 distinct aligned frames per sheet and valid atlases",
+    "8-direction idle/walk metadata",
+    "64x32 diamond coverage, no seam holes or overlaps",
+    "Tiled paths / margins / spacing",
+    "Editor preview preserves all authored map layers",
+    "All public PNGs declared in manifest"
+  ],
+  "manualReview": [
+    "Reference illustration inspected",
+    "Six sample exports composited before production",
+    "Category contact sheets inspected",
+    "Actual-map two-room composite and 844x390 phone crop inspected",
+    "Animation strips and walk GIF inspected"
+  ],
+  "limitations": [
+    "Five native views plus three mirrored views; mirrored highlights and asymmetric straps also mirror",
+    "Four-pose walk loops are economical comic animation; no run, emote or interaction animations",
+    "No runtime loader integration or physical-phone verification in this art-only iteration",
+    "No navigable stairs: current map is a single collision plane without height traversal",
+    "Tiled architecture collection is editor-only at 2x; resize tile objects to 0.5 and apply explicit anchor offsets during later integration"
+  ]
+}
