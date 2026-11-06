@@ -5,6 +5,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import { Client } from '@colyseus/sdk';
 import { chromium } from 'playwright-core';
 import { createGameServer } from '../../dist/app.js';
+import { sessions } from '../../dist/rooms/GameRoom.js';
 
 const results = new URL('../../../../test-results/', import.meta.url);
 const landscape = { width: 844, height: 390 };
@@ -125,6 +126,16 @@ test(
     await phone.reload();
     await phone.locator('canvas').waitFor();
     assert.equal(await phone.locator('.team-badge').innerText(), badge);
+    const previousToken = await host.evaluate(
+      () => JSON.parse(sessionStorage.getItem('common-ground-session-v1')).token,
+    );
+    const serverHost = sessions.get(code).clients.find((client) => client.auth?.role === 'host');
+    assert.ok(serverHost);
+    serverHost.leave(1001);
+    await host.waitForFunction((token) => {
+      const session = JSON.parse(sessionStorage.getItem('common-ground-session-v1'));
+      return session?.token && session.token !== token;
+    }, previousToken);
     await host.reload();
     await checkOverview();
     await host.bringToFront();

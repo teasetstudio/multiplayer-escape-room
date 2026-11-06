@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto';
-import { StateView } from '@colyseus/schema';
+import { MapSchema, StateView } from '@colyseus/schema';
 import { Room, ServerError, type Client } from '@colyseus/core';
 import {
   DEFAULT_MAP,
@@ -90,7 +90,7 @@ export class GameRoom extends Room<{ state: GameState }> {
     this.clock.setInterval(() => this.cleanupInactive(), 1000);
     this.onMessage('identify', (client) => {
       const playerId = this.playerIds.get(client.sessionId);
-      if (playerId) client.send('identity', { playerId });
+      client.send('identity', { playerId });
     });
     this.onMessage(MESSAGE.input, (client, raw: unknown) => {
       if (this.state.status !== 'playing' || !this.inputLimiter.allow(client.sessionId)) return;
@@ -125,7 +125,7 @@ export class GameRoom extends Room<{ state: GameState }> {
       }
       // One synchronous transition. Narrow every view before the next network patch.
       this.state.status = 'playing';
-      for (const viewer of this.clients) this.refreshView(viewer);
+      this.replacePlayerCollection();
       this.lastActivity = Date.now();
       void this.lock();
     });
@@ -213,6 +213,7 @@ export class GameRoom extends Room<{ state: GameState }> {
     if (id) {
       this.state.players.delete(id);
       this.inputs.delete(id);
+      this.replacePlayerCollection();
     }
     this.playerIds.delete(client.sessionId);
     this.inputLimiter.delete(client.sessionId);
@@ -221,6 +222,18 @@ export class GameRoom extends Room<{ state: GameState }> {
 
   override onDispose() {
     sessions.delete(this.roomId);
+  }
+
+  private replacePlayerCollection() {
+    // The SDK merges a reconnect snapshot into its retained schema. A new collection reference
+    // makes a missed start or departure replace the old roster, including revoked lobby seats.
+    const players = new MapSchema<Player>();
+    for (const [id, player] of this.state.players) players.set(id, player);
+    this.state.players = players;
+    for (const client of this.clients) {
+      client.view = new StateView();
+      this.refreshView(client);
+    }
   }
 
   private refreshView(client: Client) {
