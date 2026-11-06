@@ -28,20 +28,27 @@ test('movement uses server time, clamps all edges, and expires stale input', () 
   const player = new Player();
   player.x = DEFAULT_MAP.width - WORLD.playerRadius - 1;
   player.y = WORLD.playerRadius + 1;
-  movePlayer(player, { x: 1, y: -1, seq: 1, receivedAt: 0 }, 1 / 30, 0, world);
+  movePlayer(player, { x: 1, y: -1, seq: 1, receivedAt: 0 }, 1 / 30, 0, world, world.bounds);
   assert.equal(player.x, DEFAULT_MAP.width - WORLD.playerRadius);
   assert.equal(player.y, WORLD.playerRadius);
   player.x = WORLD.playerRadius + 1;
   player.y = DEFAULT_MAP.height - WORLD.playerRadius - 1;
-  movePlayer(player, { x: -1, y: 1, seq: 2, receivedAt: 0 }, 1 / 30, 0, world);
+  movePlayer(player, { x: -1, y: 1, seq: 2, receivedAt: 0 }, 1 / 30, 0, world, world.bounds);
   assert.equal(player.x, WORLD.playerRadius);
   assert.equal(player.y, DEFAULT_MAP.height - WORLD.playerRadius);
   player.x = 200;
   player.y = 200;
-  movePlayer(player, { x: 1, y: 0, seq: 2, receivedAt: 0 }, 1, INPUT_TIMEOUT_MS + 1, world);
+  movePlayer(
+    player,
+    { x: 1, y: 0, seq: 2, receivedAt: 0 },
+    1,
+    INPUT_TIMEOUT_MS + 1,
+    world,
+    world.bounds,
+  );
   assert.equal(player.x, 200);
   player.connected = false;
-  movePlayer(player, { x: 1, y: 0, seq: 3, receivedAt: 0 }, 1, 0, world);
+  movePlayer(player, { x: 1, y: 0, seq: 3, receivedAt: 0 }, 1, 0, world, world.bounds);
   assert.equal(player.x, 200);
 });
 

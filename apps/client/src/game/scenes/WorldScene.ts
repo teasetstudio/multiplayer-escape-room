@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { DEFAULT_MAP, type Point } from '@escape/shared';
+import { DEFAULT_MAP, type Point, type RoomId } from '@escape/shared';
 import { PlayerEntity } from '../entities/PlayerEntity';
 import { IsometricMap } from '../world/IsometricMap';
 import type { GameConnection } from '../network/GameConnection';
@@ -10,12 +10,12 @@ export class WorldScene extends Phaser.Scene {
   private map?: IsometricMap;
   constructor(
     private readonly network: GameConnection,
-    private readonly overview: boolean,
+    private readonly scope: 'overview' | RoomId,
   ) {
     super('world');
   }
   create() {
-    this.map = new IsometricMap(this, DEFAULT_MAP);
+    this.map = new IsometricMap(this, DEFAULT_MAP, this.scope);
     this.resize();
     this.scale.on(Phaser.Scale.Events.RESIZE, this.resize, this);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
@@ -30,7 +30,7 @@ export class WorldScene extends Phaser.Scene {
     const camera = this.cameras.main;
     const { width, height } = this.scale;
     const b = this.map.bounds;
-    if (this.overview) {
+    if (this.scope === 'overview') {
       camera.removeBounds();
       camera.setZoom(Math.max(0.1, Math.min((width - 64) / b.width, (height - 96) / b.height)));
       camera.centerOn(b.x + b.width / 2, b.y + b.height / 2 - 12);
@@ -58,10 +58,10 @@ export class WorldScene extends Phaser.Scene {
     for (const player of players) {
       let entity = this.entities.get(player.id);
       if (!entity) {
-        entity = new PlayerEntity(this, player);
+        entity = new PlayerEntity(this, player, this.scope === 'overview');
         this.entities.set(player.id, entity);
       }
-      const local = !this.overview && player.id === localId;
+      const local = this.scope !== 'overview' && player.id === localId;
       entity.sync(player, local, delta, this.cameras.main.zoom);
       if (local) {
         localPosition = entity;

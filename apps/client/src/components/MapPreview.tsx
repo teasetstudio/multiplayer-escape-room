@@ -16,7 +16,7 @@ export function MapPreview() {
         <span>
           <i />A space for everyone
         </span>
-        <span>02 / STONE HALL</span>
+        <span>ROOM A / TWIN VAULTS</span>
       </div>
       <svg
         viewBox="0 0 620 450"

@@ -8,7 +8,8 @@
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test --test-concurrency=1 test/*.test.ts",
-    "start": "node --env-file-if-exists=../../.env dist/index.js"
+    "start": "node --env-file-if-exists=../../.env dist/index.js",
+    "test:browser": "node --test test/browser/team-views.mjs"
   },
   "dependencies": {
     "@colyseus/core": "~0.17.56",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@colyseus/sdk": "~0.17.0",
     "@types/express": "^5.0.3",
+    "playwright-core": "1.62.1",
     "tsx": "^4.20.6"
   }
 }

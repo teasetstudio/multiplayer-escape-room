@@ -30,16 +30,16 @@ export function HomePage() {
       <header className="site-header">
         <Brand />
         <span className="edition">
-          MULTIPLAYER LAB <span>02</span>
+          MULTIPLAYER LAB <span>03</span>
         </span>
       </header>
       <main className="home-main">
         <section className="home-copy">
           <p className="eyebrow">
-            <span /> SAME ROOM. SHARED WORLD.
+            <span /> TWO TEAMS. SHARED WORLD.
           </p>
           <h1>
-            One room.
+            Two rooms.
             <br />
             Everyone <em>in.</em>
           </h1>

@@ -1,7 +1,8 @@
+import type { RoomId } from '@escape/shared';
 import { useEffect, useRef, useState } from 'react';
 import { connection } from '../game/network/GameConnection';
 
-export function PhaserCanvas({ overview }: { overview: boolean }) {
+export function PhaserCanvas({ scope }: { scope: 'overview' | RoomId }) {
   const container = useRef<HTMLDivElement>(null);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -11,7 +12,7 @@ export function PhaserCanvas({ overview }: { overview: boolean }) {
     void import('../game/createGame')
       .then(({ createGame }) => {
         if (cancelled || !container.current) return;
-        game = createGame(container.current, connection, overview);
+        game = createGame(container.current, connection, scope);
         observer = new ResizeObserver(() => {
           if (container.current && game && !cancelled)
             game.scale.resize(container.current.clientWidth, container.current.clientHeight);
@@ -26,13 +27,15 @@ export function PhaserCanvas({ overview }: { overview: boolean }) {
       observer?.disconnect();
       game?.destroy(true);
     };
-  }, [overview]);
+  }, [scope]);
   return (
     <div
       ref={container}
       className="phaser-container"
       aria-label={
-        overview ? 'Live overview of all players' : 'Game world. Use the joystick to move.'
+        scope === 'overview'
+          ? 'Live overview of all players'
+          : 'Game world. Use the joystick to move.'
       }
     >
       {error && (

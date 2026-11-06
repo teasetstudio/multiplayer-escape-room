@@ -1,5 +1,6 @@
 import {
   ISOMETRIC,
+  containsRect,
   WORLD,
   type CollisionShape,
   type DoorState,
@@ -24,10 +25,12 @@ function footprint(point: Point, radius: number): Rectangle {
 /** Server-only simulation. A static uniform grid keeps queries local to each player's feet. */
 export class CollisionWorld {
   private readonly cells = new Map<string, CollisionShape[]>();
+  readonly bounds: Rectangle;
   constructor(
     readonly map: LogicalMap,
     private readonly doorState: (id: string) => DoorState = () => 'closed',
   ) {
+    this.bounds = { x: 0, y: 0, width: map.width, height: map.height };
     for (const shape of map.collisions) {
       for (const key of this.keys(shape)) {
         const bucket = this.cells.get(key) ?? [];
@@ -49,7 +52,11 @@ export class CollisionWorld {
         if (!shape.doorId || this.doorState(shape.doorId) === 'closed') found.add(shape);
     return found;
   }
-  isValid(point: Point, radius: number = WORLD.playerRadius): boolean {
+  isValid(
+    point: Point,
+    bounds: Rectangle = this.bounds,
+    radius: number = WORLD.playerRadius,
+  ): boolean {
     if (
       !Number.isFinite(point.x) ||
       !Number.isFinite(point.y) ||
@@ -58,33 +65,43 @@ export class CollisionWorld {
     )
       return false;
     const box = footprint(point, radius);
-    if (
-      box.x < 0 ||
-      box.y < 0 ||
-      box.x + box.width > this.map.width ||
-      box.y + box.height > this.map.height
-    )
-      return false;
+    if (!containsRect(bounds, box)) return false;
     return ![...this.nearby(box)].some((shape) => overlaps(box, shape));
   }
-  move(position: Point, delta: Point, radius: number = WORLD.playerRadius): Point {
-    if (!Number.isFinite(delta.x) || !Number.isFinite(delta.y) || !this.isValid(position, radius))
-      return { ...position };
-    const next = { ...position };
+  move(
+    position: Point,
+    delta: Point,
+    bounds: Rectangle = this.bounds,
+    radius: number = WORLD.playerRadius,
+  ): Point {
+    if (
+      !Number.isFinite(delta.x) ||
+      !Number.isFinite(delta.y) ||
+      !this.isValid(position, bounds, radius)
+    )
+      return { x: position.x, y: position.y };
+    const next = { x: position.x, y: position.y };
     // Each step is smaller than the footprint, so even a one-unit wall cannot be skipped.
     const steps = Math.max(1, Math.ceil(Math.max(Math.abs(delta.x), Math.abs(delta.y)) / radius));
     const dx = delta.x / steps;
     const dy = delta.y / steps;
     for (let step = 0; step < steps; step++) {
-      this.moveAxis(next, dx, 'x', radius);
-      this.moveAxis(next, dy, 'y', radius);
+      this.moveAxis(next, dx, 'x', radius, bounds);
+      this.moveAxis(next, dy, 'y', radius, bounds);
     }
     return next;
   }
-  private moveAxis(point: Point, distance: number, axis: 'x' | 'y', radius: number) {
+  private moveAxis(
+    point: Point,
+    distance: number,
+    axis: 'x' | 'y',
+    radius: number,
+    bounds: Rectangle,
+  ) {
     if (!distance) return;
-    const limit = axis === 'x' ? this.map.width : this.map.height;
-    let target = Math.max(radius, Math.min(limit - radius, point[axis] + distance));
+    const start = bounds[axis];
+    const end = start + (axis === 'x' ? bounds.width : bounds.height);
+    let target = Math.max(start + radius, Math.min(end - radius, point[axis] + distance));
     const candidate = { ...point, [axis]: target };
     const box = footprint(candidate, radius);
     for (const shape of this.nearby(box)) {
@@ -99,11 +116,15 @@ export class CollisionWorld {
   }
 }
 
-export function selectSpawnPoints(world: CollisionWorld, count: number): Point[] {
+export function selectSpawnPoints(
+  world: CollisionWorld,
+  count: number,
+  bounds = world.bounds,
+): Point[] {
   const result: Point[] = [];
   for (const point of world.map.spawns) {
     if (
-      world.isValid(point) &&
+      world.isValid(point, bounds) &&
       result.every(
         (other) =>
           Math.max(Math.abs(point.x - other.x), Math.abs(point.y - other.y)) >

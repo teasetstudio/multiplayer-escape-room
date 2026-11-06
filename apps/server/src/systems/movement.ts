@@ -1,4 +1,10 @@
-import { INPUT_TIMEOUT_MS, WORLD, normalizeDirection, type MovementInput } from '@escape/shared';
+import {
+  INPUT_TIMEOUT_MS,
+  WORLD,
+  normalizeDirection,
+  type Rectangle,
+  type MovementInput,
+} from '@escape/shared';
 import type { Player } from '../state/GameState.js';
 import type { CollisionWorld } from './CollisionWorld.js';
 
@@ -30,6 +36,7 @@ export function movePlayer(
   dt: number,
   now: number,
   world: CollisionWorld,
+  bounds: Rectangle,
 ) {
   if (
     !player.connected ||
@@ -40,5 +47,7 @@ export function movePlayer(
   )
     return;
   const distance = WORLD.speed * dt;
-  Object.assign(player, world.move(player, { x: input.x * distance, y: input.y * distance }));
+  const next = world.move(player, { x: input.x * distance, y: input.y * distance }, bounds);
+  player.x = next.x;
+  player.y = next.y;
 }

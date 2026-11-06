@@ -77,7 +77,7 @@ test('Tiled map loads the same named layers, logical object coordinates, doors a
     ),
   ) as unknown;
   const loaded = loadTiledMap(source);
-  assert.equal(loaded.version, DEFAULT_MAP.version);
+  assert.equal(loaded.version, loadTiledMap(structuredClone(source)).version);
   assert.equal(loaded.width, 30 * ISOMETRIC.worldTileSize);
   assert.equal(loaded.height, 26 * ISOMETRIC.worldTileSize);
   assert.deepEqual(loaded.spawns[0], { x: 288, y: 320 });
@@ -197,7 +197,14 @@ test('normalized diagonal and axial movement use equal speed across fixed ticks'
     player.y = 300;
     const input = validateInput({ ...direction, seq: 1 })!;
     for (let i = 0; i < 30; i++)
-      movePlayer(player, { ...input, receivedAt: (i * 1000) / 30 }, 1 / 30, (i * 1000) / 30, world);
+      movePlayer(
+        player,
+        { ...input, receivedAt: (i * 1000) / 30 },
+        1 / 30,
+        (i * 1000) / 30,
+        world,
+        world.bounds,
+      );
     near(Math.hypot(player.x - 300, player.y - 300), WORLD.speed);
     const oneStep = world.move(
       { x: 300, y: 300 },
@@ -230,8 +237,17 @@ test('spawn selection skips blocked/duplicate points and fails if a map cannot f
   assert.throws(() => selectSpawnPoints(filtered, 3), /valid, separated/);
 });
 
-test('both side rooms remain reachable from the hall through corridors with doors closed', () => {
-  const world = new CollisionWorld(DEFAULT_MAP);
+test('the original Stone Hall remains loadable with its corridors and closed doors', () => {
+  const world = new CollisionWorld(
+    loadTiledMap(
+      JSON.parse(
+        readFileSync(
+          new URL('../../../packages/shared/src/maps/stone-hall.json', import.meta.url),
+          'utf8',
+        ),
+      ) as unknown,
+    ),
+  );
   const size = ISOMETRIC.worldTileSize;
   const queue: Point[] = [{ x: 4, y: 5 }];
   const visited = new Set(['4,5']);

@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { worldToScreen, type PlayerState, type Point } from '@escape/shared';
+import { TEAM_STYLE, worldToScreen, type PlayerState, type Point } from '@escape/shared';
 
 function createCloakTexture(scene: Phaser.Scene, color: number) {
   const key = `explorer-cloak-${color}`;
@@ -32,6 +32,7 @@ function createCloakTexture(scene: Phaser.Scene, color: number) {
 }
 
 export class PlayerEntity extends Phaser.GameObjects.Container {
+  private readonly displayName: string;
   private readonly label: Phaser.GameObjects.Text;
   private readonly ring: Phaser.GameObjects.Ellipse;
   private readonly torso: Phaser.GameObjects.Container;
@@ -41,9 +42,11 @@ export class PlayerEntity extends Phaser.GameObjects.Container {
   private facing = Math.PI / 2;
   private stride = 0;
   private idleTime = 0;
-  constructor(scene: Phaser.Scene, player: PlayerState) {
+  constructor(scene: Phaser.Scene, player: PlayerState, overview: boolean) {
     const point = worldToScreen(player);
     super(scene, point.x, point.y);
+    this.displayName =
+      overview && player.teamId ? `${player.teamId} · ${player.nickname}` : player.nickname;
     this.logical = { x: player.x, y: player.y };
     const color = Phaser.Display.Color.HexStringToColor(player.color).color;
     const texture = createCloakTexture(scene, color);
@@ -57,11 +60,11 @@ export class PlayerEntity extends Phaser.GameObjects.Container {
     this.face = scene.add.container(0, -37, [face, ...eyes]);
     this.torso = scene.add.container(0, 0, [cloak, hood, this.face]);
     this.label = scene.add
-      .text(point.x, point.y - 65, player.nickname, {
+      .text(point.x, point.y - 65, this.displayName, {
         fontFamily: 'Arial, sans-serif',
         fontSize: '13px',
         fontStyle: 'bold',
-        color: '#eef2e4',
+        color: overview && player.teamId ? TEAM_STYLE[player.teamId].color : '#eef2e4',
         backgroundColor: '#152825',
         padding: { x: 5, y: 3 },
       })
@@ -103,7 +106,7 @@ export class PlayerEntity extends Phaser.GameObjects.Container {
       .setPosition(next.x, next.y - 61)
       .setScale(labelScale)
       .setAlpha(player.connected ? 1 : 0.4);
-    const name = player.nickname + (local ? ' · you' : '');
+    const name = this.displayName + (local ? ' · you' : '');
     if (this.label.text !== name) this.label.setText(name);
   }
   override destroy(fromScene?: boolean) {

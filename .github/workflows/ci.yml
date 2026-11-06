@@ -22,3 +22,8 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+      - run: pnpm test:browser
+      - uses: actions/upload-artifact@v4
+        with:
+          name: team-views
+          path: test-results/*.png
