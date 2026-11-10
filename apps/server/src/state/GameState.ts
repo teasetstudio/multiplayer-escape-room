@@ -117,6 +117,8 @@ export class GameState extends Schema {
   chapter = '';
   /** JSON `PacingStats` for playtest timing. */
   stats = '';
+  /** Translation credit and licence; public, shown next to every verse text. */
+  credit = '';
   players = new MapSchema<Player>();
   teams = new MapSchema<Team>();
   doors = new MapSchema<Door>();
@@ -149,6 +151,7 @@ defineTypes(GameState, {
   boardCorrect: 'int8',
   chapter: 'string',
   stats: 'string',
+  credit: 'string',
   players: { map: Player },
   teams: { map: Team },
   doors: { map: Door },

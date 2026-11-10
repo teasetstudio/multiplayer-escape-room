@@ -47,3 +47,9 @@ The origin is the top corner of the isometric grid. Logical X projects down-righ
 To introduce a different map later, add its editable JSON/assets beside this map and call `loadTiledMap` from the shared map entry. Select the same map on server and client; any future registry should resolve server-issued map IDs. No networking changes are needed for static geometry. Rebuild both applications together: the version includes a deterministic fingerprint of the entire JSON, so even an accidental stale client is detected. Each running session currently uses one map for its lifetime.
 
 Long wall rectangles are split into tile-sized visual pieces at load time for depth sorting; collision uses the authored rectangles directly. Use small footprints for tall complex decorations. Very large/overhanging objects will require more advanced occlusion than the current base-anchor sorting.
+
+## Levels 2–5 and public props (Iteration 5)
+
+`scripts/build-levels.mjs` generates `level-2.json` … `level-5.json` in the same Tiled format from compact room templates (size, alcove corner, pillars, crates). They can be opened in Tiled; regenerate rather than hand-edit them, or copy one and register it in `packages/shared/src/maps/index.ts`.
+
+Furniture and puzzle objects are not Tiled objects. Public props are listed per level and team in `packages/shared/src/game/levels.ts` (room-local coordinates); solid ones are added to the server's collision world. Keep containers and entrances on the north or west walls — props next to the low south and east walls are hidden behind them. What a prop hides, and every hidden chamber, is defined only on the server in `apps/server/src/content/secrets.ts`. After any change run `pnpm test`: the placement test fails if an item, entrance or exit becomes unreachable.

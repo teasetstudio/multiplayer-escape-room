@@ -66,6 +66,7 @@ export function WisdomBoard({ view }: { view: ConnectionView }) {
           <p className="hall-status">
             {complete ? 'All cards placed — submit when you agree!' : status}
           </p>
+          <p className="scripture-credit">{view.credit}</p>
         </header>
         <div className="hall-columns">
           {PAGES.map((start) => (
@@ -144,7 +145,10 @@ export function WisdomBoard({ view }: { view: ConnectionView }) {
               </div>
             </>
           ) : (
-            <p className="hall-status">{status} Tap a card to read it.</p>
+            <>
+              <p className="hall-status">{status} Tap a card to read it.</p>
+              <p className="scripture-credit">{view.credit}</p>
+            </>
           )}
         </div>
       </div>

@@ -1,5 +1,20 @@
 # Verification guide
 
+## Iteration 5
+
+`pnpm test` runs 50 server tests on the labelled placeholder deck (one further test checks the real Proverbs 4 dataset and is skipped until `pnpm scripture:import` has installed it).
+
+- **Scripture data** (`content.test.ts`): a dataset must be exactly 27 numbered, distinct, non-empty verses with attribution; the importer is tested against a synthetic page in the eBible layout and must refuse incomplete, reordered or unlicensed input.
+- **Placement**: level totals 5/5/5/6/6, team totals 14/13, every verse placed exactly once, a seed reproduces the manifest, different seeds differ, and every item, entrance, chamber exit and level exit is reachable by flood fill on the real collision world.
+- **Puzzles**: each of the five engines is solved through its public interface; wrong input, one-team-only attempts and the timing window are covered.
+- **Final board**: 600 random interleaved operations keep all 27 cards in exactly one place; stale moves, incomplete and wrong submissions, and a second victory are rejected.
+- **Hidden chambers** (`adventure.test.ts`, real WebSocket clients): raw frames to the host, a teammate outside and the other team never contain chamber names, fixture IDs, explorer coordinates or undiscovered verse text; a container's contents arrive only after a valid nearby inspection; two simultaneous collections yield one card; reconnecting inside a chamber restores it and the exit.
+- **Progression**: puzzle alone, verses alone and one team at its exit do not advance; forged client and host messages change nothing; levels 1–5, a reconnect during a transition, the shared board with concurrent edits, a wrong and a correct submission, and the single victory are played end to end.
+
+`pnpm test:browser` additionally plays the adventure in the production Phaser client and saves screenshots of the public map, a hidden entrance, a hidden chamber, a cabinet/scroll and verse card, the collection counter, a locked exit, the final board (phone and host) and the victory screens under `test-results/`. Level completion in that run is driven by SDK bots through ordinary client messages; their positions are set on the server instead of walking.
+
+Not tested: physical phones (Android Chrome, iPhone Safari), real Wi-Fi conditions, 20 real players on the final board, and the puzzles with 12–14-year-olds. No physical-device testing was performed in this iteration.
+
 ## Iteration 3
 
 The unit and real WebSocket suite exercises the lobby-to-game transition, shuffling, reserved seats, capacity, room selection, safe spawns and movement. One test removes all physical colliders and checks the player footprint against arbitrary room bounds. Others drive forged inputs toward both sides of the actual divider and exercise the existing wall, crate and door collisions.

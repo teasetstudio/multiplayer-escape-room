@@ -337,3 +337,53 @@ test('the final board conserves all 27 cards under placement, swaps, removal and
   );
   assert.equal(place(tray[0]!, 0).ok, false);
 });
+
+test('the importer strips only formatting artifacts and refuses anything unexpected', async () => {
+  // @ts-expect-error The importer is a plain Node script without type declarations.
+  const importer = (await import('../../../scripts/import-scripture.mjs')) as {
+    parseChapter(html: string, expected?: number): { verseNumber: number; text: string }[];
+    parseCopyright(html: string): { title: string; holder: string };
+    buildDataset(chapter: string, copyright: string): ScriptureLike;
+  };
+  type ScriptureLike = Parameters<typeof validateScripture>[0];
+  // A synthetic page in the eBible/Haiola layout. The wording is test filler, not Scripture.
+  const line = (n: number) =>
+    `Filler sentence number ${'abcdefghijklmnopqrstuvwxyzA'[n - 1]} of the page`;
+  const verse = (n: number) =>
+    `<div class='q'><span class="verse" id="V${n}">${n}&#160;</span>${line(n)},</div>\n` +
+    `<div class='q2'>with a &#8222;quoted&#8220; second line${
+      n === 3
+        ? '<a href="#FN1" class="notemark">*<span class="popup">A note, not text.</span></a>'
+        : ''
+    } &amp; more.</div>`;
+  const pageHtml = (count: number) => `<html><head><title>Page</title></head><body>
+    <ul class='tnav'><li><a href="PRO03.htm">&lt;</a></li><li><a href="PRO05.htm">&gt;</a></li></ul>
+    <div class="main"><div class='mt'>Book title</div><div class='chapterlabel' id="V0"> 4</div>
+    <div class='s'>A heading that is not Scripture</div>
+    ${Array.from({ length: count }, (_, i) => verse(i + 1)).join('\n')}
+    <ul class='tnav'><li><a href="PRO05.htm">&gt;</a></li></ul>
+    <div class="footnote"><p class="f" id="FN1">4:3 A note, not text.</p></div>
+    <div class="copyright"><p>Footer</p></div></div></body></html>`;
+  const verses = importer.parseChapter(pageHtml(27));
+  assert.equal(verses.length, 27);
+  assert.equal(verses[2]!.text, `${line(3)}, with a „quoted“ second line & more.`);
+  assert.ok(verses.every((entry) => !/note|heading|Footer|\d/.test(entry.text)));
+  assert.throws(() => importer.parseChapter(pageHtml(26)), /Expected 27 verses/);
+  assert.throws(() => importer.parseChapter('<p>nothing</p>'), /main/);
+  assert.throws(
+    () => importer.parseChapter(pageHtml(27).replace('id="V5">', 'id="V6">')),
+    /missing or out of order/,
+  );
+  const rights =
+    '<html><head><title>Sample Translation</title></head><body><p>Copyright © 2020 Sample Holder.</p>' +
+    '<a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a></body></html>';
+  assert.equal(importer.parseCopyright(rights).title, 'Sample Translation');
+  assert.throws(
+    () => importer.parseCopyright('<p>All rights reserved. Copyright Nobody.</p>'),
+    /CC BY-SA 4\.0/,
+  );
+  const dataset = validateScripture(importer.buildDataset(pageHtml(27), rights));
+  assert.equal(dataset.verses[26]!.reference, 'Patarlių 4:27');
+  assert.match(dataset.attribution, /Sample Holder/);
+  assert.match(dataset.license, /Attribution-ShareAlike 4\.0/);
+});

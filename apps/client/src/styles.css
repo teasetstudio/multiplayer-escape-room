@@ -2045,6 +2045,7 @@ em {
   font-family: Georgia, serif;
 }
 .chapter ol {
+  list-style: decimal;
   margin: 0;
   padding-left: 34px;
   font-family: Georgia, 'Times New Roman', serif;
@@ -2090,4 +2091,15 @@ em {
   .player-game .victory {
     z-index: 1;
   }
+}
+
+.scripture-credit {
+  margin: 10px 0 0;
+  color: #6d5a3a;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.hall .scripture-credit {
+  margin: 0;
+  color: #8f8468;
 }

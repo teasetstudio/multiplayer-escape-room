@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import { test } from 'node:test';
 import { setTimeout as delay } from 'node:timers/promises';
@@ -6,6 +7,10 @@ import { Client } from '@colyseus/sdk';
 import { chromium } from 'playwright-core';
 import { createGameServer } from '../../dist/app.js';
 import { sessions } from '../../dist/rooms/GameRoom.js';
+
+// A game needs a verse deck to start: the licensed dataset if installed, else the placeholder.
+const dataset = new URL('../../content/scripture/proverbs-4.lit-tpv.json', import.meta.url);
+process.env.SCRIPTURE_DATASET ??= existsSync(dataset) ? 'lit-tpv' : 'fixture';
 
 const results = new URL('../../../../test-results/', import.meta.url);
 const landscape = { width: 844, height: 390 };

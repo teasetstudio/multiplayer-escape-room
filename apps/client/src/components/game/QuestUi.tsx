@@ -416,6 +416,7 @@ export function Collection({ view, onClose }: { view: ConnectionView; onClose: (
         ))}
         {view.cards.length === 0 && <p className="panel-empty">No verses found yet. Explore!</p>}
       </div>
+      {view.cards.length > 0 && <p className="scripture-credit">{view.credit}</p>}
       <h3>Your artifacts (optional keepsakes)</h3>
       <div className="inventory">
         {artifacts.length === 0 && <span className="panel-empty">None yet.</span>}

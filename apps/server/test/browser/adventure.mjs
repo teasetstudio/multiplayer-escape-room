@@ -146,6 +146,21 @@ test(
     await action.click();
     await phone.getByText('DRAG THE JOYSTICK TO MOVE').waitFor();
 
+    // ── The shared collection and this team's half of the Secret Code puzzle ─────────────
+    await phone.locator('.quest-collection').click();
+    await phone.getByRole('dialog', { name: 'Wisdom collection' }).waitFor();
+    assert.equal(await phone.locator('.collection-grid .verse-card').count(), 1);
+    await shot(phone, 'adventure-08b-collection');
+    await phone.locator('.parchment-close').click();
+    const puzzleProp = [...server.inspection.level.puzzle.prompts(team).keys()][0];
+    driver.stand(me, driver.target(me, puzzleProp).rect);
+    await action.waitFor();
+    await action.click();
+    await phone.locator('.puzzle-panel .glyph').first().waitFor();
+    await settle();
+    await shot(phone, 'adventure-08c-puzzle-panel');
+    await phone.locator('.parchment-close').click();
+
     // ── Locked exit: the puzzle is solved but verses are still missing ───────────────────
     await driver.solvePuzzle();
     await phone.getByText('SOLVED', { exact: true }).waitFor();
@@ -186,6 +201,7 @@ test(
     await host.locator('.slot-filled').first().waitFor();
     await phone.getByRole('tab', { name: '10–18' }).click();
     await phone.getByRole('button', { name: 'Position 10, empty' }).waitFor();
+    await settle();
     await shot(phone, 'adventure-12-final-board-phone');
     await shot(host, 'adventure-13-final-board-host');
     assert.equal(await phone.getByRole('button', { name: 'Submit order' }).isDisabled(), true);

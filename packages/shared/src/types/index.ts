@@ -82,6 +82,8 @@ export interface WorldState {
   boardCorrect: number;
   chapter: string;
   stats: string;
+  /** Translation credit and licence, shown wherever verse text is displayed. */
+  credit: string;
 }
 export interface CreateSessionResponse {
   code: string;

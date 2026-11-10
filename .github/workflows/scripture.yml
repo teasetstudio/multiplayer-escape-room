@@ -1,0 +1,27 @@
+name: Scripture source
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'apps/server/content/scripture/**'
+      - 'scripts/import-scripture.mjs'
+      - '.github/workflows/scripture.yml'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      # Compares every committed verse with the official page. Skips while no dataset exists.
+      - run: |
+          if [ -f apps/server/content/scripture/proverbs-4.lit-tpv.json ]; then
+            node scripts/import-scripture.mjs --verify
+          else
+            echo "::warning::No Scripture dataset is committed yet. Run pnpm scripture:import."
+          fi

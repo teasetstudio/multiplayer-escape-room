@@ -172,6 +172,7 @@ export class GameRoom extends Room<{ state: GameState }> {
     this.setState(new GameState());
     try {
       this.scripture = loadScripture();
+      this.state.credit = `${this.scripture.translation} · ${this.scripture.license} · ${this.scripture.sourceUrl}`;
       this.items = createPlacement(this.scripture, createRng(`${this.seed}:placement`));
       // The game is only "ready" when all 27 cards are placed once and reachable.
       const report = validatePlacement(this.items);

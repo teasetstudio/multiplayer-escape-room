@@ -70,6 +70,7 @@ export interface ConnectionView {
   board: BoardView;
   chapter?: ChapterReveal;
   stats?: PacingStats;
+  credit: string;
   prompt: PromptMessage;
   panel?: PanelMessage;
   /** Geometry of the hidden chamber this player is standing in, if any. */
@@ -102,6 +103,7 @@ const initial: ConnectionView = {
   quest: noQuest,
   cards: [],
   board: { slots: [], tray: [], revision: 0, attempts: 0, correct: -1 },
+  credit: '',
   prompt: {},
   discoveries: [],
   notices: [],
@@ -312,6 +314,7 @@ export class GameConnection {
         puzzleRaw,
         state.chapter?.length ?? 0,
         state.stats,
+        state.credit,
       ]);
       if (key !== this.rosterKey) {
         this.rosterKey = key;
@@ -336,6 +339,11 @@ export class GameConnection {
           },
           chapter: parse<ChapterReveal>(state.chapter),
           stats: parse<PacingStats>(state.stats),
+          credit: state.credit ?? '',
+          // Messages about the previous level or stage are stale once it is over.
+          ...(state.level !== this.view.quest.level || state.status !== this.view.status
+            ? { notices: [] }
+            : {}),
         });
       }
     };

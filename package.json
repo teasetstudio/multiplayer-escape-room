@@ -16,7 +16,9 @@
     "typecheck": "pnpm --filter @escape/shared build && pnpm -r typecheck",
     "test": "pnpm --filter @escape/shared build && pnpm --filter @escape/server test",
     "start": "pnpm --filter @escape/server start",
-    "test:browser": "pnpm --filter @escape/server test:browser"
+    "test:browser": "pnpm --filter @escape/server test:browser",
+    "scripture:import": "node scripts/import-scripture.mjs",
+    "scripture:verify": "node scripts/import-scripture.mjs --verify"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
