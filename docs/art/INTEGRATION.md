@@ -1,4 +1,6 @@
-# Next iteration: integrate the reviewed art
+# Integrating the reviewed art
+
+> **Update (Iteration 5):** floors, props, doors, puzzle objects, artifacts, UI parchment frames and the directional character sheets are now loaded by the live game (`apps/client/src/game/world/assets.ts`). Walls are still drawn procedurally. The text below is the original hand-over note and remains the reference for anchors and densities.
 
 This branch contains assets and offline review tooling. The live application intentionally still uses its existing procedural graphics. No source map, projection, collision rectangle, puzzle behavior, inventory, door logic or server schema changed.
 

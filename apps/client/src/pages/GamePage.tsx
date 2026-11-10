@@ -1,5 +1,16 @@
-import { DEFAULT_MAP, TEAM_STYLE, type TeamState } from '@escape/shared';
+import { LEVELS, TEAM_STYLE, type TeamState } from '@escape/shared';
 import { useState } from 'react';
+import {
+  ActionButton,
+  Collection,
+  PanelHost,
+  QuestBoard,
+  QuestStrip,
+  Toasts,
+  levelName,
+} from '../components/game/QuestUi';
+import { Victory } from '../components/game/Victory';
+import { WisdomBoard } from '../components/game/WisdomBoard';
 import { Brand } from '../components/Brand';
 import { PhaserCanvas } from '../components/PhaserCanvas';
 import { StatusPill } from '../components/StatusPill';
@@ -18,7 +29,7 @@ async function enterFullscreen() {
   }
 }
 function roomName(team: TeamState) {
-  return DEFAULT_MAP.rooms.find((room) => room.id === team.roomId)?.name ?? team.roomId;
+  return LEVELS[0]!.map.rooms.find((room) => room.id === team.roomId)?.name ?? team.roomId;
 }
 
 function TeamOverview({ view }: { view: ConnectionView }) {
@@ -43,6 +54,7 @@ function TeamOverview({ view }: { view: ConnectionView }) {
                 <span key={player.id} style={{ opacity: player.connected ? 1 : 0.55 }}>
                   <i style={{ backgroundColor: player.color }} />
                   {player.nickname}
+                  {player.exploring && ' (exploring)'}
                   {!player.connected && ' (offline)'}
                 </span>
               ))}
@@ -60,13 +72,23 @@ export function GamePage({ view }: { view: ConnectionView }) {
   const team = view.teams.find((entry) => entry.id === me?.teamId);
   const scope = host ? 'overview' : team?.roomId;
   const [fullAttempted, setFullAttempted] = useState(false);
+  const [collection, setCollection] = useState(false);
+  const stage = view.status === 'final' ? 'final' : view.status === 'won' ? 'won' : 'world';
   return (
     <main className={`play-page ${host ? 'host-game' : 'player-game'}`}>
       <header className="play-header">
         <Brand small />
         <div className="play-title">
           <strong>{host ? 'The whole picture.' : (me?.nickname ?? 'Your world.')}</strong>
-          <span>{host ? 'LIVE OVERVIEW' : 'EXPLORE TOGETHER'}</span>
+          <span>
+            {stage === 'final'
+              ? 'THE HALL OF WISDOM'
+              : stage === 'won'
+                ? 'YOU ESCAPED TOGETHER'
+                : host
+                  ? 'LIVE OVERVIEW'
+                  : 'EXPLORE TOGETHER'}
+          </span>
         </div>
         {!host && team && (
           <strong className="team-badge" style={{ color: TEAM_STYLE[team.id].color }}>
@@ -98,20 +120,49 @@ export function GamePage({ view }: { view: ConnectionView }) {
         </div>
       </header>
       <div className="game-stage">
-        {scope ? (
+        {stage === 'final' ? (
+          <WisdomBoard view={view} />
+        ) : stage === 'won' ? (
+          <Victory view={view} />
+        ) : scope ? (
           <PhaserCanvas scope={scope} />
         ) : (
           <p className="canvas-error" role="status">
             Joining your team…
           </p>
         )}
-        <div className="map-badge">
-          <i /> {host ? `THE TWIN VAULTS · ${view.code}` : 'DRAG THE JOYSTICK TO MOVE'}
-        </div>
-        {!host && (
-          <span className="you-badge">
-            <i style={{ backgroundColor: me?.color }} /> YOU ARE {me?.nickname ?? 'HERE'}
-          </span>
+        {stage === 'world' && (
+          <>
+            <div className="map-badge">
+              <i />{' '}
+              {host
+                ? `${levelName(view.quest.level).toUpperCase()} · ${view.code}`
+                : view.area
+                  ? `${view.area.name.toUpperCase()} · A SECRET PLACE`
+                  : 'DRAG THE JOYSTICK TO MOVE'}
+            </div>
+            {host ? (
+              <QuestBoard view={view} />
+            ) : (
+              <>
+                <QuestStrip view={view} onOpenCollection={() => setCollection(true)} />
+                <ActionButton view={view} />
+                <PanelHost view={view} />
+                {collection && <Collection view={view} onClose={() => setCollection(false)} />}
+              </>
+            )}
+            <Toasts view={view} />
+            {view.quest.transition && (
+              <div className="transition-overlay" role="status">
+                <h2>Level {view.quest.level} complete!</h2>
+                <p>
+                  {view.quest.level < LEVELS.length
+                    ? `Onward to ${levelName(view.quest.level + 1)}…`
+                    : 'The Hall of Wisdom awaits…'}
+                </p>
+              </div>
+            )}
+          </>
         )}
         {view.phase !== 'connected' && (
           <div className="connection-overlay" role="status">
@@ -165,7 +216,7 @@ export function GamePage({ view }: { view: ConnectionView }) {
           </div>
         )}
       </div>
-      {host && <TeamOverview view={view} />}
+      {host && stage === 'world' && <TeamOverview view={view} />}
     </main>
   );
 }

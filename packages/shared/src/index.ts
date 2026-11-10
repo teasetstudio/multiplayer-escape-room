@@ -5,3 +5,5 @@ export * from './world/projection.js';
 export * from './world/tiled.js';
 export * from './maps/index.js';
 export * from './world/rooms.js';
+export * from './game/types.js';
+export * from './game/levels.js';

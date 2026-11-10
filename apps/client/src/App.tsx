@@ -20,7 +20,7 @@ export function App() {
   if (route.path === '/') return <HomePage />;
   if (route.code) {
     const ownsRoute = view.code === route.code && view.role === route.role;
-    if (ownsRoute && view.status === 'playing') return <GamePage view={view} />;
+    if (ownsRoute && view.status !== 'lobby') return <GamePage view={view} />;
     if (
       ownsRoute &&
       (view.phase === 'connected' || (view.phase === 'reconnecting' && Boolean(connection.room)))

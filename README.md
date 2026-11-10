@@ -1,6 +1,15 @@
 # Common Ground — Multiplayer Escape Room
 
-Iteration 3 adds two cooperating teams to the phone-controlled escape room. A host displays the QR code on a large monitor. When the host starts, the server splits up to 20 players between the adjacent blue and orange chambers of the Twin Vaults. Each phone follows its player and shows their teammates. The desktop shows both rooms, every nickname, team rosters and connection counts.
+A phone-controlled cooperative escape room for groups of up to 20. A host displays the QR code on a large monitor; when the host starts, the server splits the players into Team A (blue) and Team B (orange). The teams stay in separate rooms and cooperate by talking.
+
+**Iteration 5** turns this into a complete adventure with two parallel quest lines:
+
+- **Escape the Fortress** — five levels, each with one cooperative puzzle whose halves are split between the teams.
+- **The Lost Words of Wisdom** — the 27 verses of Proverbs 4 are hidden across the levels in secret chambers, cabinets, chests and bookshelves. A level's exits open only when its puzzle is solved _and_ all of its verses are found.
+
+After level 5 everyone meets in **The Hall of Wisdom** and arranges the 27 unnumbered verse cards in biblical order on one shared board. Only that wins the game. See [the iteration notes](docs/iteration-5.md) and [the Scripture source and licence](docs/scripture/README.md).
+
+> **Scripture text must be installed once.** Run `pnpm scripture:import` on a machine that can reach ebible.org and commit the generated dataset (details in [docs/scripture](docs/scripture/README.md)). Without it a game cannot be started; `SCRIPTURE_DATASET=fixture` selects a labelled placeholder deck for mechanics-only testing.
 
 ## Requirements and quick start
 
@@ -202,7 +211,9 @@ pnpm build
 
 `pnpm format` formats the workspace. Unit tests exercise projection, input validation, map loading, collision, spawn validation, team balance and permissions. Real WebSocket tests run with up to 20 player clients and an additional host. They inspect decoded state and incoming frames, exercise forged movement requests, and cover both player and host reconnection.
 
-After building, run `pnpm test:browser` with Google Chrome installed (or set `CHROME_BIN` to a Chromium executable). This check opens the production UI, fills the session, moves a player with the joystick, rotates the phone viewport and reconnects through page reloads. CI runs the checks and saves the desktop and landscape screenshots under the `team-views` artifact. See [the verification guide](docs/testing.md).
+After building, run `pnpm test:browser` with Google Chrome installed (or set `CHROME_BIN` to a Chromium executable). The first check opens the production UI, fills the session, moves a player with the joystick, rotates the phone viewport and reconnects through page reloads. The second plays a whole adventure in the real Phaser client: a phone finds a hidden entrance, enters the chamber, opens a container, reads and collects a verse, meets a locked exit, and later places cards on the final board and reaches the victory screen. CI runs the checks and saves the screenshots under the `team-views` artifact. See [the verification guide](docs/testing.md).
+
+`pnpm scripture:import` installs the licensed Proverbs 4 text and `pnpm scripture:verify` re-checks it against the source. `node scripts/build-levels.mjs` regenerates the Tiled maps of levels 2–5.
 
 ### Run a production build locally
 
@@ -213,14 +224,14 @@ NODE_ENV=production pnpm start
 
 In PowerShell, set `$env:NODE_ENV='production'` before `pnpm start`. Node serves both `apps/client/dist` and Colyseus on port 2567. Open the LAN IP at port 2567, or terminate HTTPS at a reverse proxy with WebSocket upgrades enabled. Build with a matching public client URL, or keep it blank to use the origin dynamically. This requires a persistent Node process; static-only hosting/GitHub Pages and request-only serverless functions cannot host this game server.
 
-## Limitations and Iteration 4
+## Limitations and next iteration
 
 State is in memory. A server restart ends all games, and tokens do not survive it. Reconnection after 60 seconds or from another browser is intentionally unsupported. Single-process hosting only; scaling would need shared matchmaking/presence and room-aware routing. There is no player-to-player collision, moderation UI, persistent identity, or native-app installation. Twenty colors are not equally distinguishable to everyone, so nicknames remain visible.
 
-The map loader intentionally supports a small, validated Tiled subset: finite 64 × 32 isometric maps, three embedded floor tiles, uncompressed arrays, unrotated rectangle objects, and point spawns. External tilesets, infinite maps, groups, flips, polygons, rotated objects, and arbitrary tile artwork are not supported. The included atlas is an editor aid; the runtime generates matching geometric art. Complex overhanging geometry will need richer depth/occlusion rules than the current segmented AABBs. At small host resolutions or with clustered players, labels can overlap; the fixed overview and footer roster are the default. There is no local prediction, so high latency is visible. Physical iPhone/Android testing and performance measurements on mid-range phones remain required; see the verification record.
+The map loader intentionally supports a small, validated Tiled subset: finite 64 × 32 isometric maps, three embedded floor tiles, uncompressed arrays, unrotated rectangle objects, and point spawns. External tilesets, infinite maps, groups, flips, polygons, rotated objects, and arbitrary tile artwork are not supported. Floors, props, doors, puzzle objects, artifacts and characters use the Adventure Comic art; walls are still drawn procedurally. Complex overhanging geometry will need richer depth/occlusion rules than the current segmented AABBs. At small host resolutions or with clustered players, labels can overlap; the fixed overview and footer roster are the default. There is no local prediction, so high latency is visible. Physical iPhone/Android testing and performance measurements on mid-range phones remain required; see the verification record.
 
-For the first cooperative puzzle, author stable object IDs and interaction areas in Tiled. Keep the symbol sequence and mechanism rules on the server. Accept an interaction request with an object ID and action, resolve the sender’s identity and room, and validate distance, game status and the allowed transition. A retry should return the existing result.
+Iteration 5 limits: the Scripture dataset has to be imported (see above). A session needs at least one connected player on each team to progress, and a team whose members have all left cannot be replaced. The final board is designed for landscape phones and has not been tuned on real devices. Puzzle difficulty and the hiding plan are untested with the target age group.
 
-Attach team-private clue and mechanism state to the filtered team or room. Publish only the completion flags that both teams need. Once both objectives are complete, the server can change the shared progression state in a single transition. Reconnecting clients will receive the current result through their normal filtered snapshot.
+Planned for Iteration 6: the global 25-minute timer, difficulty adjustment from the recorded pacing data, host-controlled hints, progress pacing, final UI polish and deployment preparation.
 
 Reference APIs: [Tiled JSON format](https://doc.mapeditor.org/en/stable/reference/json-map-format/), [Tiled isometric object coordinates](https://doc.mapeditor.org/en/stable/manual/layers/#object-layers), [Phaser cameras](https://docs.phaser.io/phaser/concepts/cameras), [Colyseus 0.17 reconnection](https://0-17.docs.colyseus.io/room/reconnection), [Vite server/proxy configuration](https://vite.dev/config/server-options.html), [Screen orientation support](https://developer.mozilla.org/en-US/docs/Web/API/ScreenOrientation/lock).

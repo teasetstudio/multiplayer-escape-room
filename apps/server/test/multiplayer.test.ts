@@ -15,6 +15,8 @@ import { createGameServer } from '../src/app.js';
 import { sessions } from '../src/rooms/GameRoom.js';
 import { CollisionWorld } from '../src/systems/CollisionWorld.js';
 
+// Engine tests run on the labelled placeholder deck; no Scripture text is needed here.
+process.env.SCRIPTURE_DATASET = 'fixture';
 const { gameServer, httpServer } = createGameServer();
 let httpUrl: string;
 let sdk: Client;

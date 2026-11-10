@@ -17,6 +17,8 @@ export class ControlsScene extends Phaser.Scene {
     this.joystick = new VirtualJoystick(this);
     this.keys = this.input.keyboard?.createCursorKeys();
     this.wasd = this.input.keyboard?.addKeys('W,A,S,D') as typeof this.wasd;
+    // Keyboard shortcut for the contextual action button (desktop testing).
+    this.input.keyboard?.on('keydown-E', () => this.network.interact());
     this.scale.on(Phaser.Scale.Events.RESIZE, this.resize);
     window.addEventListener('blur', this.stop);
     document.addEventListener('visibilitychange', this.stop);
