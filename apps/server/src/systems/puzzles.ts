@@ -35,15 +35,12 @@ export abstract class Puzzle {
   /** A tap on a prop: either an immediate action or a request to open a panel. */
   abstract interact(team: TeamId, fixture: string, now: number): PuzzleResult;
   /** A panel action. Unknown or malformed actions are ignored. */
-  act(
-    _team: TeamId,
-    _fixture: string,
-    _action: Record<string, unknown>,
-    _now: number,
-  ): PuzzleResult {
-    return {};
+  act(...args: [team: TeamId, fixture: string, action: Record<string, unknown>, now: number]) {
+    void args;
+    return {} as PuzzleResult;
   }
-  tick(_now: number): boolean {
+  tick(now: number): boolean {
+    void now;
     return false;
   }
   protected abstract teamView(team: TeamId, now: number): TeamView;

@@ -1,11 +1,21 @@
 import { Client, type Room } from '@colyseus/sdk';
 import {
-  DEFAULT_MAP,
+  LEVELS,
   MESSAGE,
+  type AreaMessage,
+  type BoardOp,
+  type CardState,
+  type ChapterReveal,
   type ClientRole,
   type CreateSessionResponse,
   type GameError,
+  type NoticeMessage,
+  type PacingStats,
+  type PanelMessage,
   type PlayerState,
+  type PromptMessage,
+  type PuzzleView,
+  type SessionStatus,
   type WorldState,
   type TeamState,
 } from '@escape/shared';
@@ -13,18 +23,74 @@ import { api, serverWebSocketUrl } from './config';
 import { WorldBuffer } from './WorldBuffer';
 import { clearSession, readSession, saveSession, type SavedSession } from './sessionStorage';
 
-export type RosterPlayer = Pick<PlayerState, 'id' | 'nickname' | 'color' | 'connected' | 'teamId'>;
+export type RosterPlayer = Pick<
+  PlayerState,
+  'id' | 'nickname' | 'color' | 'connected' | 'teamId' | 'exploring' | 'verses' | 'artifacts'
+>;
+export interface Notice extends NoticeMessage {
+  id: number;
+}
+/** Public progress of both quests, identical on phones and the host monitor. */
+export interface QuestView {
+  level: number;
+  puzzleSolved: boolean;
+  exitsUnlocked: boolean;
+  transition: boolean;
+  versesFound: number;
+  versesA: number;
+  versesB: number;
+  requiredA: number;
+  requiredB: number;
+  exitA: boolean;
+  exitB: boolean;
+  artifactsFound: number;
+}
+export interface BoardView {
+  slots: string[];
+  tray: string[];
+  revision: number;
+  attempts: number;
+  correct: number;
+}
 export interface ConnectionView {
   phase: 'idle' | 'connecting' | 'connected' | 'reconnecting' | 'closed';
   code: string;
   role: ClientRole;
-  status: 'lobby' | 'playing';
+  status: SessionStatus;
   players: RosterPlayer[];
   teams: TeamState[];
   hostConnected: boolean;
   playerId?: string;
   error?: string;
+  quest: QuestView;
+  /** Collected Scripture cards this client is authorized to read (text only, no numbers). */
+  cards: CardState[];
+  /** This team's private half of the current puzzle. */
+  puzzle?: PuzzleView;
+  board: BoardView;
+  chapter?: ChapterReveal;
+  stats?: PacingStats;
+  prompt: PromptMessage;
+  panel?: PanelMessage;
+  /** Geometry of the hidden chamber this player is standing in, if any. */
+  area?: AreaMessage['area'];
+  discoveries: string[];
+  notices: Notice[];
 }
+const noQuest: QuestView = {
+  level: 1,
+  puzzleSolved: false,
+  exitsUnlocked: false,
+  transition: false,
+  versesFound: 0,
+  versesA: 0,
+  versesB: 0,
+  requiredA: 0,
+  requiredB: 0,
+  exitA: false,
+  exitB: false,
+  artifactsFound: 0,
+};
 const initial: ConnectionView = {
   phase: 'idle',
   code: '',
@@ -33,7 +99,21 @@ const initial: ConnectionView = {
   players: [],
   teams: [],
   hostConnected: false,
+  quest: noQuest,
+  cards: [],
+  board: { slots: [], tray: [], revision: 0, attempts: 0, correct: -1 },
+  prompt: {},
+  discoveries: [],
+  notices: [],
 };
+function parse<T>(json: string | undefined): T | undefined {
+  if (!json) return;
+  try {
+    return JSON.parse(json) as T;
+  } catch {
+    return;
+  }
+}
 
 export class GameConnection {
   room?: Room<WorldState>;
@@ -44,6 +124,7 @@ export class GameConnection {
   private saved?: SavedSession;
   private generation = 0;
   private rosterKey = '';
+  private noticeId = 0;
   readonly subscribe = (callback: () => void) => {
     this.listeners.add(callback);
     return () => this.listeners.delete(callback);
@@ -157,7 +238,9 @@ export class GameConnection {
     };
     const sync = () => {
       if (room !== this.room || !room.state?.mapId) return;
-      if (room.state.mapId !== DEFAULT_MAP.id || room.state.mapVersion !== DEFAULT_MAP.version) {
+      const state = room.state;
+      const level = LEVELS[(state.level || 1) - 1];
+      if (!level || state.mapId !== level.map.id || state.mapVersion !== level.map.version) {
         room.reconnection.enabled = false;
         this.room = undefined;
         this.world.clear();
@@ -169,38 +252,140 @@ export class GameConnection {
         if (room.connection.isOpen) void room.leave();
         return;
       }
-      if (room.state.status === 'playing') this.world.push(room.state);
       const players: RosterPlayer[] = [];
-      room.state.players?.forEach((player) =>
+      state.players?.forEach((player) =>
         players.push({
           id: player.id,
           nickname: player.nickname,
           color: player.color,
           connected: player.connected,
           teamId: player.teamId,
+          exploring: player.exploring,
+          verses: player.verses,
+          artifacts: player.artifacts,
         }),
       );
-      const teams = Array.from(room.state.teams?.values() ?? [], ({ id, roomId }) => ({
-        id,
-        roomId,
-      }));
-      const key = JSON.stringify([room.state.status, room.state.hostConnected, players, teams]);
+      if (state.status === 'playing') {
+        // Inside a hidden chamber the world is the chamber: only its explorers are drawn.
+        // Everywhere else, explorers are absent — their public x/y is just a last-known spot.
+        const visible: PlayerState[] = [];
+        const inside = this.view.area?.key;
+        if (inside)
+          state.explorers?.forEach((explorer) => {
+            const player = state.players.get(explorer.id);
+            if (player && explorer.area === inside)
+              visible.push({ ...snapshot(player), x: explorer.x, y: explorer.y });
+          });
+        else
+          state.players?.forEach((player) => {
+            if (!player.exploring) visible.push(snapshot(player));
+          });
+        this.world.push(visible);
+      }
+      const teams = Array.from(state.teams?.values() ?? [], ({ id, roomId }) => ({ id, roomId }));
+      const quest: QuestView = {
+        level: state.level,
+        puzzleSolved: state.puzzleSolved,
+        exitsUnlocked: state.exitsUnlocked,
+        transition: state.transition,
+        versesFound: state.versesFound,
+        versesA: state.versesA,
+        versesB: state.versesB,
+        requiredA: state.requiredA,
+        requiredB: state.requiredB,
+        exitA: state.exitA,
+        exitB: state.exitB,
+        artifactsFound: state.artifactsFound,
+      };
+      const me = players.find((player) => player.id === this.view.playerId);
+      const puzzleRaw = (me?.teamId && state.puzzles?.get(me.teamId)?.view) || '';
+      const key = JSON.stringify([
+        state.status,
+        state.hostConnected,
+        players,
+        teams,
+        quest,
+        state.cards?.size ?? 0,
+        state.boardRevision,
+        state.boardSlots?.length ?? 0,
+        state.boardTray?.length ?? 0,
+        puzzleRaw,
+        state.chapter?.length ?? 0,
+        state.stats,
+      ]);
       if (key !== this.rosterKey) {
         this.rosterKey = key;
         this.update({
-          status: room.state.status,
-          hostConnected: room.state.hostConnected,
+          status: state.status,
+          hostConnected: state.hostConnected,
           players,
           teams,
+          quest,
+          cards: Array.from(state.cards?.values() ?? [], ({ id, text, finder }) => ({
+            id,
+            text,
+            finder,
+          })),
+          puzzle: parse<PuzzleView>(puzzleRaw),
+          board: {
+            slots: [...(state.boardSlots ?? [])],
+            tray: [...(state.boardTray ?? [])],
+            revision: state.boardRevision,
+            attempts: state.boardAttempts,
+            correct: state.boardCorrect,
+          },
+          chapter: parse<ChapterReveal>(state.chapter),
+          stats: parse<PacingStats>(state.stats),
         });
       }
     };
     room.onStateChange(sync);
-    room.onMessage('identity', (identity: { playerId?: string }) => {
+    room.onMessage(MESSAGE.identity, (identity: { playerId?: string }) => {
       if (room !== this.room) return;
       this.update({ playerId: identity.playerId });
       persist();
+      this.rosterKey = '';
+      sync();
     });
+    const mine =
+      <T>(handler: (message: T) => void) =>
+      (message: T) => {
+        if (room === this.room) handler(message);
+      };
+    room.onMessage(
+      MESSAGE.prompt,
+      mine((prompt: PromptMessage) => this.update({ prompt })),
+    );
+    room.onMessage(
+      MESSAGE.panel,
+      mine((panel: PanelMessage) =>
+        this.update({ panel: panel.type === 'none' ? undefined : panel }),
+      ),
+    );
+    room.onMessage(
+      MESSAGE.area,
+      mine((message: AreaMessage) => {
+        // Entering or leaving a chamber is a hard cut: forget interpolation history.
+        if (message.area?.key !== this.view.area?.key) this.world.clear();
+        this.update({ area: message.area, prompt: {} });
+        sync();
+      }),
+    );
+    room.onMessage(
+      MESSAGE.discoveries,
+      mine((message: { ids: string[] }) => this.update({ discoveries: message.ids })),
+    );
+    room.onMessage(
+      MESSAGE.notice,
+      mine((notice: NoticeMessage) => {
+        const entry = { ...notice, id: ++this.noticeId };
+        this.update({ notices: [...this.view.notices.slice(-2), entry] });
+        setTimeout(() => {
+          if (this.view.notices.includes(entry))
+            this.update({ notices: this.view.notices.filter((other) => other !== entry) });
+        }, 5000);
+      }),
+    );
     room.onMessage(MESSAGE.error, (error: GameError) => this.update({ error: error.message }));
     room.onDrop(() => {
       if (room === this.room) this.update({ phase: 'reconnecting' });
@@ -214,7 +399,7 @@ export class GameConnection {
       this.world.clear();
       persist();
       sync();
-      if (room === this.room) room.send('identify');
+      if (room === this.room) room.send(MESSAGE.identify);
     });
     room.onError((_code, message) => {
       if (room === this.room) this.update({ error: message || 'Connection error.' });
@@ -231,10 +416,27 @@ export class GameConnection {
     persist();
     this.update({ phase: 'connected', error: undefined });
     sync();
-    if (room === this.room) room.send('identify');
+    if (room === this.room) room.send(MESSAGE.identify);
   }
   start() {
     if (this.connected) this.room?.send(MESSAGE.start);
+  }
+  /** Use whatever the server currently offers this player. The server re-validates reach. */
+  interact() {
+    const id = this.view.prompt.id;
+    if (this.connected && id) this.room?.send(MESSAGE.interact, { id });
+  }
+  collect(id: string) {
+    if (this.connected) this.room?.send(MESSAGE.collect, { id });
+  }
+  puzzleAction(id: string, action: Record<string, unknown>) {
+    if (this.connected) this.room?.send(MESSAGE.puzzle, { ...action, id });
+  }
+  board(op: BoardOp) {
+    if (this.connected) this.room?.send(MESSAGE.board, op);
+  }
+  closePanel() {
+    this.update({ panel: undefined });
   }
   async leave() {
     ++this.generation;
@@ -254,6 +456,18 @@ export class GameConnection {
       else room.connection.close();
     }
   }
+}
+function snapshot(player: PlayerState): PlayerState {
+  return {
+    id: player.id,
+    nickname: player.nickname,
+    color: player.color,
+    teamId: player.teamId,
+    character: player.character,
+    x: player.x,
+    y: player.y,
+    connected: player.connected,
+  };
 }
 export function connectionError(error: unknown) {
   const message =

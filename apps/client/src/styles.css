@@ -1333,3 +1333,761 @@ em {
     transition: none !important;
   }
 }
+
+/* ───────────── Iteration 5: quests, hidden chambers, Hall of Wisdom ───────────── */
+.player-game .map-badge {
+  top: auto;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.quest-strip {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: min(320px, 46vw);
+  padding: 8px 10px;
+  border: 1px solid #e8d9a833;
+  border-radius: 6px;
+  background: #14110cd9;
+  color: #d9ceb0;
+  font-size: 10px;
+  line-height: 1.35;
+  pointer-events: none;
+}
+.quest-strip strong {
+  color: #f3e3a6;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+}
+.quest-strip b {
+  color: #f6f0dc;
+}
+.quest-strip em {
+  color: #c5f277;
+  font-style: normal;
+}
+.quest-counts small {
+  display: inline-flex;
+  gap: 8px;
+  margin-left: 8px;
+  font-size: 10px;
+}
+.quest-collection {
+  pointer-events: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 4px 12px 4px 6px;
+  border: 1px solid #e8d9a866;
+  border-radius: 22px;
+  background: #2a2318;
+  color: #f3e3a6;
+  font-size: 13px;
+  font-weight: 700;
+}
+.quest-collection img {
+  width: 32px;
+  height: 32px;
+}
+.quest-board {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  z-index: 5;
+  width: min(300px, 24vw);
+  padding: 16px 18px;
+  border: 1px solid #e8d9a840;
+  border-radius: 8px;
+  background: #14110ce6;
+  color: #d9ceb0;
+  font-size: 14px;
+  line-height: 1.4;
+  pointer-events: none;
+}
+.quest-board p {
+  margin: 2px 0;
+}
+.quest-board h2 {
+  margin: 0 0 8px;
+  color: #f3e3a6;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.quest-board h3 {
+  margin: 12px 0 2px;
+  color: #c5f277;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+}
+.quest-level {
+  color: #a99f84;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+.quest-total {
+  color: #f6f0dc;
+  font-weight: 700;
+}
+.quest-minor {
+  color: #a99f84;
+  font-size: 12px;
+}
+.quest-toasts {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: min(440px, 44vw);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.toast {
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #1d1a13f2;
+  border: 1px solid #e8d9a84d;
+  color: #f1e8cf;
+  font-size: 12px;
+  text-align: center;
+}
+.toast-good {
+  border-color: #c5f277;
+  color: #e2f7b5;
+}
+.toast-warn {
+  border-color: #f0a36b;
+  color: #ffd9bd;
+}
+.action-area {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  max-width: 46vw;
+}
+.action-hint {
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #14110ce0;
+  color: #e8d9a8;
+  font-size: 12px;
+  font-style: italic;
+}
+.action-button,
+.parchment-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 8px 22px 10px;
+  border: 12px solid transparent;
+  border-image: url('/assets/ui/button-normal.png') 24 fill / 12px stretch;
+  background: none;
+  color: #2b2114;
+  font-size: 15px;
+  font-weight: 800;
+}
+.action-button:active,
+.parchment-button:active {
+  border-image-source: url('/assets/ui/button-pressed.png');
+}
+.parchment-button:disabled {
+  border-image-source: url('/assets/ui/button-disabled.png');
+}
+.action-button img {
+  width: 30px;
+  height: 30px;
+}
+.quest-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background: #0b0906b8;
+  touch-action: pan-y;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.parchment {
+  display: flex;
+  flex-direction: column;
+  width: min(560px, 100%);
+  max-height: 100%;
+  border: 30px solid transparent;
+  border-image: url('/assets/ui/modal-background.png') 64 fill / 30px stretch;
+  color: #2b2114;
+}
+.parchment-wide {
+  width: min(820px, 100%);
+}
+.parchment > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: -6px;
+}
+.parchment h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+}
+.parchment h3 {
+  margin: 12px 0 6px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.parchment-close {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: #2b211422;
+  color: #2b2114;
+  font-size: 18px;
+}
+.parchment-body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.parchment-body > p {
+  margin: 6px 0;
+}
+.panel-empty,
+.panel-note {
+  color: #5c4a2e;
+  font-style: italic;
+}
+.panel-solved {
+  font-weight: 700;
+  color: #3d5a1a;
+}
+.verse-card {
+  margin: 8px 0;
+  padding: 12px 14px;
+  border: 1px solid #7a5f3466;
+  border-radius: 4px;
+  background: #f6ead0;
+  box-shadow: 0 2px 0 #7a5f3433;
+  color: #2b2114;
+}
+.verse-card p {
+  margin: 0 0 8px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.verse-card small {
+  color: #6d5a3a;
+}
+.artifact-find {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0;
+}
+.artifact-find img {
+  width: 48px;
+  height: 48px;
+}
+.artifact-find div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.glyph-row,
+.lamp-row,
+.weights,
+.inventory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0;
+}
+.glyph-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 56px;
+  padding: 6px;
+  border-radius: 6px;
+  background: #2b211418;
+}
+.glyph {
+  width: 40px;
+  height: 40px;
+}
+.glyph-slot b {
+  font-size: 20px;
+}
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(44px, 1fr));
+  gap: 6px;
+}
+.keypad button,
+.weight {
+  min-height: 46px;
+  border: 2px solid #5c4a2e;
+  border-radius: 6px;
+  background: #f6ead0;
+  color: #2b2114;
+  font-size: 17px;
+  font-weight: 800;
+}
+.keypad button:nth-child(n + 10) {
+  grid-column: span 3;
+  font-size: 14px;
+}
+.keypad-enter:not(:disabled) {
+  background: #c5f277;
+}
+.weight {
+  width: 56px;
+  border-radius: 50% 50% 8px 8px;
+}
+.weight-placed {
+  background: #c5f277;
+  transform: translateY(6px);
+}
+.lamp {
+  display: grid;
+  place-items: center;
+  min-width: 52px;
+  height: 44px;
+  padding: 0 8px;
+  border: 2px solid #5c4a2e;
+  border-radius: 22px;
+  background: #5c4a2e33;
+  font-size: 12px;
+  font-weight: 800;
+}
+.lamp-on {
+  background: #ffd15c;
+  box-shadow: 0 0 12px #ffd15c;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0 10px;
+}
+.inventory span {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  background: #2b21141f;
+}
+.inventory img {
+  width: 44px;
+  height: 44px;
+}
+.inventory .panel-empty {
+  width: auto;
+  background: none;
+}
+.transition-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: #0b0906e6;
+  color: #f3e3a6;
+}
+.transition-overlay h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 5vw, 52px);
+}
+.transition-overlay p {
+  color: #d9ceb0;
+}
+
+/* The Hall of Wisdom */
+.hall {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  background: radial-gradient(circle at 50% 0, #2a2318, #14110c 70%);
+  color: #f1e8cf;
+  touch-action: pan-y;
+}
+.hall-phone {
+  gap: 8px;
+  padding: 6px 8px;
+}
+.hall-tray {
+  display: flex;
+  flex: 0 0 34%;
+  flex-direction: column;
+  min-width: 0;
+}
+.hall-tray h2 {
+  margin: 2px 0 4px;
+  color: #f3e3a6;
+  font-size: 13px;
+}
+.hall-tray small {
+  color: #a99f84;
+  font-weight: 400;
+}
+.hall-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 2px;
+}
+.tray-card,
+.slot {
+  min-height: 46px;
+  border: 1px solid #7a5f34;
+  border-radius: 5px;
+  background: #f6ead0;
+  color: #2b2114;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: left;
+}
+.tray-card {
+  flex: 0 0 auto;
+  padding: 6px 8px;
+}
+.hall-board {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.hall-tabs {
+  display: flex;
+  gap: 5px;
+}
+.hall-tabs button {
+  flex: 1;
+  min-height: 44px;
+  border: 1px solid #e8d9a866;
+  border-radius: 5px;
+  background: #2a2318;
+  color: #d9ceb0;
+  font-size: 13px;
+  font-weight: 700;
+}
+.hall-tabs .tab-active {
+  background: #f3e3a6;
+  color: #2b2114;
+}
+.hall-tabs .hall-submit:not(:disabled) {
+  background: #c5f277;
+  color: #1c2610;
+}
+.hall-slots {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  overflow: hidden;
+}
+.slot:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.slot b {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2b2114;
+  color: #f3e3a6;
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+.slot:not(.slot-filled) {
+  background: #2a2318;
+  border-style: dashed;
+  color: #8f8468;
+  font-family: var(--font-sans);
+}
+.slot-selected {
+  outline: 3px solid #c5f277;
+  outline-offset: -1px;
+  background: #fff7dc;
+}
+.hall-detail {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 6px 8px;
+  border: 1px solid #e8d9a833;
+  border-radius: 5px;
+  background: #1d1a13;
+  overflow: hidden;
+}
+.hall-reading {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  overflow-y: auto;
+  touch-action: pan-y;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  line-height: 1.4;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.hall-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #a99f84;
+  font-size: 11px;
+}
+.hall-actions span {
+  flex: 1;
+}
+.hall-actions button {
+  min-height: 44px;
+  padding: 0 10px;
+  border: 1px solid #e8d9a866;
+  border-radius: 5px;
+  background: #2a2318;
+  color: #f3e3a6;
+  font-size: 12px;
+}
+.hall-status {
+  margin: 0;
+  color: #c5f277;
+  font-size: 13px;
+}
+.hall-host {
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 30px;
+}
+.hall-header {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.hall-header h1 {
+  margin: 0;
+  color: #f3e3a6;
+  font-family: Georgia, serif;
+  font-size: clamp(26px, 3vw, 44px);
+  letter-spacing: 2px;
+}
+.hall-header p {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+.hall-columns {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.hall-column {
+  display: grid;
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+  gap: 6px;
+  min-height: 0;
+}
+.hall-host .slot {
+  min-height: 0;
+  font-size: clamp(11px, 1.05vw, 17px);
+  padding: 4px 10px;
+  transition: background 0.3s;
+}
+.hall-host .slot b {
+  width: 34px;
+  height: 34px;
+  font-size: 15px;
+}
+
+/* Victory */
+.victory {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  background: radial-gradient(circle at 50% 0, #3a301c, #14110c 75%);
+  color: #f1e8cf;
+  text-align: center;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.victory-scroll {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.victory-brand {
+  margin: 0;
+  color: #c5f277;
+  letter-spacing: 6px;
+  font-size: 13px;
+}
+.victory h1 {
+  margin: 0;
+  color: #f3e3a6;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 6vw, 72px);
+}
+.victory-team {
+  margin: 0;
+  font-weight: 700;
+}
+.victory-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 6px 0;
+  padding: 0;
+  list-style: none;
+}
+.victory-facts li {
+  padding: 8px 14px;
+  border: 1px solid #e8d9a84d;
+  border-radius: 20px;
+  background: #1d1a13;
+  font-size: 14px;
+}
+.victory-facts b {
+  color: #c5f277;
+}
+.victory-finders {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.victory-finders h2 {
+  flex: 0 0 100%;
+  margin: 4px 0;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #a99f84;
+}
+.victory-finders span {
+  padding: 4px 10px;
+  border-left: 4px solid;
+  background: #1d1a13;
+  font-size: 13px;
+}
+.victory .inventory span {
+  background: #f6ead022;
+}
+.victory .panel-empty {
+  color: #a99f84;
+}
+.chapter {
+  width: 100%;
+  margin-top: 8px;
+  padding: 18px 22px;
+  border-radius: 6px;
+  background: #f6ead0;
+  color: #2b2114;
+  text-align: left;
+}
+.chapter h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, serif;
+}
+.chapter ol {
+  margin: 0;
+  padding-left: 34px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.victory-host .chapter ol {
+  columns: 2;
+  column-gap: 40px;
+  font-size: 14px;
+}
+.chapter li {
+  break-inside: avoid;
+  margin-bottom: 4px;
+}
+.chapter li::marker {
+  font-weight: 800;
+  color: #7a5f34;
+}
+.chapter footer {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #7a5f3466;
+  color: #5c4a2e;
+  font-size: 11px;
+}
+.chapter footer p {
+  margin: 2px 0;
+  overflow-wrap: anywhere;
+}
+@media (orientation: landscape) and (max-height: 550px) {
+  .parchment {
+    border-width: 22px;
+    border-image-width: 22px;
+  }
+  .verse-card p {
+    font-size: 15px;
+  }
+}
+@media (orientation: portrait) {
+  .player-game .quest-modal,
+  .player-game .hall,
+  .player-game .victory {
+    z-index: 1;
+  }
+}

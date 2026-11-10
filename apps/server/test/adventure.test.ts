@@ -211,11 +211,12 @@ test('hidden chambers stay off the wire until entered; cabinets, atomic collecti
     'Shared state',
   );
   assert.equal(b1.room.state.cards.get(chestVerse.id)?.text, chestVerse.text);
-  assert.deepEqual(Object.keys(b1.room.state.cards.get(chestVerse.id)!.toJSON()).sort(), [
-    'finder',
-    'id',
-    'text',
-  ]);
+  assert.deepEqual(
+    Object.keys(
+      (b1.room.state.cards.get(chestVerse.id) as unknown as { toJSON(): object }).toJSON(),
+    ).sort(),
+    ['finder', 'id', 'text'],
+  );
   assert.equal(host.state.cards?.size ?? 0, 0);
   assert.ok(
     !mentions(hostFrames, chestVerse.text!),

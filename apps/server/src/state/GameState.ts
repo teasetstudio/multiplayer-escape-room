@@ -1,4 +1,4 @@
-import { ArraySchema, MapSchema, Schema, defineTypes, view } from '@colyseus/schema';
+import { ArraySchema, Encoder, MapSchema, Schema, defineTypes, view } from '@colyseus/schema';
 import {
   DEFAULT_MAP,
   type CardState,
@@ -12,6 +12,9 @@ import {
   type TeamState,
   type SessionStatus,
 } from '@escape/shared';
+
+// The final stage carries 27 verse texts plus the revealed chapter in one snapshot.
+Encoder.BUFFER_SIZE = 96 * 1024;
 
 export class Player extends Schema implements PlayerState {
   id = '';

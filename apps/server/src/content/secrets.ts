@@ -141,24 +141,24 @@ interface TeamPlan {
 // The deliberate hiding plan: 27 "verse" entries, 5/5/5/6/6 per level, 14 for A and 13 for B.
 const PLAN: Record<TeamId, TeamPlan>[] = [
   {
-    A: { entrance: 'shelf', template: 'vault', c1: 'verse', loose: ['verse', 'medallion'], open: { chest: 'verse' }, floor: [700, 730, 'coin'] },
-    B: { entrance: 'carving', template: 'alcove', c1: 'coin', loose: ['verse'], open: { cabinet: 'verse' }, floor: [60, 720, 'key'] },
+    A: { entrance: 'shelf', template: 'vault', c1: 'verse', loose: ['verse', 'medallion'], open: { chest: 'verse' }, floor: [640, 430, 'coin'] },
+    B: { entrance: 'carving', template: 'alcove', c1: 'coin', loose: ['verse'], open: { cabinet: 'verse' }, floor: [150, 560, 'key'] },
   },
   {
-    A: { entrance: 'wardrobe', template: 'storeroom', c1: 'crystal', c2: 'verse', open: { shelf: 'verse' }, floor: [60, 640, 'parchment'] },
-    B: { entrance: 'torch', template: 'study', c1: 'verse', c2: 'verse', loose: ['key'], open: { chest: 'verse' }, floor: [60, 640, 'medallion'] },
+    A: { entrance: 'wardrobe', template: 'storeroom', c1: 'crystal', c2: 'verse', open: { shelf: 'verse' }, floor: [170, 570, 'parchment'] },
+    B: { entrance: 'torch', template: 'study', c1: 'verse', c2: 'verse', loose: ['key'], open: { chest: 'verse' }, floor: [170, 570, 'medallion'] },
   },
   {
-    A: { entrance: 'shelf-2', template: 'study', c1: 'verse', c2: 'parchment', loose: [undefined, 'verse'], open: { cabinet: 'verse' }, floor: [60, 780, 'crystal'] },
-    B: { entrance: 'carving', template: 'vault', c1: 'verse', loose: ['medallion'], open: { 'shelf-1': 'verse' }, floor: [700, 600, 'coin'] },
+    A: { entrance: 'shelf-2', template: 'study', c1: 'verse', c2: 'parchment', loose: [undefined, 'verse'], open: { cabinet: 'verse' }, floor: [110, 590, 'crystal'] },
+    B: { entrance: 'carving', template: 'vault', c1: 'verse', loose: ['medallion'], open: { 'shelf-1': 'verse' }, floor: [600, 560, 'coin'] },
   },
   {
-    A: { entrance: 'torch', template: 'storeroom', c1: 'verse', c2: 'verse', loose: ['coin'], open: { chest: 'verse' }, floor: [820, 700, 'key'] },
-    B: { entrance: 'shelf', template: 'vault', c1: 'crystal', c2: 'verse', loose: ['verse'], open: { cabinet: 'verse' }, floor: [820, 700, 'parchment'] },
+    A: { entrance: 'torch', template: 'storeroom', c1: 'verse', c2: 'verse', loose: ['coin'], open: { chest: 'verse' }, floor: [700, 420, 'key'] },
+    B: { entrance: 'shelf', template: 'vault', c1: 'crystal', c2: 'verse', loose: ['verse'], open: { cabinet: 'verse' }, floor: [700, 300, 'parchment'] },
   },
   {
-    A: { entrance: 'carving', template: 'study', c1: 'key', c2: 'verse', loose: ['verse'], open: { shelf: 'verse' }, floor: [60, 760, 'medallion'] },
-    B: { entrance: 'wardrobe', template: 'storeroom', c1: 'verse', c2: 'parchment', loose: [undefined, 'verse'], open: { chest: 'verse' }, floor: [60, 760, 'crystal'] },
+    A: { entrance: 'carving', template: 'study', c1: 'key', c2: 'verse', loose: ['verse'], open: { shelf: 'verse' }, floor: [110, 680, 'medallion'] },
+    B: { entrance: 'wardrobe', template: 'storeroom', c1: 'verse', c2: 'parchment', loose: [undefined, 'verse'], open: { chest: 'verse' }, floor: [110, 680, 'crystal'] },
   },
 ]; // prettier-ignore
 

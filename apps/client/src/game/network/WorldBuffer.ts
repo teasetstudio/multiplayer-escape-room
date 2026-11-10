@@ -1,4 +1,4 @@
-import { INTERPOLATION_MS, type PlayerState, type WorldState } from '@escape/shared';
+import { INTERPOLATION_MS, type PlayerState } from '@escape/shared';
 
 export interface Frame {
   time: number;
@@ -6,19 +6,10 @@ export interface Frame {
 }
 export class WorldBuffer {
   private frames: Frame[] = [];
-  push(state: WorldState) {
+  /** `visible` is already filtered to the players that exist in the viewer's current space. */
+  push(visible: Iterable<PlayerState>) {
     const players = new Map<string, PlayerState>();
-    state.players?.forEach((player, id) =>
-      players.set(id, {
-        id,
-        nickname: player.nickname,
-        color: player.color,
-        teamId: player.teamId,
-        x: player.x,
-        y: player.y,
-        connected: player.connected,
-      }),
-    );
+    for (const player of visible) players.set(player.id, player);
     this.frames.push({ time: performance.now(), players });
     if (this.frames.length > 30) this.frames.shift();
   }

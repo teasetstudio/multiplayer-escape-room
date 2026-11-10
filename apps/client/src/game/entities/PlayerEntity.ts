@@ -1,64 +1,33 @@
 import Phaser from 'phaser';
 import { TEAM_STYLE, worldToScreen, type PlayerState, type Point } from '@escape/shared';
+import { DIRECTIONS, characterKey } from '../world/assets';
 
-function createCloakTexture(scene: Phaser.Scene, color: number) {
-  const key = `explorer-cloak-${color}`;
-  if (scene.textures.exists(key)) return key;
-  const graphics = scene.add.graphics();
-  graphics.fillStyle(color).fillPoints(
-    [
-      { x: 10, y: 1 },
-      { x: 22, y: 1 },
-      { x: 29, y: 29 },
-      { x: 16, y: 32 },
-      { x: 3, y: 29 },
-    ],
-    true,
-  );
-  graphics.fillStyle(Phaser.Display.Color.IntegerToColor(color).darken(24).color).fillPoints(
-    [
-      { x: 16, y: 7 },
-      { x: 22, y: 3 },
-      { x: 29, y: 29 },
-      { x: 16, y: 32 },
-    ],
-    true,
-  );
-  graphics.lineStyle(2, 0x5e746e).lineBetween(5, 25, 27, 25);
-  // Bake color into the tiny reusable texture: CanvasRenderer does not support image tint.
-  graphics.generateTexture(key, 32, 34);
-  graphics.destroy();
-  return key;
-}
+// atan2 octants (E, SE, S, SW, W, NW, N, NE) → sheet rows (S, SE, E, NE, N, NW, W, SW).
+const OCTANT_ROW = [2, 1, 0, 7, 6, 5, 4, 3];
 
+/** An Adventure Comic explorer: directional walk cycle, team cloth, nickname and local ring. */
 export class PlayerEntity extends Phaser.GameObjects.Container {
   private readonly displayName: string;
   private readonly label: Phaser.GameObjects.Text;
   private readonly ring: Phaser.GameObjects.Ellipse;
-  private readonly torso: Phaser.GameObjects.Container;
-  private readonly face: Phaser.GameObjects.Container;
-  private readonly boots: Phaser.GameObjects.Ellipse[];
+  private readonly figure: Phaser.GameObjects.Sprite;
+  private readonly texture: string;
   private logical: Point;
-  private facing = Math.PI / 2;
-  private stride = 0;
-  private idleTime = 0;
+  private row = 0;
+  private walking = false;
   constructor(scene: Phaser.Scene, player: PlayerState, overview: boolean) {
     const point = worldToScreen(player);
     super(scene, point.x, point.y);
     this.displayName =
       overview && player.teamId ? `${player.teamId} · ${player.nickname}` : player.nickname;
     this.logical = { x: player.x, y: player.y };
+    this.texture = characterKey(player.character, player.teamId);
     const color = Phaser.Display.Color.HexStringToColor(player.color).color;
-    const texture = createCloakTexture(scene, color);
     const shadow = scene.add.ellipse(0, 0, 28, 13, 0x071817, 0.45);
-    this.ring = scene.add.ellipse(0, 0, 37, 18).setStrokeStyle(2, 0xd6f4ba, 0.9).setVisible(false);
-    this.boots = [-5, 5].map((x) => scene.add.ellipse(x, -3, 8, 7, 0x1e3031));
-    const cloak = scene.add.image(0, -4, texture).setOrigin(0.5, 1);
-    const hood = scene.add.ellipse(0, -39, 23, 23, color).setStrokeStyle(1, 0xf4f5d8, 0.3);
-    const face = scene.add.ellipse(0, 0, 13, 13, 0xdac9ae);
-    const eyes = [-3, 3].map((x) => scene.add.rectangle(x, -1, 2, 3, 0x233434));
-    this.face = scene.add.container(0, -37, [face, ...eyes]);
-    this.torso = scene.add.container(0, 0, [cloak, hood, this.face]);
+    this.ring = scene.add.ellipse(0, 0, 37, 18).setStrokeStyle(2, 0xf3e3a6, 0.95).setVisible(false);
+    // The personal colour stays visible as a small marker under the shared character designs.
+    const marker = scene.add.ellipse(0, 0, 16, 8, color, 0.9);
+    this.figure = scene.add.sprite(0, 0, this.texture, 0).setOrigin(0.5, 0.9375).setScale(0.5);
     this.label = scene.add
       .text(point.x, point.y - 65, this.displayName, {
         fontFamily: 'Arial, sans-serif',
@@ -71,7 +40,7 @@ export class PlayerEntity extends Phaser.GameObjects.Container {
       .setOrigin(0.5, 0.5)
       .setDepth(20_000)
       .setResolution(Math.min(2, window.devicePixelRatio || 1));
-    this.add([shadow, this.ring, ...this.boots, this.torso]);
+    this.add([shadow, this.ring, marker, this.figure]);
     scene.add.existing(this);
   }
   sync(player: PlayerState, local: boolean, delta: number, zoom: number) {
@@ -83,27 +52,24 @@ export class PlayerEntity extends Phaser.GameObjects.Container {
     const dy = next.y - this.y;
     const moving = player.connected && Math.hypot(dx, dy) > 0.025;
     if (moving) {
-      this.facing = (Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) * Math.PI) / 4;
-      this.stride += Math.min(delta, 80) / 75;
-    } else this.stride = 0;
-    this.idleTime += Math.min(delta, 80);
-    const bob = moving
-      ? Math.abs(Math.sin(this.stride)) * 1.8
-      : Math.sin(this.idleTime / 700) * 0.5;
-    this.torso.y = -bob;
-    this.boots.forEach((boot, index) => {
-      boot.y = -3 + (moving ? Math.sin(this.stride + index * Math.PI) * 2.5 : 0);
-    });
-    const lookX = Math.cos(this.facing);
-    const lookY = Math.sin(this.facing);
-    this.face.setPosition(lookX * 4, -38 + lookY * 3).setVisible(lookY > -0.5);
+      const octant = ((Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) % 8) + 8) % 8;
+      const row = OCTANT_ROW[octant]!;
+      if (row !== this.row || !this.walking) {
+        this.row = row;
+        this.figure.play(`${this.texture}-walk-${DIRECTIONS[row]}`, true);
+      }
+    } else if (this.walking) {
+      this.figure.stop();
+      this.figure.setFrame(this.row * 5);
+    }
+    this.walking = moving;
     this.setPosition(next.x, next.y)
       .setDepth(next.y)
       .setAlpha(player.connected ? 1 : 0.4);
     this.ring.setVisible(local);
     const labelScale = Math.min(1.5, Math.max(1, 0.8 / zoom));
     this.label
-      .setPosition(next.x, next.y - 61)
+      .setPosition(next.x, next.y - 68)
       .setScale(labelScale)
       .setAlpha(player.connected ? 1 : 0.4);
     const name = this.displayName + (local ? ' · you' : '');
