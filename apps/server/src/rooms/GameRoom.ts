@@ -130,7 +130,7 @@ export class GameRoom extends Room<{ state: GameState }> {
   private readonly playerIds = new Map<string, string>();
   private readonly inputs = new Map<string, TimedInput>();
   private readonly inputLimiter = new RateLimiter(40, 1000);
-  private readonly actionLimiter = new RateLimiter(12, 1000);
+  private readonly actionLimiter = new RateLimiter(20, 1000);
   private readonly runtime = new Map<string, PlayerRuntime>();
   private accumulator = 0;
   private ticks = 0;
