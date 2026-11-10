@@ -2,6 +2,7 @@ import {
   INPUT_TIMEOUT_MS,
   WORLD,
   normalizeDirection,
+  type Point,
   type Rectangle,
   type MovementInput,
 } from '@escape/shared';
@@ -37,6 +38,8 @@ export function movePlayer(
   now: number,
   world: CollisionWorld,
   bounds: Rectangle,
+  /** The position to move; a hidden-chamber explorer keeps the player's public x/y untouched. */
+  position: Point = player,
 ) {
   if (
     !player.connected ||
@@ -47,7 +50,7 @@ export function movePlayer(
   )
     return;
   const distance = WORLD.speed * dt;
-  const next = world.move(player, { x: input.x * distance, y: input.y * distance }, bounds);
-  player.x = next.x;
-  player.y = next.y;
+  const next = world.move(position, { x: input.x * distance, y: input.y * distance }, bounds);
+  position.x = next.x;
+  position.y = next.y;
 }

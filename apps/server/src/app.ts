@@ -79,6 +79,8 @@ export function createGameServer() {
         const room = await matchMaker.createRoom(ROOM_NAME, {
           creationKey,
           hostDigest: hashToken(hostToken),
+          // Optional reproducible session for tests and playtests; random when unset.
+          seed: process.env.GAME_SEED,
         });
         json(response, 201, { code: room.roomId, hostToken });
         return;

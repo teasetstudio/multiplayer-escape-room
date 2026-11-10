@@ -38,4 +38,22 @@ export const PLAYER_COLORS = [
   '#f6e7a3',
   '#a0d3ff',
 ] as const;
-export const MESSAGE = { input: 'input', start: 'start', error: 'game-error' } as const;
+export const MESSAGE = {
+  input: 'input',
+  start: 'start',
+  error: 'game-error',
+  identify: 'identify',
+  identity: 'identity',
+  interact: 'interact',
+  collect: 'collect',
+  puzzle: 'puzzle',
+  board: 'board',
+  prompt: 'prompt',
+  panel: 'panel',
+  area: 'area',
+  discoveries: 'discoveries',
+  notice: 'notice',
+} as const;
+/** How close (logical units) a player's feet must be to a prop's footprint to use it. */
+export const INTERACT_REACH = 46;
+export const TRANSITION_MS = 3500;
