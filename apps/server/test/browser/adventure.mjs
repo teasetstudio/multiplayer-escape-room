@@ -120,8 +120,10 @@ test(
     // ── Cabinet / scroll → Scripture card → collection counter ───────────────────────────
     const verse = driver.levelItems('verse', team).find((item) => item.area === area.id);
     const holder = verse.container ?? verse.id;
-    driver.stand(me, driver.target(me, holder).rect);
-    await action.waitFor();
+    // Wait for THIS prop's prompt: a stale one (the chamber exit) may still be on screen.
+    const holderTarget = driver.target(me, holder);
+    driver.stand(me, holderTarget.rect);
+    await action.getByText(holderTarget.label).waitFor();
     await settle();
     await shot(phone, 'adventure-06-cabinet-prompt');
     await action.click();
@@ -153,8 +155,9 @@ test(
     await shot(phone, 'adventure-08b-collection');
     await phone.locator('.parchment-close').click();
     const puzzleProp = [...server.inspection.level.puzzle.prompts(team).keys()][0];
-    driver.stand(me, driver.target(me, puzzleProp).rect);
-    await action.waitFor();
+    const puzzleTarget = driver.target(me, puzzleProp);
+    driver.stand(me, puzzleTarget.rect);
+    await action.getByText(puzzleTarget.label).waitFor();
     await action.click();
     await phone.locator('.puzzle-panel .glyph').first().waitFor();
     await settle();
